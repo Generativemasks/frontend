@@ -1,0 +1,32 @@
+specVersion: 0.0.2
+description: Subgraph that indexes the blockchain data
+schema:
+  file: ./schema.graphql
+
+dataSources:
+  - kind: ethereum/contract
+    name: GenerativeArtCollectible
+    network: {{ network }}
+    source:
+      abi: GenerativeArtCollectible
+      address: "{{ address }}"
+      startBlock: {{ startBlock }}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      abis:
+        - name: GenerativeArtCollectible
+          file: ../contracts/src/abis/GenerativeArtCollectible.json
+      entities:
+        - AddArt
+        - BuyArt
+        - Transfer
+      eventHandlers:
+        - event: AddArt(indexed uint256)
+          handler: handleAddArt
+        - event: BuyArt(indexed uint256,indexed uint256,indexed address)
+          handler: handleBuyArt
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/mappings/art.ts
+      language: wasm/assemblyscript
