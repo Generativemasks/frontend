@@ -272,8 +272,22 @@ const TopPageTemplate = ({ account, chainId }: TopPageTemplateProps) => {
                 align="left"
                 color="textSecondary"
                 paragraph
+                style={{ fontSize: 14 }}
               >
                 グラフィックデザイン的なアプローチからクリエイティブコーディングを実践するなかで，シンメトリーなグラフィックを作ってみようとしたことがこの作品を作るきっかけでした．予期しない輪郭とパターンによって，ネイティブ・アメリカンの作るトーテムポールや日本の妖怪のような土着的で民族的な雰囲気をコードで表現することを意識しました．
+              </Typography>
+              <Typography
+                variant="body1"
+                align="left"
+                color="textSecondary"
+                paragraph
+                style={{ fontSize: 14 }}
+              >
+                I was inspired to create this work by trying to make symmetrical
+                graphics while practicing creative coding in a graphic design
+                approach. With unexpected shapes and patterns, I also tried to
+                express an indigenous and ethnic atmosphere in the code, like a
+                Native American totem pole or a Japanese yokai.
               </Typography>
             </Container>
           </div>
