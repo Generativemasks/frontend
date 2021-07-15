@@ -5,13 +5,13 @@ import { abis } from "@project/contracts";
 import { useContractFunction, useEtherBalance, useEthers } from "@usedapp/core";
 import { RouteComponentProps } from "react-router-dom";
 import { Contract } from "@ethersproject/contracts";
-import DetailPageTemplate from "../templates/DetailPageTemplate";
+import PurchasePageTemplate from "../templates/PurchasePageTemplate";
 import useGetPrice from "../../hooks/useGetPrice";
 import useGetRemainingAmount from "../../hooks/useGetRemainingAmount";
 
 interface DetailPageProps extends RouteComponentProps {}
 
-const DetailPage = (props: DetailPageProps) => {
+const PurchasePage = (props: DetailPageProps) => {
   const { account, library, chainId } = useEthers();
   const walletBalance = useEtherBalance(account);
   const [amount, setAmount] = useState(1);
@@ -38,7 +38,7 @@ const DetailPage = (props: DetailPageProps) => {
   );
 
   return (
-    <DetailPageTemplate
+    <PurchasePageTemplate
       account={account}
       amount={amount}
       setAmount={setAmount}
@@ -54,4 +54,4 @@ const DetailPage = (props: DetailPageProps) => {
   );
 };
 
-export default DetailPage;
+export default PurchasePage;

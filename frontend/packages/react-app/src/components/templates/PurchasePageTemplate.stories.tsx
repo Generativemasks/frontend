@@ -1,20 +1,20 @@
 import * as React from "react";
 import { Story, Meta } from "@storybook/react";
 
-import DetailPageTemplate, {
+import PurchasePageTemplate, {
   DetailPageTemplateProps,
-} from "./DetailPageTemplate";
+} from "./PurchasePageTemplate";
 import { HashRouter } from "react-router-dom";
 import { BigNumber, ethers } from "ethers";
 
 export default {
-  title: "templates/DetailPageTemplate",
-  component: DetailPageTemplate,
+  title: "templates/PurchasePageTemplate",
+  component: PurchasePageTemplate,
 } as Meta;
 
 const Template: Story<DetailPageTemplateProps> = (args) => (
   <HashRouter>
-    <DetailPageTemplate {...args} />
+    <PurchasePageTemplate {...args} />
   </HashRouter>
 );
 

@@ -144,7 +144,7 @@ export interface DetailPageTemplateProps {
   readonly walletBalance: BigNumber | undefined;
 }
 
-const DetailPageTemplate = ({
+const PurchasePageTemplate = ({
   amount,
   setAmount,
   account,
@@ -365,4 +365,4 @@ const DetailPageTemplate = ({
   );
 };
 
-export default DetailPageTemplate;
+export default PurchasePageTemplate;
