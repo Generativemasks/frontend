@@ -15,7 +15,6 @@
     ]
   },
   "dependencies": {
-    "@apollo/react-hooks": "^3.1.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
@@ -31,20 +30,16 @@
     "@types/qrcode.react": "^1.0.1",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
-    "@usedapp/core": "^0.3.14",
+    "@usedapp/core": "^0.4.1",
     "@walletconnect/web3-provider": "^1.3.1",
     "@web3-react/injected-connector": "^6.0.7",
     "@web3-react/walletconnect-connector": "^6.2.0",
-    "apollo-boost": "^0.4.9",
-    "apollo-client": "^2.6.10",
-    "apollo-utilities": "^1.3.3",
     "axios-hooks": "^2.6.1",
     "babel-loader": "8.1.0",
     "chalk": "^4.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-flowtype": "^4.6.0",
-    "ethers": "5.0.32",
-    "graphql": "^14.7.0",
+    "ethers": "5.2.0",
     "ipfs-http-client": "45.0.0",
     "qrcode.react": "^1.0.1",
     "react": "16.14.0",
@@ -94,6 +89,7 @@
     "prettier": "^2.2.1"
   },
   "resolutions": {
-    "babel-loader": "8.1.0"
+    "babel-loader": "8.1.0",
+    "ethers": "5.2.0"
   }
 }
