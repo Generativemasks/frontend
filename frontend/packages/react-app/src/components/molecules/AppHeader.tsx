@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const AppHeader = (props: { account: string | null | undefined }) => {
   const classes = useStyles();
-  const history = useHistory();
   const [show, setShow] = useState(false);
   const { width } = useWindowDimensions();
 
@@ -49,7 +48,7 @@ export const AppHeader = (props: { account: string | null | undefined }) => {
               fontWeight: 600,
             }}
           >
-            Function Images
+            Generativemasks
           </a>
         </Typography>
         {width >= 760 && (
