@@ -6,51 +6,23 @@ import {
   Button,
   Checkbox,
   Container,
-  Fab,
   Grid,
   Link,
   makeStyles,
-  Tooltip,
   Typography,
 } from "@material-ui/core";
 import { AppFooter } from "../molecules/AppFooter";
 import { WalletButton } from "../pages/TopPage";
 import { ChainId } from "@usedapp/core";
 import ChainModal from "../molecules/ChainModal";
-import { Skeleton } from "@material-ui/lab";
 import WaitingProcessDialog from "../molecules/WaitingProcessDialog";
 import ReactConfetti from "react-confetti";
-import FirstArt from "../atom/arts/FirstArt";
-import SecondArt from "../atom/arts/SecondArt";
-import LoopIcon from "@material-ui/icons/Loop";
 import QRCode from "qrcode.react";
 
 // @ts-ignore
 import { addresses, abis } from "@project/contracts";
-import ThirdArt from "../atom/arts/ThirdArt";
-import FourthArt from "../atom/arts/FourthArt";
 import { BigNumber } from "ethers";
 import { Smartphone } from "@material-ui/icons";
-
-export interface DetailPageTemplateProps {
-  readonly artId: string;
-  readonly art: any;
-  readonly account?: string | null;
-  readonly p5Object: any;
-  readonly setP5Object: (p5: any) => void;
-  readonly purchaseArt: () => void;
-  readonly artData: any;
-  readonly chainId: ChainId | undefined;
-  readonly sendBuyState: any;
-  readonly generateArt: boolean;
-  readonly setGenerateArt: (generateArt: boolean) => void;
-  readonly generateCount: number;
-  readonly setGenerateCount: (count: number) => void;
-  readonly isPurchasing: boolean;
-  readonly imageURL: string;
-  readonly isErroredOnPinning: boolean;
-  readonly walletBalance: BigNumber | undefined;
-}
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -158,32 +130,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+export interface DetailPageTemplateProps {
+  readonly art: any;
+  readonly account?: string | null;
+  readonly chainId: ChainId | undefined;
+  readonly sendBuyState: any;
+  readonly isPurchasing: boolean;
+  readonly imageURL: string;
+  readonly remainingAmount: BigNumber | undefined;
+  readonly price: BigNumber | undefined;
+  readonly purchaseArt: () => void;
+  readonly walletBalance: BigNumber | undefined;
+}
+
 const DetailPageTemplate = ({
   account,
-  p5Object,
-  setP5Object,
-  purchaseArt,
-  artData,
   chainId,
-  sendBuyState,
-  generateArt,
-  generateCount,
   isPurchasing,
-  setGenerateCount,
   imageURL,
-  isErroredOnPinning,
+  price,
+  purchaseArt,
+  remainingAmount,
+  sendBuyState,
   walletBalance,
 }: DetailPageTemplateProps) => {
   const classes = useStyles();
-  const [hideArt, setHideArt] = useState(true);
   const [progress, setProgress] = useState(false);
   const [checked, setChecked] = useState(true);
 
   const isInsufficient = useMemo(() => {
-    if (walletBalance === undefined || artData === undefined) {
+    if (walletBalance === undefined || price === undefined) {
       return false;
     }
-    return walletBalance.sub(BigNumber.from(artData.art.price)).isNegative();
+    return walletBalance.sub(price).isNegative();
   }, [walletBalance]);
 
   useEffect(() => {
@@ -201,7 +180,6 @@ const DetailPageTemplate = ({
         transactionStatus={sendBuyState}
         isPurchasing={isPurchasing}
         imageURL={imageURL}
-        isErroredOnPinning={isErroredOnPinning}
       />
       <ChainModal chainId={chainId} />
       <AppHeader account={account} />
@@ -244,16 +222,16 @@ const DetailPageTemplate = ({
         </Grid>
         <Grid container className={classes.infoContent}>
           <Grid item xs={12}>
-            {artData && (
+            {!!remainingAmount && !!price && (
               <div style={{ marginBottom: 16, textAlign: "center" }}>
                 <Typography>
                   <span className={classes.itemName}>Remaining amount:</span>
-                  {artData.art.remainingAmount} / 10
+                  {remainingAmount.toNumber()} / 10000
                 </Typography>
                 <Typography>
                   <span className={classes.itemName}>Price:</span>
                   <span style={{ fontSize: "1.65rem" }}>
-                    {formatEther(artData.art.price)} ETH
+                    {formatEther(price.toString())} ETH
                   </span>
                 </Typography>
                 {isInsufficient && walletBalance && (
@@ -274,7 +252,7 @@ const DetailPageTemplate = ({
                 </div>
               </div>
             )}
-            {!!account && !!artData ? (
+            {!!account && !!remainingAmount ? (
               <div style={{ textAlign: "center" }}>
                 <Button
                   onClick={purchaseArt}
@@ -282,16 +260,15 @@ const DetailPageTemplate = ({
                   color="primary"
                   style={{ fontWeight: "bold" }}
                   disabled={
-                    artData.art === undefined
-                      ? false
-                      : artData.art.remainingAmount === 10 ||
-                        !checked ||
-                        isInsufficient
+                    price === undefined ||
+                    remainingAmount.eq(0) ||
+                    !checked ||
+                    isInsufficient
                   }
                   size="large"
                   disableElevation
                 >
-                  {artData.art.remainingAmount === 10 ? "" : "Purchase Now!"}
+                  {remainingAmount.eq(0) ? "Sold out" : "Purchase Now!"}
                 </Button>
                 <div
                   style={{
