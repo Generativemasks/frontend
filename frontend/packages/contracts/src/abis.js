@@ -1,9 +1,7 @@
-import artABI from "./abis/GenerativeArtCollectible.json";
-import weenusABI from "./abis/Weenus.json";
+import nftABI from "./abis/Generativemasks.json";
 
 const abis = {
-  art: artABI,
-  weenus: weenusABI,
+  nft: nftABI,
 };
 
 export default abis;
