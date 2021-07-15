@@ -131,7 +131,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export interface DetailPageTemplateProps {
-  readonly art: any;
+  readonly amount: number;
+  readonly setAmount: (amount: number) => void;
   readonly account?: string | null;
   readonly chainId: ChainId | undefined;
   readonly sendBuyState: any;
@@ -139,17 +140,19 @@ export interface DetailPageTemplateProps {
   readonly imageURL: string;
   readonly remainingAmount: BigNumber | undefined;
   readonly price: BigNumber | undefined;
-  readonly purchaseArt: () => void;
+  readonly buy: (amount: number, config: object) => void;
   readonly walletBalance: BigNumber | undefined;
 }
 
 const DetailPageTemplate = ({
+  amount,
+  setAmount,
   account,
   chainId,
   isPurchasing,
   imageURL,
   price,
-  purchaseArt,
+  buy,
   remainingAmount,
   sendBuyState,
   walletBalance,
@@ -252,10 +255,14 @@ const DetailPageTemplate = ({
                 </div>
               </div>
             )}
-            {!!account && !!remainingAmount ? (
+            {!!account && !!remainingAmount && !!price ? (
               <div style={{ textAlign: "center" }}>
                 <Button
-                  onClick={purchaseArt}
+                  onClick={() => {
+                    buy(amount, {
+                      value: price.mul(amount),
+                    });
+                  }}
                   variant="contained"
                   color="primary"
                   style={{ fontWeight: "bold" }}

@@ -21,12 +21,10 @@ const Template: Story<DetailPageTemplateProps> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   account: "",
-  purchaseArt: () => {},
+  buy: () => {},
   sendBuyState: {
     status: "None",
   },
-  walletBalance: ethers.utils.parseEther("0.1"),
-  remainingAmount: BigNumber.from(10000),
   price: ethers.utils.parseEther("0.1"),
 };
 
@@ -42,6 +40,7 @@ InsufficientBalance.args = {
   ...Default.args,
   account: "0x09177D096e3Fa5823B3b2182677b02b0aA01277C",
   sendBuyState: { status: "None" },
+  remainingAmount: BigNumber.from(10000),
   walletBalance: ethers.utils.parseEther("0.09"),
 };
 
