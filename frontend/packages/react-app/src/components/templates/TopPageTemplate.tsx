@@ -1,18 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
 // @ts-ignore
 import { abis, addresses } from "@project/contracts";
 import { AppHeader } from "../molecules/AppHeader";
 import {
   Avatar,
-  Backdrop,
-  Button,
   Chip,
   Container,
-  Grid,
   Link,
   makeStyles,
-  Modal,
   Typography,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
@@ -21,69 +17,6 @@ import { ChainId } from "@usedapp/core";
 import ChainModal from "../molecules/ChainModal";
 import { ArtCardForTop } from "../molecules/ArtCardForTop";
 import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
-import Fade from "@material-ui/core/Fade";
-
-export interface TopPageTemplateProps {
-  readonly account?: string | null;
-  readonly chainId?: ChainId | undefined;
-}
-
-export const arts = [
-  {
-    id: 0,
-    name: "Subject Alpha",
-    description: {
-      ja:
-        "正方形の領域内にランダムな大きさの矩形を充填させる。\n" +
-        "それぞれの区画に円と矩形を描画し、円のアウトラインからパーリンノイズを用いた曲線を描画する。",
-      en:
-        "Fill the square area with rectangles of random sizes.\n" +
-        "Draw a circle and a rectangle in each compartment, and draw a curve with purlin noise from the outline of the circle.",
-    },
-    image: "/images/art0.png",
-  },
-  {
-    id: 1,
-    name: "Subject Beta",
-    description: {
-      ja:
-        "7種類のグラフィックからランダムに選び、グリッド状に配置。\n" +
-        "色、角度、反転の有無をランダムに選択し描画する。",
-      en:
-        "Randomly select from seven different graphics and place them in a grid.\n" +
-        "Randomly select and draw the color, angle, and inversion.",
-    },
-    image: "/images/art1.png",
-  },
-  {
-    id: 2,
-    name: "Subject Gamma",
-    description: {
-      ja:
-        "円をグリッド状に配置。\n" +
-        "円の種類は同心円、チェック、ストライプ、波線から無作為に選ぶ。\n" +
-        "90°単位でランダムに分割した円弧と線を重ねて描画する。",
-      en:
-        "Arrange circles in a grid.\n" +
-        "Randomly select a circle type from concentric circles, checks, stripes, and wavy lines.\n" +
-        "Overlap arcs and lines randomly divided by 90°.",
-    },
-    image: "/images/art2.png",
-  },
-  {
-    id: 3,
-    name: "Subject Delta",
-    description: {
-      ja:
-        "正方形の領域を再帰的に分割し矩形を配置。\n" +
-        "矩形の中にさらにタイル状に同じ大きさの矩形を並べる。",
-      en:
-        "Recursively divide the square area and place a rectangle.\n" +
-        "Arrange more rectangles of the same size inside the rectangle in the form of tiles.",
-    },
-    image: "/images/art3.png",
-  },
-];
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -221,6 +154,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+export interface TopPageTemplateProps {
+  readonly account?: string | null;
+  readonly chainId?: ChainId | undefined;
+}
 
 const TopPageTemplate = ({ account, chainId }: TopPageTemplateProps) => {
   const classes = useStyles();
