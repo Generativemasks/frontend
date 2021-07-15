@@ -1,18 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "@apollo/react-hooks";
 import "./index.css";
 import App from "./App";
 import { ChainId, Config, DAppProvider } from "@usedapp/core";
 import { StylesProvider, ThemeProvider } from "@material-ui/core";
 import { theme } from "./components/style/theme";
-
-// You should replace this url with your own and put it into a .env file
-// See all subgraphs: https://thegraph.com/explorer/
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_SUBGRAPH_URL,
-});
 
 const config: Config = {
   readOnlyChainId:
@@ -27,13 +19,11 @@ const config: Config = {
 
 ReactDOM.render(
   <DAppProvider config={config}>
-    <ApolloProvider client={client}>
-      <StylesProvider injectFirst>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </StylesProvider>
-    </ApolloProvider>
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </StylesProvider>
   </DAppProvider>,
   document.getElementById("root")
 );
