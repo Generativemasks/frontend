@@ -25,34 +25,22 @@ import {
   Button,
 } from "@material-ui/core";
 import EtherscanLink from "../atom/EtherscanLink";
-import { useHistory } from "react-router-dom";
 
 export interface WaitingProcessDialogProps {
   readonly transactionStatus: any;
   readonly isPurchasing: boolean;
   readonly imageURL: string;
-  readonly isErroredOnPinning: boolean;
 }
 
 const WaitingProcessDialog: React.FC<WaitingProcessDialogProps> = ({
   transactionStatus,
   isPurchasing,
   imageURL,
-  isErroredOnPinning,
 }) => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<string[]>([]);
-  const history = useHistory();
 
   useEffect(() => {
-    if (isErroredOnPinning) {
-      setMessages([
-        "Failed to purchase",
-        "(Possibly wallet balance is insufficient).",
-        "Please reload an app and try again.",
-      ]);
-      return;
-    }
     switch (transactionStatus.status) {
       case "Mining":
         setMessages([]);
@@ -75,7 +63,7 @@ const WaitingProcessDialog: React.FC<WaitingProcessDialogProps> = ({
           setMessages([]);
         }
     }
-  }, [isErroredOnPinning, isPurchasing, transactionStatus]);
+  }, [isPurchasing, transactionStatus]);
 
   useEffect(() => {
     if (isPurchasing || transactionStatus.status !== "None") {
@@ -94,9 +82,7 @@ const WaitingProcessDialog: React.FC<WaitingProcessDialogProps> = ({
         {messages.map((message: string, index: number) => (
           <Typography key={index}>{message}</Typography>
         ))}
-        {((!isErroredOnPinning &&
-          isPurchasing &&
-          transactionStatus.status === "None") ||
+        {((isPurchasing && transactionStatus.status === "None") ||
           transactionStatus.status === "Mining") && (
           <>
             <Typography>Please wait at the same screen.</Typography>
@@ -120,8 +106,7 @@ const WaitingProcessDialog: React.FC<WaitingProcessDialogProps> = ({
             </Box>
           </>
         )}
-        {(isErroredOnPinning ||
-          transactionStatus.status === "Fail" ||
+        {(transactionStatus.status === "Fail" ||
           transactionStatus.status === "Exception") && (
           <>
             <Box m={2}>
