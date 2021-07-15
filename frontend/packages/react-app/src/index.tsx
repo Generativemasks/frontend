@@ -19,9 +19,9 @@ const config: Config = {
     process.env.REACT_APP_CHAIN_ID === "4" ? ChainId.Rinkeby : ChainId.Mainnet,
   readOnlyUrls: {
     [ChainId.Mainnet]:
-      "https://mainnet.infura.io/v3/190e60804b184f11ba2f8f76a3d50c9c",
+      "https://mainnet.infura.io/v3/d355bf426d534bccb6e9b0f69c7b1625",
     [ChainId.Rinkeby]:
-      "https://rinkeby.infura.io/v3/62687d1a985d4508b2b7a24827551934",
+      "https://rinkeby.infura.io/v3/d355bf426d534bccb6e9b0f69c7b1625",
   },
 };
 
