@@ -33,7 +33,7 @@ export const AppFooter = () => {
           >
             <a
               className={classes.linkText}
-              href="https://www.notion.so/tart/WIP-94e269077baa4eda9afdba8fb51bb825"
+              href="https://www.notion.so/tart/56b8bbb17dfd44d6a3c67384fba943e4"
               target="_blank"
               rel="noopener"
             >
@@ -41,7 +41,7 @@ export const AppFooter = () => {
             </a>
             <a
               className={classes.linkText}
-              href="https://www.notion.so/tart/WIP-c47518b111684d6aaf0fd0ca5d431a41"
+              href="https://www.notion.so/tart/f84e94231ee04924ac68ad5436d63bee"
               target="_blank"
               rel="noopener"
             >
@@ -49,7 +49,7 @@ export const AppFooter = () => {
             </a>
             <a
               className={classes.linkText}
-              href="https://www.notion.so/tart/3d0b80d6b0ec4398aa72f4df4d084f04"
+              href="https://www.notion.so/tart/f4fef6d5ee584afc8c790d29a4e31c2a"
               target="_blank"
               rel="noopener"
             >

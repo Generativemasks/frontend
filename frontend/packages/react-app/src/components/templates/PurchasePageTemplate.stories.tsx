@@ -32,7 +32,10 @@ export const WalletIsConnected = Template.bind({});
 WalletIsConnected.args = {
   ...Default.args,
   account: "0x09177D096e3Fa5823B3b2182677b02b0aA01277C",
+  remainingAmount: BigNumber.from(10000),
   sendBuyState: { status: "None" },
+  walletBalance: ethers.utils.parseEther("100"),
+  amount: 1,
 };
 
 export const InsufficientBalance = Template.bind({});
@@ -42,6 +45,7 @@ InsufficientBalance.args = {
   sendBuyState: { status: "None" },
   remainingAmount: BigNumber.from(10000),
   walletBalance: ethers.utils.parseEther("0.09"),
+  amount: 1,
 };
 
 export const Purchasing = Template.bind({});
@@ -54,6 +58,7 @@ Purchasing.args = {
         "0x8320577362182484b59c97922e6a61e93832482cf802e09f676b65c0719ba426",
     },
   },
+  amount: 1,
 };
 
 export const Success = Template.bind({});
@@ -65,4 +70,5 @@ Success.args = {
     ...Purchasing.args.sendBuyState,
     status: "Success",
   },
+  amount: 1,
 };

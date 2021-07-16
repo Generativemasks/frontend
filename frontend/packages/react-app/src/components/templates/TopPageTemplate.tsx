@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headerImage: {
     marginTop: 64,
-    backgroundImage: "url(/images/cover.png)",
+    backgroundImage: "url(/images/cover.jpg)",
     backgroundAttachment: "fixed",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -128,6 +128,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 2,
     borderRadius: 3,
     textAlign: "center",
+    lineHeight: "28px",
     "&::after": {
       position: "absolute",
       content: '""',
@@ -212,7 +213,7 @@ const TopPageTemplate = ({ account, chainId }: TopPageTemplateProps) => {
                 paragraph
                 style={{ fontSize: 14 }}
               >
-                グラフィックデザイン的なアプローチからクリエイティブコーディングを実践するなかで，シンメトリーなグラフィックを作ってみようとしたことがこの作品を作るきっかけでした．予期しない輪郭とパターンによって，ネイティブ・アメリカンの作るトーテムポールや日本の妖怪のような土着的で民族的な雰囲気をコードで表現することを意識しました．
+                今回の作品の着想は、左右対称に配置した幾何学的なパターンから生命感を発見したところから生まれました。予期しない輪郭とパターンによって、ネイティブ・アメリカンのトーテムポールや日本の土着の妖怪が持つ、怖くて同時にどこか愛らしい雰囲気を表現することを意識しました。
               </Typography>
               <Typography
                 variant="body1"
@@ -221,11 +222,11 @@ const TopPageTemplate = ({ account, chainId }: TopPageTemplateProps) => {
                 paragraph
                 style={{ fontSize: 14 }}
               >
-                I was inspired to create this work by trying to make symmetrical
-                graphics while practicing creative coding in a graphic design
-                approach. With unexpected shapes and patterns, I also tried to
-                express an indigenous and ethnic atmosphere in the code, like a
-                Native American totem pole or a Japanese yokai.
+                The inspiration for this work came from discovering a sense of
+                life in geometric patterns that are symmetrically arranged. With
+                unexpected shapes and patterns, I tried to express the scary yet
+                somehow charming atmosphere of Native American totem poles and
+                indigenous Japanese Yokai.
               </Typography>
             </Container>
           </div>
@@ -251,7 +252,7 @@ const TopPageTemplate = ({ account, chainId }: TopPageTemplateProps) => {
               <div className={classes.creatorInfoFrame}>
                 <div style={{ position: "relative" }}>
                   <Avatar
-                    alt="okazz"
+                    alt="takawo"
                     src="/images/icon.png"
                     className={classes.large}
                   />

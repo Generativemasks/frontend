@@ -7,8 +7,10 @@ import {
   Checkbox,
   Container,
   Grid,
+  IconButton,
   Link,
   makeStyles,
+  TextField,
   Typography,
 } from "@material-ui/core";
 import { AppFooter } from "../molecules/AppFooter";
@@ -22,7 +24,11 @@ import QRCode from "qrcode.react";
 // @ts-ignore
 import { addresses, abis } from "@project/contracts";
 import { BigNumber } from "ethers";
-import { Smartphone } from "@material-ui/icons";
+import {
+  AddBoxOutlined,
+  IndeterminateCheckBoxOutlined,
+  Smartphone,
+} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -128,6 +134,22 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
+  jpText: {
+    fontSize: 14,
+    paddingRight: 10,
+    [theme.breakpoints.down(800)]: {
+      display: "block",
+      padding: 0,
+    },
+  },
+  enText: {
+    fontSize: 14,
+    paddingLeft: 10,
+    [theme.breakpoints.down(800)]: {
+      display: "block",
+      padding: 0,
+    },
+  },
 }));
 
 export interface DetailPageTemplateProps {
@@ -165,6 +187,7 @@ const PurchasePageTemplate = ({
     if (walletBalance === undefined || price === undefined) {
       return false;
     }
+    console.log(walletBalance.sub(price).isNegative());
     return walletBalance.sub(price).isNegative();
   }, [walletBalance]);
 
@@ -225,6 +248,50 @@ const PurchasePageTemplate = ({
         </Grid>
         <Grid container className={classes.infoContent}>
           <Grid item xs={12}>
+            {!!account && (
+              <div style={{ marginBottom: 16, textAlign: "center" }}>
+                <Typography gutterBottom>
+                  <span className={classes.itemName}>Number of purchases:</span>
+                </Typography>
+                <IconButton
+                  onClick={() => {
+                    if (amount === undefined) {
+                      setAmount(1);
+                      return;
+                    }
+                    if (amount <= 1) {
+                      return;
+                    }
+                    setAmount(amount - 1);
+                  }}
+                  area-label="minus"
+                >
+                  <IndeterminateCheckBoxOutlined />
+                </IconButton>
+                <TextField
+                  variant="outlined"
+                  style={{ width: "20%" }}
+                  inputProps={{ style: { textAlign: "center" } }}
+                  value={amount ?? ""}
+                  size="small"
+                  onChange={(e) => {
+                    const parsed = Number.parseInt(e.target.value);
+                    console.debug(parsed);
+                    if (isNaN(parsed)) {
+                      setAmount(1);
+                      return;
+                    }
+                    setAmount(parsed);
+                  }}
+                />
+                <IconButton
+                  onClick={() => setAmount((amount ?? 0) + 1)}
+                  area-label="plus"
+                >
+                  <AddBoxOutlined />
+                </IconButton>
+              </div>
+            )}
             {!!remainingAmount && !!price && (
               <div style={{ marginBottom: 16, textAlign: "center" }}>
                 <Typography>
@@ -234,7 +301,7 @@ const PurchasePageTemplate = ({
                 <Typography>
                   <span className={classes.itemName}>Price:</span>
                   <span style={{ fontSize: "1.65rem" }}>
-                    {formatEther(price.toString())} ETH
+                    {formatEther(price.mul(amount).toString())} ETH
                   </span>
                 </Typography>
                 {isInsufficient && walletBalance && (
@@ -283,6 +350,7 @@ const PurchasePageTemplate = ({
                     textAlign: "left",
                     display: "flex",
                     alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
                   <Checkbox
@@ -359,6 +427,38 @@ const PurchasePageTemplate = ({
             </div>
           </Grid>
         </Grid>
+      </Container>
+      <Container className={classes.container} style={{ paddingTop: 20 }}>
+        <Typography
+          variant="body1"
+          align="left"
+          color="textSecondary"
+          paragraph
+          className={classes.jpText}
+        >
+          本NFTは7月19日から7月25日の期間に販売されます。購入後にNFTはウォレットに即時送付されますが、その時点ではどのNFTになるかは確定しておりません。
+          7月26日以降に抽選が行われてからNFTの詳細が確定します。抽選はオンチェーンで実施され、その後OpenSeaなどのNFTマーケットプレイスでNFTをご鑑賞いただくことができます。
+          なお、7月26日以降でもNFTの数量が残っている場合、継続して購入していただくことが可能です。
+          抽選期間以降にOpenSeaでNFTの情報が切り替わらない場合は、OpenSeaのNFTページ上に存在する
+          "Refresh Metadata"ボタンを押してください。
+        </Typography>
+        <Typography
+          variant="body1"
+          align="left"
+          color="textSecondary"
+          paragraph
+          className={classes.enText}
+        >
+          This NFT is available for sale from July 19 to July 25. The NFTs will
+          be sent to your wallet immediately after purchase, but which NFT it
+          will be is not determined at that time. The details of the NFT will be
+          confirmed after the lottery is held on July 26. The lottery will be
+          conducted on-chain, and after that, you will be able to see your NFTs
+          on OpenSea and other NFT marketplaces. And if there are still some
+          NFTs available after July 26, you can continue to purchase them. If
+          your NFT status is not changed on OpenSea after the lottery period,
+          please click the “Refresh Metadata” button on the OpenSea NFT page.
+        </Typography>
       </Container>
       <AppFooter />
     </div>
