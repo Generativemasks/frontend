@@ -187,9 +187,8 @@ const PurchasePageTemplate = ({
     if (walletBalance === undefined || price === undefined) {
       return false;
     }
-    console.log(walletBalance.sub(price).isNegative());
-    return walletBalance.sub(price).isNegative();
-  }, [walletBalance]);
+    return walletBalance.sub(price.mul(amount)).isNegative();
+  }, [walletBalance, price, amount]);
 
   useEffect(() => {
     if (imageURL === "") {
