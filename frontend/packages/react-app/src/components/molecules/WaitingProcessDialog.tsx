@@ -25,17 +25,21 @@ import {
   Button,
 } from "@material-ui/core";
 import EtherscanLink from "../atom/EtherscanLink";
+import MarketplaceLink from "../atom/MarketplaceLink";
+import { ChainId } from "@usedapp/core";
 
 export interface WaitingProcessDialogProps {
   readonly transactionStatus: any;
   readonly isPurchasing: boolean;
-  readonly imageURL: string;
+  readonly chainId: ChainId | undefined;
+  readonly account: string | null | undefined;
 }
 
 const WaitingProcessDialog: React.FC<WaitingProcessDialogProps> = ({
   transactionStatus,
   isPurchasing,
-  imageURL,
+  chainId,
+  account,
 }) => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<string[]>([]);
@@ -98,10 +102,18 @@ const WaitingProcessDialog: React.FC<WaitingProcessDialogProps> = ({
         )}
         {transactionStatus.status === "Success" && (
           <>
-            <img src={imageURL} style={{ width: "100%", height: "100%" }} />
+            <img
+              src={"/images/unrevealed.gif"}
+              style={{ width: "100%", height: "100%" }}
+            />
             <Box m={2}>
               <EtherscanLink
                 txHash={transactionStatus?.transaction?.hash ?? ""}
+              />
+              <MarketplaceLink
+                chainId={chainId?.toString() ?? "1"}
+                market={"opensea"}
+                address={account ?? ""}
               />
             </Box>
           </>

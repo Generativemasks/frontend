@@ -19,6 +19,7 @@ import * as React from "react";
 import { Button, Link, Typography } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { useMemo } from "react";
 
 type Market = "opensea" | "rarible";
 
@@ -26,7 +27,7 @@ export interface MarketplaceLinkProps {
   readonly chainId: string;
   readonly market: Market;
   readonly address: string;
-  readonly tokenId: string;
+  readonly tokenId?: string;
   readonly small?: boolean;
 }
 
@@ -49,15 +50,23 @@ const MarketplaceLink: React.FC<MarketplaceLinkProps> = ({
   small = false,
 }) => {
   const baseUrl: string | undefined = baseURLs?.[chainId]?.[market];
+  const name = market === "opensea" ? "OpenSea" : "Rarible";
+  const link = useMemo(() => {
+    if (market === "opensea" && tokenId === undefined) {
+      return `${baseUrl}${address}`;
+    }
+    if (market === "opensea") {
+      return `${baseUrl}assets/${address}/${tokenId}`;
+    }
+    if (tokenId === undefined) {
+      return `${baseUrl}${address}`;
+    }
+    return `${baseUrl}token/${address}:${tokenId}`;
+  }, [market, baseUrl, address, tokenId]);
+
   if (baseUrl === undefined) {
     return null;
   }
-
-  const name = market === "opensea" ? "OpenSea" : "Rarible";
-  const link =
-    market === "opensea"
-      ? `${baseUrl}assets/${address}/${tokenId}`
-      : `${baseUrl}token/${address}:${tokenId}`;
 
   const handleClick = () => {
     window.open(link, "_blank");
