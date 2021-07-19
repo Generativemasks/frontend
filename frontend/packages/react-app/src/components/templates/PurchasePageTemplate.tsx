@@ -31,9 +31,7 @@ import {
   IndeterminateCheckBoxOutlined,
   Smartphone,
 } from "@material-ui/icons";
-import { ArtCardForTop } from "../molecules/ArtCardForTop";
 import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
-import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -300,7 +298,6 @@ const PurchasePageTemplate = ({
   walletBalance,
 }: DetailPageTemplateProps) => {
   const classes = useStyles();
-  const history = useHistory();
 
   const [progress, setProgress] = useState(false);
   const [checked, setChecked] = useState(true);
@@ -368,27 +365,29 @@ const PurchasePageTemplate = ({
                   }}
                 />
               </div>
+            </Container>
+            <Container className={classes.container} style={{ paddingTop: 20 }}>
               <Typography
                 variant="body1"
                 align="left"
                 color="textSecondary"
                 paragraph
-                style={{ fontSize: 14 }}
-              >
-                今回の作品の着想は、左右対称に配置した幾何学的なパターンから生命感を発見したところから生まれました。予期しない輪郭とパターンによって、ネイティブ・アメリカンのトーテムポールや日本の土着の妖怪が持つ、怖くて同時にどこか愛らしい雰囲気を表現することを意識しました。
-              </Typography>
-              <Typography
-                variant="body1"
-                align="left"
-                color="textSecondary"
-                paragraph
-                style={{ fontSize: 14 }}
+                className={classes.enText}
               >
                 The inspiration for this work came from discovering a sense of
                 life in geometric patterns that are symmetrically arranged. With
                 unexpected shapes and patterns, I tried to express the scary yet
                 somehow charming atmosphere of Native American totem poles and
                 indigenous Japanese Yokai.
+              </Typography>
+              <Typography
+                variant="body1"
+                align="left"
+                color="textSecondary"
+                paragraph
+                className={classes.jpText}
+              >
+                今回の作品の着想は、左右対称に配置した幾何学的なパターンから生命感を発見したところから生まれました。予期しない輪郭とパターンによって、ネイティブ・アメリカンのトーテムポールや日本の土着の妖怪が持つ、怖くて同時にどこか愛らしい雰囲気を表現することを意識しました。
               </Typography>
             </Container>
           </div>
@@ -404,13 +403,16 @@ const PurchasePageTemplate = ({
             >
               About Generativemasks
             </Typography>
+          </Container>
+          <Container className={classes.container} style={{ paddingTop: 20 }}>
             <Typography
               variant="body1"
               align="left"
               color="textSecondary"
               paragraph
-              style={{ fontSize: 14 }}
+              className={classes.enText}
             >
+              (English)
               Generativemasksはジェネラティブアートにより生成されるNFTアートです。
               本NFTは一つずつ異なる表情のマスクが生成され、NFTマーケットプレイス上でリロードするたびに異なる色彩のマスクをお楽しみいただくことができます。
             </Typography>
@@ -419,9 +421,10 @@ const PurchasePageTemplate = ({
               align="left"
               color="textSecondary"
               paragraph
-              style={{ fontSize: 14 }}
+              className={classes.jpText}
             >
-              (English)
+              Generativemasksはジェネラティブアートにより生成されるNFTアートです。
+              本NFTは一つずつ異なる表情のマスクが生成され、NFTマーケットプレイス上でリロードするたびに異なる色彩のマスクをお楽しみいただくことができます。
             </Typography>
           </Container>
           <Container style={{ marginBottom: 64 }}>
@@ -768,19 +771,6 @@ const PurchasePageTemplate = ({
               align="left"
               color="textSecondary"
               paragraph
-              className={classes.jpText}
-            >
-              本NFTは7月19日から7月25日の期間に販売されます。購入後にNFTはウォレットに即時送付されますが、その時点ではどのNFTになるかは確定しておりません。
-              7月26日以降に抽選が行われてからNFTの詳細が確定します。抽選はオンチェーンで実施され、その後OpenSeaなどのNFTマーケットプレイスでNFTをご鑑賞いただくことができます。
-              なお、7月26日以降でもNFTの数量が残っている場合、継続して購入していただくことが可能です。
-              抽選期間以降にOpenSeaでNFTの情報が切り替わらない場合は、OpenSeaのNFTページ上に存在する
-              "Refresh Metadata"ボタンを押してください。
-            </Typography>
-            <Typography
-              variant="body1"
-              align="left"
-              color="textSecondary"
-              paragraph
               className={classes.enText}
             >
               This NFT is available for sale from July 19 to July 25. The NFTs
@@ -793,6 +783,19 @@ const PurchasePageTemplate = ({
               continue to purchase them. If your NFT status is not changed on
               OpenSea after the lottery period, please click the “Refresh
               Metadata” button on the OpenSea NFT page.
+            </Typography>
+            <Typography
+              variant="body1"
+              align="left"
+              color="textSecondary"
+              paragraph
+              className={classes.jpText}
+            >
+              本NFTは7月19日から7月25日の期間に販売されます。購入後にNFTはウォレットに即時送付されますが、その時点ではどのNFTになるかは確定しておりません。
+              7月26日以降に抽選が行われてからNFTの詳細が確定します。抽選はオンチェーンで実施され、その後OpenSeaなどのNFTマーケットプレイスでNFTをご鑑賞いただくことができます。
+              なお、7月26日以降でもNFTの数量が残っている場合、継続して購入していただくことが可能です。
+              抽選期間以降にOpenSeaでNFTの情報が切り替わらない場合は、OpenSeaのNFTページ上に存在する
+              "Refresh Metadata"ボタンを押してください。
             </Typography>
           </Container>
           <AppFooter />
