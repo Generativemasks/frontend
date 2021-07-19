@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
 
 export function ArtCardForTop(props: {
   image: string;
-  name: string;
   tokenId?: string;
   description?: string;
   owner?: string;
@@ -62,18 +61,21 @@ export function ArtCardForTop(props: {
     <Grid item xs={12} sm={6} md={3}>
       <Card className={classes.card} variant="outlined">
         <CardActionArea onClick={props.onClick}>
-          <CardMedia
-            className={classes.cardMedia}
-            image={props.image}
-            title={props.name}
-          />
+          <CardMedia className={classes.cardMedia} image={props.image} />
           <CardContent className={classes.cardContent}>
             <Typography
               className={classes.artTitle}
               variant="h5"
               component="h2"
             >
-              {props.name}
+              Purchase here
+            </Typography>
+            <Typography
+              className={classes.artTitle}
+              variant="h5"
+              component="h2"
+            >
+              購入はこちら
             </Typography>
             {props.description !== undefined && (
               <Typography>{props.description}</Typography>
