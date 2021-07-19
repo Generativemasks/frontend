@@ -239,7 +239,6 @@ const TopPageTemplate = ({ account, chainId }: TopPageTemplateProps) => {
               }}
             >
               <ArtCardForTop
-                name={"Generativemasks"}
                 image={"/images/art.png"}
                 onClick={() => {
                   history.push(`/arts/`);

@@ -155,7 +155,7 @@ const useStyles = makeStyles((theme) => ({
 export interface DetailPageTemplateProps {
   readonly amount: number;
   readonly setAmount: (amount: number) => void;
-  readonly account?: string | null;
+  readonly account: string | null | undefined;
   readonly chainId: ChainId | undefined;
   readonly sendBuyState: any;
   readonly isPurchasing: boolean;
@@ -204,7 +204,8 @@ const PurchasePageTemplate = ({
       <WaitingProcessDialog
         transactionStatus={sendBuyState}
         isPurchasing={isPurchasing}
-        imageURL={imageURL}
+        chainId={chainId}
+        account={account}
       />
       <ChainModal chainId={chainId} />
       <AppHeader account={account} />
