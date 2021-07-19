@@ -209,7 +209,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imgContent: {
-    width: "60%",
+    width: "100%",
     [theme.breakpoints.down(800)]: {
       width: "100%",
     },
@@ -392,21 +392,93 @@ const PurchasePageTemplate = ({
               </Typography>
             </Container>
           </div>
-          <Container style={{ marginBottom: 64 }}>
-            <div
+          <Container maxWidth="sm">
+            <Typography
+              component="h2"
+              variant="h4"
+              align="center"
+              color="textPrimary"
               style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                overflowWrap: "break-word",
               }}
             >
-              <ArtCardForTop
-                image={"/images/art.png"}
-                onClick={() => {
-                  history.push(`/arts/`);
-                }}
-              />
-            </div>
+              About Generativemasks
+            </Typography>
+            <Typography
+              variant="body1"
+              align="left"
+              color="textSecondary"
+              paragraph
+              style={{ fontSize: 14 }}
+            >
+              Generativemasksはジェネラティブアートにより生成されるNFTアートです。
+              本NFTは一つずつ異なる表情のマスクが生成され、NFTマーケットプレイス上でリロードするたびに異なる色彩のマスクをお楽しみいただくことができます。
+            </Typography>
+            <Typography
+              variant="body1"
+              align="left"
+              color="textSecondary"
+              paragraph
+              style={{ fontSize: 14 }}
+            >
+              (English)
+            </Typography>
+          </Container>
+          <Container style={{ marginBottom: 64 }}>
+            <Grid container className={classes.imgContent}>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={3}
+                style={{ padding: 16, marginBottom: 16 }}
+              >
+                <img
+                  src={"/images/masks/0-1.png"}
+                  style={{ width: "100%", height: "100%" }}
+                  alt=""
+                />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={3}
+                style={{ padding: 16, marginBottom: 16 }}
+              >
+                <img
+                  src={"/images/masks/1-1.png"}
+                  style={{ width: "100%", height: "100%" }}
+                  alt=""
+                />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={3}
+                style={{ padding: 16, marginBottom: 16 }}
+              >
+                <img
+                  src={"/images/masks/2-1.png"}
+                  style={{ width: "100%", height: "100%" }}
+                  alt=""
+                />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={3}
+                style={{ padding: 16, marginBottom: 16 }}
+              >
+                <img
+                  src={"/images/masks/3-1.png"}
+                  style={{ width: "100%", height: "100%" }}
+                  alt=""
+                />
+              </Grid>
+            </Grid>
           </Container>
           <Container className={classes.creatorInfo}>
             <Container maxWidth="sm" className={classes.creatorInfoInner}>
@@ -467,260 +539,265 @@ const PurchasePageTemplate = ({
               </div>
             </Container>
           </Container>
-        </div>
-      </div>
-      <div className={classes.heroContent}>
-        <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h4"
-            align="center"
-            color="textPrimary"
-            gutterBottom
-            style={{
-              overflowWrap: "break-word",
-            }}
-          >
-            Purchase here
-          </Typography>
-        </Container>
-      </div>
-      <Container className={classes.container}>
-        <Grid container className={classes.imgContent}>
-          <Grid item xs={12} style={{ marginBottom: 16 }}>
-            <div className={classes.sampleImage}>
-              <img
-                src={"/images/sample-colored.gif"}
-                style={{ width: "100%", height: "100%" }}
-                alt=""
-              />
-              <div className={classes.undefinedImage}>
-                <img
-                  src="/images/undefined.png"
-                  alt="?"
-                  style={{
-                    width: "50%",
-                  }}
-                />
-              </div>
-            </div>
-          </Grid>
-        </Grid>
-        <Grid container className={classes.infoContent}>
-          <Grid item xs={12}>
-            {!!account && (
-              <div style={{ marginBottom: 16, textAlign: "center" }}>
-                <Typography gutterBottom>
-                  <span className={classes.itemName}>Number of purchases:</span>
-                </Typography>
-                <IconButton
-                  onClick={() => {
-                    if (amount === undefined) {
-                      setAmount(1);
-                      return;
-                    }
-                    if (amount <= 1) {
-                      return;
-                    }
-                    setAmount(amount - 1);
-                  }}
-                  area-label="minus"
-                >
-                  <IndeterminateCheckBoxOutlined />
-                </IconButton>
-                <TextField
-                  variant="outlined"
-                  style={{ width: "20%" }}
-                  inputProps={{ style: { textAlign: "center" } }}
-                  value={amount ?? ""}
-                  size="small"
-                  onChange={(e) => {
-                    const parsed = Number.parseInt(e.target.value);
-                    console.debug(parsed);
-                    if (isNaN(parsed)) {
-                      setAmount(1);
-                      return;
-                    }
-                    setAmount(parsed);
-                  }}
-                />
-                <IconButton
-                  onClick={() => setAmount((amount ?? 0) + 1)}
-                  area-label="plus"
-                >
-                  <AddBoxOutlined />
-                </IconButton>
-              </div>
-            )}
-            {!!remainingAmount && !!price && (
-              <div style={{ marginBottom: 16, textAlign: "center" }}>
-                <Typography>
-                  <span className={classes.itemName}>Remaining amount:</span>
-                  {remainingAmount.toNumber()} / 10000
-                </Typography>
-                <Typography>
-                  <span className={classes.itemName}>Price:</span>
-                  <span style={{ fontSize: "1.65rem" }}>
-                    {formatEther(price.mul(amount).toString())} ETH
-                  </span>
-                </Typography>
-                {isInsufficient && walletBalance && (
-                  <Typography color="error">
-                    <span className={classes.itemName}>
-                      Insufficient wallet balance:
-                    </span>
-                    <span>{formatEther(walletBalance.toString())} ETH</span>
-                  </Typography>
-                )}
-              </div>
-            )}
-            {!account && (
-              <div className={classes.flexBox} style={{ marginBottom: 16 }}>
-                <div className={classes.connectInfo}>
-                  To purchase an art,
-                  <br /> connect your wallet first 👛
-                </div>
-              </div>
-            )}
-            {!!account && !!remainingAmount && !!price ? (
-              <div style={{ textAlign: "center" }}>
-                <Button
-                  onClick={() => {
-                    buy(amount, {
-                      value: price.mul(amount),
-                    });
-                  }}
-                  variant="contained"
-                  color="primary"
-                  style={{ fontWeight: "bold" }}
-                  disabled={
-                    price === undefined ||
-                    remainingAmount.eq(0) ||
-                    !checked ||
-                    isInsufficient
-                  }
-                  size="large"
-                  disableElevation
-                >
-                  {remainingAmount.eq(0) ? "Sold out" : "Purchase Now!"}
-                </Button>
-                <div
-                  style={{
-                    marginTop: 16,
-                    textAlign: "left",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Checkbox
-                    color="primary"
-                    checked={checked}
-                    onChange={() => setChecked(!checked)}
+          <div className={classes.heroContent}>
+            <Container maxWidth="sm">
+              <Typography
+                component="h1"
+                variant="h4"
+                align="center"
+                color="textPrimary"
+                gutterBottom
+                style={{
+                  overflowWrap: "break-word",
+                }}
+              >
+                Purchase here
+              </Typography>
+            </Container>
+          </div>
+          <Container className={classes.container}>
+            <Grid container className={classes.imgContent}>
+              <Grid item xs={12} style={{ marginBottom: 16 }}>
+                <div className={classes.sampleImage}>
+                  <img
+                    src={"/images/sample-colored.gif"}
+                    style={{ width: "100%", height: "100%" }}
+                    alt=""
                   />
-                  <span>
-                    I agree with the
-                    <Link
-                      href="https://www.notion.so/tart/WIP-94e269077baa4eda9afdba8fb51bb825"
-                      target="_blank"
-                      rel="noopener"
+                  <div className={classes.undefinedImage}>
+                    <img
+                      src="/images/undefined.png"
+                      alt="?"
                       style={{
-                        paddingLeft: 8,
+                        width: "50%",
+                      }}
+                    />
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
+            <Grid container className={classes.infoContent}>
+              <Grid item xs={12}>
+                {!!account && (
+                  <div style={{ marginBottom: 16, textAlign: "center" }}>
+                    <Typography gutterBottom>
+                      <span className={classes.itemName}>
+                        Number of purchases:
+                      </span>
+                    </Typography>
+                    <IconButton
+                      onClick={() => {
+                        if (amount === undefined) {
+                          setAmount(1);
+                          return;
+                        }
+                        if (amount <= 1) {
+                          return;
+                        }
+                        setAmount(amount - 1);
+                      }}
+                      area-label="minus"
+                    >
+                      <IndeterminateCheckBoxOutlined />
+                    </IconButton>
+                    <TextField
+                      variant="outlined"
+                      style={{ width: "20%" }}
+                      inputProps={{ style: { textAlign: "center" } }}
+                      value={amount ?? ""}
+                      size="small"
+                      onChange={(e) => {
+                        const parsed = Number.parseInt(e.target.value);
+                        console.debug(parsed);
+                        if (isNaN(parsed)) {
+                          setAmount(1);
+                          return;
+                        }
+                        setAmount(parsed);
+                      }}
+                    />
+                    <IconButton
+                      onClick={() => setAmount((amount ?? 0) + 1)}
+                      area-label="plus"
+                    >
+                      <AddBoxOutlined />
+                    </IconButton>
+                  </div>
+                )}
+                {!!remainingAmount && !!price && (
+                  <div style={{ marginBottom: 16, textAlign: "center" }}>
+                    <Typography>
+                      <span className={classes.itemName}>
+                        Remaining amount:
+                      </span>
+                      {remainingAmount.toNumber()} / 10000
+                    </Typography>
+                    <Typography>
+                      <span className={classes.itemName}>Price:</span>
+                      <span style={{ fontSize: "1.65rem" }}>
+                        {formatEther(price.mul(amount).toString())} ETH
+                      </span>
+                    </Typography>
+                    {isInsufficient && walletBalance && (
+                      <Typography color="error">
+                        <span className={classes.itemName}>
+                          Insufficient wallet balance:
+                        </span>
+                        <span>{formatEther(walletBalance.toString())} ETH</span>
+                      </Typography>
+                    )}
+                  </div>
+                )}
+                {!account && (
+                  <div className={classes.flexBox} style={{ marginBottom: 16 }}>
+                    <div className={classes.connectInfo}>
+                      To purchase an art,
+                      <br /> connect your wallet first 👛
+                    </div>
+                  </div>
+                )}
+                {!!account && !!remainingAmount && !!price ? (
+                  <div style={{ textAlign: "center" }}>
+                    <Button
+                      onClick={() => {
+                        buy(amount, {
+                          value: price.mul(amount),
+                        });
+                      }}
+                      variant="contained"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                      disabled={
+                        price === undefined ||
+                        remainingAmount.eq(0) ||
+                        !checked ||
+                        isInsufficient
+                      }
+                      size="large"
+                      disableElevation
+                    >
+                      {remainingAmount.eq(0) ? "Sold out" : "Purchase Now!"}
+                    </Button>
+                    <div
+                      style={{
+                        marginTop: 16,
+                        textAlign: "left",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
-                      Terms & Conditions
-                    </Link>
-                  </span>
-                </div>
-              </div>
-            ) : (
-              <div className={classes.flexBox}>
-                <WalletButton />
-              </div>
-            )}
-            {!window.ethereum?.isMetaMask && (
-              <>
-                <div className={classes.flexBox} style={{ marginTop: 16 }}>
-                  <Typography>or</Typography>
-                </div>
+                      <Checkbox
+                        color="primary"
+                        checked={checked}
+                        onChange={() => setChecked(!checked)}
+                      />
+                      <span>
+                        I agree with the
+                        <Link
+                          href="https://www.notion.so/tart/WIP-94e269077baa4eda9afdba8fb51bb825"
+                          target="_blank"
+                          rel="noopener"
+                          style={{
+                            paddingLeft: 8,
+                          }}
+                        >
+                          Terms & Conditions
+                        </Link>
+                      </span>
+                    </div>
+                  </div>
+                ) : (
+                  <div className={classes.flexBox}>
+                    <WalletButton />
+                  </div>
+                )}
+                {!window.ethereum?.isMetaMask && (
+                  <>
+                    <div className={classes.flexBox} style={{ marginTop: 16 }}>
+                      <Typography>or</Typography>
+                    </div>
+                    <div
+                      className={classes.spButton}
+                      style={{ marginTop: 16, marginBottom: 16 }}
+                    >
+                      <Button
+                        className={classes.spButton}
+                        color="primary"
+                        variant="contained"
+                        onClick={() => {
+                          window.open(
+                            `https://metamask.app.link/dapp/${window.location.host}/#/arts/`
+                          );
+                        }}
+                        fullWidth
+                        disableElevation
+                        style={{ marginBottom: 40 }}
+                        startIcon={<Smartphone />}
+                        disabled={progress}
+                      >
+                        Use metamask
+                      </Button>
+                    </div>
+                  </>
+                )}
                 <div
-                  className={classes.spButton}
+                  className={classes.qrCode}
                   style={{ marginTop: 16, marginBottom: 16 }}
                 >
-                  <Button
-                    className={classes.spButton}
-                    color="primary"
-                    variant="contained"
-                    onClick={() => {
-                      window.open(
-                        `https://metamask.app.link/dapp/${window.location.host}/#/arts/`
-                      );
-                    }}
-                    fullWidth
-                    disableElevation
-                    style={{ marginBottom: 40 }}
-                    startIcon={<Smartphone />}
-                    disabled={progress}
-                  >
-                    Use metamask
-                  </Button>
+                  <div className={classes.flexBox} style={{ marginBottom: 16 }}>
+                    <Typography>
+                      Or scan QR code
+                      <br />
+                      to use metamask app.
+                    </Typography>
+                  </div>
+                  <div className={classes.flexBox}>
+                    <QRCode
+                      value={`https://metamask.app.link/dapp/${window.location.host}/#/arts/`}
+                      size={80}
+                    />
+                  </div>
                 </div>
-              </>
-            )}
-            <div
-              className={classes.qrCode}
-              style={{ marginTop: 16, marginBottom: 16 }}
+              </Grid>
+            </Grid>
+          </Container>
+          <Container className={classes.container} style={{ paddingTop: 20 }}>
+            <Typography
+              variant="body1"
+              align="left"
+              color="textSecondary"
+              paragraph
+              className={classes.jpText}
             >
-              <div className={classes.flexBox} style={{ marginBottom: 16 }}>
-                <Typography>
-                  Or scan QR code
-                  <br />
-                  to use metamask app.
-                </Typography>
-              </div>
-              <div className={classes.flexBox}>
-                <QRCode
-                  value={`https://metamask.app.link/dapp/${window.location.host}/#/arts/`}
-                  size={80}
-                />
-              </div>
-            </div>
-          </Grid>
-        </Grid>
-      </Container>
-      <Container className={classes.container} style={{ paddingTop: 20 }}>
-        <Typography
-          variant="body1"
-          align="left"
-          color="textSecondary"
-          paragraph
-          className={classes.jpText}
-        >
-          本NFTは7月19日から7月25日の期間に販売されます。購入後にNFTはウォレットに即時送付されますが、その時点ではどのNFTになるかは確定しておりません。
-          7月26日以降に抽選が行われてからNFTの詳細が確定します。抽選はオンチェーンで実施され、その後OpenSeaなどのNFTマーケットプレイスでNFTをご鑑賞いただくことができます。
-          なお、7月26日以降でもNFTの数量が残っている場合、継続して購入していただくことが可能です。
-          抽選期間以降にOpenSeaでNFTの情報が切り替わらない場合は、OpenSeaのNFTページ上に存在する
-          "Refresh Metadata"ボタンを押してください。
-        </Typography>
-        <Typography
-          variant="body1"
-          align="left"
-          color="textSecondary"
-          paragraph
-          className={classes.enText}
-        >
-          This NFT is available for sale from July 19 to July 25. The NFTs will
-          be sent to your wallet immediately after purchase, but which NFT it
-          will be is not determined at that time. The details of the NFT will be
-          confirmed after the lottery is held on July 26. The lottery will be
-          conducted on-chain, and after that, you will be able to see your NFTs
-          on OpenSea and other NFT marketplaces. And if there are still some
-          NFTs available after July 26, you can continue to purchase them. If
-          your NFT status is not changed on OpenSea after the lottery period,
-          please click the “Refresh Metadata” button on the OpenSea NFT page.
-        </Typography>
-      </Container>
-      <AppFooter />
+              本NFTは7月19日から7月25日の期間に販売されます。購入後にNFTはウォレットに即時送付されますが、その時点ではどのNFTになるかは確定しておりません。
+              7月26日以降に抽選が行われてからNFTの詳細が確定します。抽選はオンチェーンで実施され、その後OpenSeaなどのNFTマーケットプレイスでNFTをご鑑賞いただくことができます。
+              なお、7月26日以降でもNFTの数量が残っている場合、継続して購入していただくことが可能です。
+              抽選期間以降にOpenSeaでNFTの情報が切り替わらない場合は、OpenSeaのNFTページ上に存在する
+              "Refresh Metadata"ボタンを押してください。
+            </Typography>
+            <Typography
+              variant="body1"
+              align="left"
+              color="textSecondary"
+              paragraph
+              className={classes.enText}
+            >
+              This NFT is available for sale from July 19 to July 25. The NFTs
+              will be sent to your wallet immediately after purchase, but which
+              NFT it will be is not determined at that time. The details of the
+              NFT will be confirmed after the lottery is held on July 26. The
+              lottery will be conducted on-chain, and after that, you will be
+              able to see your NFTs on OpenSea and other NFT marketplaces. And
+              if there are still some NFTs available after July 26, you can
+              continue to purchase them. If your NFT status is not changed on
+              OpenSea after the lottery period, please click the “Refresh
+              Metadata” button on the OpenSea NFT page.
+            </Typography>
+          </Container>
+          <AppFooter />
+        </div>
+      </div>
     </div>
   );
 };
