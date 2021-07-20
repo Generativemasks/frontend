@@ -110,9 +110,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100%",
   },
   creatorInfoInner: {
-    padding: theme.spacing(4),
+    padding: theme.spacing(6),
     [theme.breakpoints.down(600)]: {
-      padding: theme.spacing(4, 0, 2),
+      padding: theme.spacing(6, 0, 2),
     },
   },
   creatorInfoFrame: {
@@ -487,65 +487,7 @@ const PurchasePageTemplate = ({
               </Grid>
             </Grid>
           </Container>
-          <Container className={classes.creatorInfo}>
-            <Container maxWidth="sm" className={classes.creatorInfoInner}>
-              <div className={classes.creatorInfoFrame}>
-                <div style={{ position: "relative" }}>
-                  <Avatar
-                    alt="takawo"
-                    src="/images/icon.png"
-                    className={classes.large}
-                  />
-                  <span className={classes.creatorLabel}>🎨Creator</span>
-                </div>
-                <div>
-                  <Typography style={{ fontWeight: "bold", fontSize: 20 }}>
-                    takawo
-                  </Typography>
-                  <Typography>
-                    I'm a creative coder based in Japan. #dailycoding
-                  </Typography>
-                  <div className={classes.linkWrapper}>
-                    <Link
-                      href="https://twitter.com/takawo"
-                      target="_blank"
-                      rel="noopener"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginRight: 8,
-                      }}
-                    >
-                      <ArrowRightRoundedIcon fontSize="small" />
-                      <span>Twitter</span>
-                    </Link>
-                    <Link
-                      href="http://cenkhor.org/"
-                      target="_blank"
-                      rel="noopener"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginRight: 8,
-                      }}
-                    >
-                      <ArrowRightRoundedIcon fontSize="small" />
-                      <span>cenkhor.org</span>
-                    </Link>
-                    <Link
-                      href="https://openprocessing.org/user/6533?view=sketches&o=168"
-                      target="_blank"
-                      rel="noopener"
-                      style={{ display: "flex", alignItems: "center" }}
-                    >
-                      <ArrowRightRoundedIcon fontSize="small" />
-                      <span>OpenProcessing</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </Container>
-          </Container>
+
           <div className={classes.purchaseContent}>
             <Container maxWidth="sm">
               <Typography
@@ -801,6 +743,65 @@ const PurchasePageTemplate = ({
               抽選期間以降にOpenSeaでNFTの情報が切り替わらない場合は、OpenSeaのNFTページ上に存在する
               "Refresh Metadata"ボタンを押してください。
             </Typography>
+          </Container>
+          <Container className={classes.creatorInfo}>
+            <Container maxWidth="sm" className={classes.creatorInfoInner}>
+              <div className={classes.creatorInfoFrame}>
+                <div style={{ position: "relative" }}>
+                  <Avatar
+                    alt="takawo"
+                    src="/images/icon.png"
+                    className={classes.large}
+                  />
+                  <span className={classes.creatorLabel}>🎨Creator</span>
+                </div>
+                <div>
+                  <Typography style={{ fontWeight: "bold", fontSize: 20 }}>
+                    takawo
+                  </Typography>
+                  <Typography>
+                    I'm a creative coder based in Japan. #dailycoding
+                  </Typography>
+                  <div className={classes.linkWrapper}>
+                    <Link
+                      href="https://twitter.com/takawo"
+                      target="_blank"
+                      rel="noopener"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginRight: 8,
+                      }}
+                    >
+                      <ArrowRightRoundedIcon fontSize="small" />
+                      <span>Twitter</span>
+                    </Link>
+                    <Link
+                      href="http://cenkhor.org/"
+                      target="_blank"
+                      rel="noopener"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginRight: 8,
+                      }}
+                    >
+                      <ArrowRightRoundedIcon fontSize="small" />
+                      <span>cenkhor.org</span>
+                    </Link>
+                    <Link
+                      href="https://openprocessing.org/user/6533?view=sketches&o=168"
+                      target="_blank"
+                      rel="noopener"
+                      style={{ display: "flex", alignItems: "center" }}
+                    >
+                      <ArrowRightRoundedIcon fontSize="small" />
+                      <span>OpenProcessing</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </Container>
           </Container>
           <AppFooter />
         </div>
