@@ -38,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     padding: theme.spacing(8, 0, 6),
   },
+  purchaseContent: {
+    position: "relative",
+    padding: theme.spacing(2, 0, 2),
+  },
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
@@ -414,7 +418,7 @@ const PurchasePageTemplate = ({
             >
               (English)
               Generativemasksはジェネラティブアートにより生成されるNFTアートです。
-              本NFTは一つずつ異なる表情のマスクが生成され、NFTマーケットプレイス上でリロードするたびに異なる色彩のマスクをお楽しみいただくことができます。
+              本NFTは一つずつ異なる輪郭のマスクが生成され、NFTマーケットプレイス上でリロードするたびに異なる色彩のマスクをお楽しみいただくことができます。
             </Typography>
             <Typography
               variant="body1"
@@ -427,7 +431,7 @@ const PurchasePageTemplate = ({
               本NFTは一つずつ異なる表情のマスクが生成され、NFTマーケットプレイス上でリロードするたびに異なる色彩のマスクをお楽しみいただくことができます。
             </Typography>
           </Container>
-          <Container style={{ marginBottom: 64 }}>
+          <Container>
             <Grid container className={classes.imgContent}>
               <Grid
                 item
@@ -542,7 +546,7 @@ const PurchasePageTemplate = ({
               </div>
             </Container>
           </Container>
-          <div className={classes.heroContent}>
+          <div className={classes.purchaseContent}>
             <Container maxWidth="sm">
               <Typography
                 component="h1"
