@@ -112,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
   creatorInfoInner: {
     padding: theme.spacing(4),
     [theme.breakpoints.down(600)]: {
-      padding: 0,
+      padding: theme.spacing(4, 0, 2),
     },
   },
   creatorInfoFrame: {
