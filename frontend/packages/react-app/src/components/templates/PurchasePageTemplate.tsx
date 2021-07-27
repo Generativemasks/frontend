@@ -36,11 +36,11 @@ import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     position: "relative",
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(8, 0, 4),
   },
   purchaseContent: {
     position: "relative",
-    padding: theme.spacing(2, 0, 2),
+    padding: theme.spacing(0, 0, 2),
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
@@ -224,6 +224,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imgContent: {
     width: "100%",
+    paddingBottom: 16,
     [theme.breakpoints.down(800)]: {
       width: "100%",
     },
@@ -407,7 +408,7 @@ const PurchasePageTemplate = ({
                 />
               </div>
             </Container>
-            <Container className={classes.container} style={{ paddingTop: 20 }}>
+            <Container className={classes.container}>
               <Typography
                 variant="body1"
                 align="left"
