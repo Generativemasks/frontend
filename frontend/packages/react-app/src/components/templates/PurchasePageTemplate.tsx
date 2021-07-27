@@ -36,11 +36,11 @@ import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     position: "relative",
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(8, 0, 4),
   },
   purchaseContent: {
     position: "relative",
-    padding: theme.spacing(2, 0, 2),
+    padding: theme.spacing(0, 0, 2),
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
@@ -56,6 +56,18 @@ const useStyles = makeStyles((theme) => ({
   },
   cardContent: {
     flexGrow: 1,
+  },
+  pcTitleContent: {
+    display: "block",
+    [theme.breakpoints.down(600)]: {
+      display: "none",
+    },
+  },
+  spTitleContent: {
+    display: "none",
+    [theme.breakpoints.down(600)]: {
+      display: "block",
+    },
   },
   headerImage: {
     marginTop: 64,
@@ -212,6 +224,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imgContent: {
     width: "100%",
+    paddingBottom: 16,
     [theme.breakpoints.down(800)]: {
       width: "100%",
     },
@@ -258,7 +271,7 @@ const useStyles = makeStyles((theme) => ({
   },
   jpText: {
     fontSize: 14,
-    paddingRight: 10,
+    padding: "0px 16px",
     [theme.breakpoints.down(800)]: {
       display: "block",
       padding: 0,
@@ -266,7 +279,7 @@ const useStyles = makeStyles((theme) => ({
   },
   enText: {
     fontSize: 14,
-    paddingLeft: 10,
+    padding: "0px 16px",
     [theme.breakpoints.down(800)]: {
       display: "block",
       padding: 0,
@@ -353,11 +366,36 @@ const PurchasePageTemplate = ({
                 variant="h3"
                 align="center"
                 color="textPrimary"
+                className={classes.pcTitleContent}
                 style={{
                   overflowWrap: "break-word",
                 }}
               >
                 Generativemasks
+              </Typography>
+              <Typography
+                component="h2"
+                variant="h3"
+                align="center"
+                color="textPrimary"
+                className={classes.spTitleContent}
+                style={{
+                  overflowWrap: "normal",
+                }}
+              >
+                Generative
+              </Typography>
+              <Typography
+                component="h2"
+                variant="h3"
+                align="center"
+                color="textPrimary"
+                className={classes.spTitleContent}
+                style={{
+                  overflowWrap: "normal",
+                }}
+              >
+                masks
               </Typography>
               <div style={{ textAlign: "center", marginBottom: 40 }}>
                 <Chip
@@ -370,7 +408,7 @@ const PurchasePageTemplate = ({
                 />
               </div>
             </Container>
-            <Container className={classes.container} style={{ paddingTop: 20 }}>
+            <Container className={classes.container}>
               <Typography
                 variant="body1"
                 align="left"
@@ -416,9 +454,10 @@ const PurchasePageTemplate = ({
               paragraph
               className={classes.enText}
             >
-              (English)
-              Generativemasksはジェネラティブアートにより生成されるNFTアートです。
-              本NFTは一つずつ異なる輪郭のマスクが生成され、NFTマーケットプレイス上でリロードするたびに異なる色彩のマスクをお楽しみいただくことができます。
+              Generativemasks is an NFT art created by Generative Art. This NFT
+              "generates" unique masks with different expressions one by one,
+              and you can enjoy different colors of the masks every time you
+              reload them on the NFT marketplace.
             </Typography>
             <Typography
               variant="body1"
@@ -487,7 +526,6 @@ const PurchasePageTemplate = ({
               </Grid>
             </Grid>
           </Container>
-
           <div className={classes.purchaseContent}>
             <Container maxWidth="sm">
               <Typography
@@ -600,8 +638,8 @@ const PurchasePageTemplate = ({
                 {!account && (
                   <div className={classes.flexBox} style={{ marginBottom: 16 }}>
                     <div className={classes.connectInfo}>
-                      To purchase an art,
-                      <br /> connect your wallet first 👛
+                      Please connect
+                      <br /> your wallet first 👛
                     </div>
                   </div>
                 )}
@@ -625,7 +663,7 @@ const PurchasePageTemplate = ({
                       size="large"
                       disableElevation
                     >
-                      {remainingAmount.eq(0) ? "Sold out" : "Purchase Now!"}
+                      {remainingAmount.eq(0) ? "Sold out" : "Purchase"}
                     </Button>
                     <div
                       style={{
@@ -696,7 +734,7 @@ const PurchasePageTemplate = ({
                 >
                   <div className={classes.flexBox} style={{ marginBottom: 16 }}>
                     <Typography>
-                      Or scan QR code
+                      Or you can scan QR code
                       <br />
                       to use metamask app.
                     </Typography>
