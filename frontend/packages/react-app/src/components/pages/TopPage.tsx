@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 // @ts-ignore
 import { addresses, abis } from "@project/contracts";
 import { ChainId, shortenIfAddress, useEthers } from "@usedapp/core";
-import TopPageTemplate from "../templates/TopPageTemplate";
 import { Backdrop, Button, Modal } from "@material-ui/core";
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
@@ -97,11 +96,3 @@ export const WalletButton = ({ account }: { account?: string | null }) => {
     </>
   );
 };
-
-function App() {
-  const { account, chainId } = useEthers();
-
-  return <TopPageTemplate account={account} chainId={chainId} />;
-}
-
-export default App;
