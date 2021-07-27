@@ -270,7 +270,7 @@ const useStyles = makeStyles((theme) => ({
   },
   jpText: {
     fontSize: 14,
-    paddingRight: 10,
+    padding: "0px 16px",
     [theme.breakpoints.down(800)]: {
       display: "block",
       padding: 0,
@@ -278,7 +278,7 @@ const useStyles = makeStyles((theme) => ({
   },
   enText: {
     fontSize: 14,
-    paddingLeft: 10,
+    padding: "0px 16px",
     [theme.breakpoints.down(800)]: {
       display: "block",
       padding: 0,
