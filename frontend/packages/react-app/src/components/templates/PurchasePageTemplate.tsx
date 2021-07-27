@@ -558,19 +558,9 @@ const PurchasePageTemplate = ({
               <Grid item xs={12} style={{ marginBottom: 16 }}>
                 <div className={classes.sampleImage}>
                   <img
-                    src={"/images/sample-colored.gif"}
+                    src={"/images/unrevealed.gif"}
                     style={{ width: "100%", height: "100%" }}
-                    alt=""
                   />
-                  <div className={classes.undefinedImage}>
-                    <img
-                      src="/images/undefined.png"
-                      alt="?"
-                      style={{
-                        width: "50%",
-                      }}
-                    />
-                  </div>
                 </div>
               </Grid>
             </Grid>
