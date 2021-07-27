@@ -57,6 +57,18 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
+  pcTitleContent: {
+    display: "block",
+    [theme.breakpoints.down(600)]: {
+      display: "none",
+    },
+  },
+  spTitleContent: {
+    display: "none",
+    [theme.breakpoints.down(600)]: {
+      display: "block",
+    },
+  },
   headerImage: {
     marginTop: 64,
     backgroundImage: "url(/images/cover.jpg)",
@@ -353,11 +365,36 @@ const PurchasePageTemplate = ({
                 variant="h3"
                 align="center"
                 color="textPrimary"
+                className={classes.pcTitleContent}
                 style={{
                   overflowWrap: "break-word",
                 }}
               >
                 Generativemasks
+              </Typography>
+              <Typography
+                component="h2"
+                variant="h3"
+                align="center"
+                color="textPrimary"
+                className={classes.spTitleContent}
+                style={{
+                  overflowWrap: "normal",
+                }}
+              >
+                Generative
+              </Typography>
+              <Typography
+                component="h2"
+                variant="h3"
+                align="center"
+                color="textPrimary"
+                className={classes.spTitleContent}
+                style={{
+                  overflowWrap: "normal",
+                }}
+              >
+                masks
               </Typography>
               <div style={{ textAlign: "center", marginBottom: 40 }}>
                 <Chip
@@ -488,7 +525,6 @@ const PurchasePageTemplate = ({
               </Grid>
             </Grid>
           </Container>
-
           <div className={classes.purchaseContent}>
             <Container maxWidth="sm">
               <Typography
