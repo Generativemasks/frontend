@@ -637,8 +637,8 @@ const PurchasePageTemplate = ({
                 {!account && (
                   <div className={classes.flexBox} style={{ marginBottom: 16 }}>
                     <div className={classes.connectInfo}>
-                      To purchase an art,
-                      <br /> connect your wallet first 👛
+                      Please connect
+                      <br /> your wallet first 👛
                     </div>
                   </div>
                 )}
@@ -662,7 +662,7 @@ const PurchasePageTemplate = ({
                       size="large"
                       disableElevation
                     >
-                      {remainingAmount.eq(0) ? "Sold out" : "Purchase Now!"}
+                      {remainingAmount.eq(0) ? "Sold out" : "Purchase"}
                     </Button>
                     <div
                       style={{
@@ -733,7 +733,7 @@ const PurchasePageTemplate = ({
                 >
                   <div className={classes.flexBox} style={{ marginBottom: 16 }}>
                     <Typography>
-                      Or scan QR code
+                      Or you can scan QR code
                       <br />
                       to use metamask app.
                     </Typography>
