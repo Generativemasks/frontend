@@ -222,6 +222,14 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
     },
   },
+  descriptionContainer: {
+    display: "flex",
+    alignItems: "baseline",
+    maxWidth: 1024,
+    [theme.breakpoints.down(800)]: {
+      display: "block",
+    },
+  },
   imgContent: {
     width: "100%",
     paddingBottom: 16,
@@ -408,7 +416,7 @@ const PurchasePageTemplate = ({
                 />
               </div>
             </Container>
-            <Container className={classes.container}>
+            <Container className={classes.descriptionContainer}>
               <Typography
                 variant="body1"
                 align="left"
@@ -446,7 +454,10 @@ const PurchasePageTemplate = ({
               About Generativemasks
             </Typography>
           </Container>
-          <Container className={classes.container} style={{ paddingTop: 20 }}>
+          <Container
+            className={classes.descriptionContainer}
+            style={{ paddingTop: 20 }}
+          >
             <Typography
               variant="body1"
               align="left"
@@ -749,7 +760,10 @@ const PurchasePageTemplate = ({
               </Grid>
             </Grid>
           </Container>
-          <Container className={classes.container} style={{ paddingTop: 20 }}>
+          <Container
+            className={classes.descriptionContainer}
+            style={{ paddingTop: 20 }}
+          >
             <Typography
               variant="body1"
               align="left"
