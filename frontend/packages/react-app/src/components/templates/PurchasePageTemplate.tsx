@@ -465,10 +465,10 @@ const PurchasePageTemplate = ({
               paragraph
               className={classes.enText}
             >
-              Generativemasks is an NFT art created with Generative Art. This NFT
-              "generates" unique masks with different expressions one by one,
-              and you can enjoy different colors of the masks every time you
-              reload them on the NFT marketplace.
+              Generativemasks is an NFT art created with Generative Art. This
+              NFT "generates" unique masks with different expressions one by
+              one, and you can enjoy different colors of the masks every time
+              you reload them on the NFT marketplace.
             </Typography>
             <Typography
               variant="body1"
@@ -491,7 +491,7 @@ const PurchasePageTemplate = ({
                 style={{ padding: 16, marginBottom: 16 }}
               >
                 <img
-                  src={"/images/masks/0-1.png"}
+                  src={"/images/masks/0.gif"}
                   style={{ width: "100%", height: "100%" }}
                   alt=""
                 />
@@ -504,7 +504,7 @@ const PurchasePageTemplate = ({
                 style={{ padding: 16, marginBottom: 16 }}
               >
                 <img
-                  src={"/images/masks/1-1.png"}
+                  src={"/images/masks/1.gif"}
                   style={{ width: "100%", height: "100%" }}
                   alt=""
                 />
@@ -517,7 +517,7 @@ const PurchasePageTemplate = ({
                 style={{ padding: 16, marginBottom: 16 }}
               >
                 <img
-                  src={"/images/masks/2-1.png"}
+                  src={"/images/masks/2.gif"}
                   style={{ width: "100%", height: "100%" }}
                   alt=""
                 />
@@ -530,7 +530,7 @@ const PurchasePageTemplate = ({
                 style={{ padding: 16, marginBottom: 16 }}
               >
                 <img
-                  src={"/images/masks/3-1.png"}
+                  src={"/images/masks/3.gif"}
                   style={{ width: "100%", height: "100%" }}
                   alt=""
                 />
