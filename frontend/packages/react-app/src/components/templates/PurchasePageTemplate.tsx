@@ -86,14 +86,11 @@ const useStyles = makeStyles((theme) => ({
     width: 130,
     height: 130,
     position: "absolute",
-    top: "-26%",
+    top: "-100px",
     left: "50%",
     transform: "translateX(-50%)",
     border: "8px solid #fff",
     borderRadius: "50%",
-    [theme.breakpoints.down(600)]: {
-      top: "-20%",
-    },
     "&::before": {
       content: '""',
       position: "absolute",
@@ -416,11 +413,94 @@ const PurchasePageTemplate = ({
                 />
               </div>
             </Container>
+            <Container
+              className={classes.descriptionContainer}
+              style={{ paddingTop: 20 }}
+            >
+              <Typography
+                variant="body1"
+                align="left"
+                color="textPrimary"
+                paragraph
+                className={classes.enText}
+              >
+                Generativemasks is an NFT art created with Generative Art. This
+                NFT "generates" unique masks with different expressions one by
+                one, and you can enjoy different colors of the masks every time
+                you reload them on the NFT marketplace.
+              </Typography>
+              <Typography
+                variant="body1"
+                align="left"
+                color="textPrimary"
+                paragraph
+                className={classes.jpText}
+              >
+                Generativemasksはジェネラティブアートにより生成されるNFTアートです。
+                本NFTは一つずつ異なる表情のマスクが生成され、NFTマーケットプレイス上でリロードするたびに異なる色彩のマスクをお楽しみいただくことができます。
+              </Typography>
+            </Container>
+            <Container className={classes.descriptionContainer}>
+              <Grid container className={classes.imgContent}>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  style={{ padding: 8, marginBottom: 16 }}
+                >
+                  <img
+                    src={"/images/masks/msks_0.png"}
+                    style={{ width: "100%", height: "100%" }}
+                    alt=""
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  style={{ padding: 8, marginBottom: 16 }}
+                >
+                  <img
+                    src={"/images/masks/msks_1.png"}
+                    style={{ width: "100%", height: "100%" }}
+                    alt=""
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  style={{ padding: 8, marginBottom: 16 }}
+                >
+                  <img
+                    src={"/images/masks/msks_2.png"}
+                    style={{ width: "100%", height: "100%" }}
+                    alt=""
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  style={{ padding: 8, marginBottom: 16 }}
+                >
+                  <img
+                    src={"/images/masks/msks_3.png"}
+                    style={{ width: "100%", height: "100%" }}
+                    alt=""
+                  />
+                </Grid>
+              </Grid>
+            </Container>
             <Container className={classes.descriptionContainer}>
               <Typography
                 variant="body1"
                 align="left"
-                color="textSecondary"
+                color="textPrimary"
                 paragraph
                 className={classes.enText}
               >
@@ -433,7 +513,7 @@ const PurchasePageTemplate = ({
               <Typography
                 variant="body1"
                 align="left"
-                color="textSecondary"
+                color="textPrimary"
                 paragraph
                 className={classes.jpText}
               >
@@ -441,102 +521,6 @@ const PurchasePageTemplate = ({
               </Typography>
             </Container>
           </div>
-          <Container maxWidth="sm">
-            <Typography
-              component="h2"
-              variant="h4"
-              align="center"
-              color="textPrimary"
-              style={{
-                overflowWrap: "break-word",
-              }}
-            >
-              About Generativemasks
-            </Typography>
-          </Container>
-          <Container
-            className={classes.descriptionContainer}
-            style={{ paddingTop: 20 }}
-          >
-            <Typography
-              variant="body1"
-              align="left"
-              color="textSecondary"
-              paragraph
-              className={classes.enText}
-            >
-              Generativemasks is an NFT art created with Generative Art. This
-              NFT "generates" unique masks with different expressions one by
-              one, and you can enjoy different colors of the masks every time
-              you reload them on the NFT marketplace.
-            </Typography>
-            <Typography
-              variant="body1"
-              align="left"
-              color="textSecondary"
-              paragraph
-              className={classes.jpText}
-            >
-              Generativemasksはジェネラティブアートにより生成されるNFTアートです。
-              本NFTは一つずつ異なる表情のマスクが生成され、NFTマーケットプレイス上でリロードするたびに異なる色彩のマスクをお楽しみいただくことができます。
-            </Typography>
-          </Container>
-          <Container>
-            <Grid container className={classes.imgContent}>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={3}
-                style={{ padding: 16, marginBottom: 16 }}
-              >
-                <img
-                  src={"/images/masks/0.gif"}
-                  style={{ width: "100%", height: "100%" }}
-                  alt=""
-                />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={3}
-                style={{ padding: 16, marginBottom: 16 }}
-              >
-                <img
-                  src={"/images/masks/1.gif"}
-                  style={{ width: "100%", height: "100%" }}
-                  alt=""
-                />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={3}
-                style={{ padding: 16, marginBottom: 16 }}
-              >
-                <img
-                  src={"/images/masks/2.gif"}
-                  style={{ width: "100%", height: "100%" }}
-                  alt=""
-                />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={3}
-                style={{ padding: 16, marginBottom: 16 }}
-              >
-                <img
-                  src={"/images/masks/3.gif"}
-                  style={{ width: "100%", height: "100%" }}
-                  alt=""
-                />
-              </Grid>
-            </Grid>
-          </Container>
           <div className={classes.purchaseContent}>
             <Container maxWidth="sm">
               <Typography
