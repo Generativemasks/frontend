@@ -16,6 +16,10 @@ export const theme = createMuiTheme({
       fontFamily: ["Spartan", "sans-serif"].join(","),
       fontWeight: 600,
     },
+    h4: {
+      fontFamily: ["Spartan", "sans-serif"].join(","),
+      fontWeight: 600,
+    },
   },
   overrides: {
     MuiButton: {

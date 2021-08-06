@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundAttachment: "fixed",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    paddingTop: "28%",
+    paddingTop: "20%",
     [theme.breakpoints.down(600)]: {
       marginTop: 56,
       paddingTop: "60%",
@@ -277,6 +277,29 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
     },
   },
+  listText: {
+    position: "relative",
+    paddingLeft: 22,
+    "&::before": {
+      content: `""`,
+      width: 5,
+      height: 5,
+      borderRadius: "50%",
+      backgroundColor: "#000",
+      position: "absolute",
+      display: "block",
+      left: 8,
+      top: 8,
+    },
+  },
+  blockStyle: {
+    backgroundColor: "#fff",
+    border: "1px solid #E86D64",
+    borderRadius: 3,
+    padding: 22,
+    boxSizing: "border-box",
+    height: "100%",
+  },
 }));
 
 export interface DetailPageTemplateProps {
@@ -400,9 +423,65 @@ const PurchasePageTemplate = ({
                 />
               </div>
             </Container>
+            <Container className={classes.descriptionContainer}>
+              <Grid container className={classes.imgContent}>
+                <Grid
+                  item
+                  xs={6}
+                  sm={6}
+                  md={3}
+                  style={{ padding: 8, marginBottom: 16 }}
+                >
+                  <img
+                    src={"/images/masks/msks_0.png"}
+                    style={{ width: "100%", height: "100%" }}
+                    alt=""
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={6}
+                  sm={6}
+                  md={3}
+                  style={{ padding: 8, marginBottom: 16 }}
+                >
+                  <img
+                    src={"/images/masks/msks_1.png"}
+                    style={{ width: "100%", height: "100%" }}
+                    alt=""
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={6}
+                  sm={6}
+                  md={3}
+                  style={{ padding: 8, marginBottom: 16 }}
+                >
+                  <img
+                    src={"/images/masks/msks_2.png"}
+                    style={{ width: "100%", height: "100%" }}
+                    alt=""
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={6}
+                  sm={6}
+                  md={3}
+                  style={{ padding: 8, marginBottom: 16 }}
+                >
+                  <img
+                    src={"/images/masks/msks_3.png"}
+                    style={{ width: "100%", height: "100%" }}
+                    alt=""
+                  />
+                </Grid>
+              </Grid>
+            </Container>
             <Container
               className={classes.descriptionContainer}
-              style={{ paddingTop: 20 }}
+              style={{ paddingTop: 20, marginBottom: 42 }}
             >
               <Typography
                 variant="body1"
@@ -431,58 +510,157 @@ const PurchasePageTemplate = ({
               </Typography>
             </Container>
             <Container className={classes.descriptionContainer}>
-              <Grid container className={classes.imgContent}>
+              <Typography
+                component="h2"
+                variant="h4"
+                align="center"
+                color="textPrimary"
+                style={{
+                  overflowWrap: "break-word",
+                }}
+              >
+                Roadmap
+              </Typography>
+              <Grid
+                container
+                className={classes.imgContent}
+                direction="row"
+                justifyContent="center"
+                alignItems="stretch"
+                style={{ alignItems: "strech" }}
+              >
                 <Grid
                   item
                   xs={12}
-                  sm={6}
-                  md={3}
+                  sm={12}
+                  md={4}
                   style={{ padding: 8, marginBottom: 16 }}
                 >
-                  <img
-                    src={"/images/masks/msks_0.png"}
-                    style={{ width: "100%", height: "100%" }}
-                    alt=""
-                  />
+                  <div className={classes.blockStyle}>
+                    <Typography
+                      variant="subtitle2"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                    >
+                      Block 01
+                    </Typography>
+                    <Typography
+                      component="h3"
+                      variant="h5"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                      gutterBottom
+                    >
+                      貢献
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      アーティストのShunsuke
+                      Takawo氏は彼の収益の全額を業界の発展のために寄付します。
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      Creative
+                      Codingを楽しんでいるアーティストが楽しんで作品作りを続けられるように支援する仕組みを構築します。
+                    </Typography>
+                  </div>
                 </Grid>
                 <Grid
                   item
                   xs={12}
-                  sm={6}
-                  md={3}
+                  sm={12}
+                  md={4}
                   style={{ padding: 8, marginBottom: 16 }}
                 >
-                  <img
-                    src={"/images/masks/msks_1.png"}
-                    style={{ width: "100%", height: "100%" }}
-                    alt=""
-                  />
+                  <div className={classes.blockStyle}>
+                    <Typography
+                      variant="subtitle2"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                    >
+                      Block 02
+                    </Typography>
+                    <Typography
+                      component="h3"
+                      variant="h5"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                      gutterBottom
+                    >
+                      Metaverse
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      Decentraland上に土地を購入し、ギャラリーなどを構築します。
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      Decentraland上に土地を購入し、ギャラリーなどを構築します。
+                    </Typography>
+                  </div>
                 </Grid>
                 <Grid
                   item
                   xs={12}
-                  sm={6}
-                  md={3}
+                  sm={12}
+                  md={4}
                   style={{ padding: 8, marginBottom: 16 }}
                 >
-                  <img
-                    src={"/images/masks/msks_2.png"}
-                    style={{ width: "100%", height: "100%" }}
-                    alt=""
-                  />
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  md={3}
-                  style={{ padding: 8, marginBottom: 16 }}
-                >
-                  <img
-                    src={"/images/masks/msks_3.png"}
-                    style={{ width: "100%", height: "100%" }}
-                    alt=""
-                  />
+                  <div className={classes.blockStyle}>
+                    <Typography
+                      variant="subtitle2"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                    >
+                      Block 03
+                    </Typography>
+                    <Typography
+                      component="h3"
+                      variant="h5"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                      gutterBottom
+                    >
+                      お楽しみ
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      Generativemasksの公式プリントの提供
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      作品を集めたフォトブックの制作
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                      gutterBottom
+                    >
+                      実際の木彫りマスク
+                    </Typography>
+                    <Typography variant="body1" color="textPrimary">
+                      などコミュニティと対話しながら新しいコンテンツの制作を検討していきます。
+                    </Typography>
+                  </div>
                 </Grid>
               </Grid>
             </Container>
@@ -604,12 +782,13 @@ const PurchasePageTemplate = ({
                       variant="contained"
                       color="primary"
                       style={{ fontWeight: "bold" }}
-                      disabled={
-                        price === undefined ||
-                        remainingAmount.eq(0) ||
-                        !checked ||
-                        isInsufficient
-                      }
+                      disabled
+                      // disabled={
+                      //   price === undefined ||
+                      //   remainingAmount.eq(0) ||
+                      //   !checked ||
+                      //   isInsufficient
+                      // }
                       size="large"
                       disableElevation
                     >
@@ -632,7 +811,7 @@ const PurchasePageTemplate = ({
                       <span>
                         I agree with the
                         <Link
-                          href="https://www.notion.so/tart/WIP-94e269077baa4eda9afdba8fb51bb825"
+                          href="https://tart.notion.site/e454816cc8f04f1e8ecffa20408f4370"
                           target="_blank"
                           rel="noopener"
                           style={{
