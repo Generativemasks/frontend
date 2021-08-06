@@ -72,7 +72,7 @@ export const AppHeader = (props: { account: string | null | undefined }) => {
                     primary={"Terms of Use"}
                     onClick={() => {
                       window.open(
-                        "https://www.notion.so/tart/56b8bbb17dfd44d6a3c67384fba943e4",
+                        "https://tart.notion.site/e454816cc8f04f1e8ecffa20408f4370",
                         "_blank"
                       );
                       setShow(false);
@@ -84,7 +84,7 @@ export const AppHeader = (props: { account: string | null | undefined }) => {
                     primary={"Privacy Policy"}
                     onClick={() => {
                       window.open(
-                        "https://www.notion.so/tart/f84e94231ee04924ac68ad5436d63bee",
+                        "https://tart.notion.site/4dd686aafe014b0bb18be3233903b845",
                         "_blank"
                       );
                       setShow(false);
@@ -96,7 +96,7 @@ export const AppHeader = (props: { account: string | null | undefined }) => {
                     primary={"Specified Commercial Transaction Act"}
                     onClick={() => {
                       window.open(
-                        "https://www.notion.so/tart/f4fef6d5ee584afc8c790d29a4e31c2a",
+                        "https://tart.notion.site/eec581bd081e47c29c55d5681e28d7d1",
                         "_blank"
                       );
                       setShow(false);
