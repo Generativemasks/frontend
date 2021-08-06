@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 
 // @ts-ignore
 import { addresses, abis } from "@project/contracts";
-import { ChainId, shortenIfAddress, useEthers } from "@usedapp/core";
-import TopPageTemplate from "../templates/TopPageTemplate";
+import { ChainId, Config, shortenIfAddress, useEthers } from "@usedapp/core";
 import { Backdrop, Button, Modal } from "@material-ui/core";
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
@@ -31,9 +30,17 @@ export const WalletButton = ({ account }: { account?: string | null }) => {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
 
+  const rpc: any =
+    process.env.REACT_APP_CHAIN_ID === "4"
+      ? { 4: "https://rinkeby.infura.io/v3/62687d1a985d4508b2b7a24827551934" }
+      : { 1: "https://mainnet.infura.io/v3/62687d1a985d4508b2b7a24827551934" };
   const walletConnectConnector = new WalletConnectConnector({
-    rpc: { 4: "https://rinkeby.infura.io/v3/62687d1a985d4508b2b7a24827551934" },
-    supportedChainIds: [ChainId.Rinkeby],
+    rpc,
+    supportedChainIds: [
+      process.env.REACT_APP_CHAIN_ID === "4"
+        ? ChainId.Rinkeby
+        : ChainId.Mainnet,
+    ],
   });
 
   useEffect(() => {
@@ -97,11 +104,3 @@ export const WalletButton = ({ account }: { account?: string | null }) => {
     </>
   );
 };
-
-function App() {
-  const { account, chainId } = useEthers();
-
-  return <TopPageTemplate account={account} chainId={chainId} />;
-}
-
-export default App;

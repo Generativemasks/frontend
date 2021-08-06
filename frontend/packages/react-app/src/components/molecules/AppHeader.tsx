@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const AppHeader = (props: { account: string | null | undefined }) => {
   const classes = useStyles();
-  const history = useHistory();
   const [show, setShow] = useState(false);
   const { width } = useWindowDimensions();
 
@@ -49,7 +48,7 @@ export const AppHeader = (props: { account: string | null | undefined }) => {
               fontWeight: 600,
             }}
           >
-            Function Images
+            Generativemasks
           </a>
         </Typography>
         {width >= 760 && (
@@ -73,7 +72,7 @@ export const AppHeader = (props: { account: string | null | undefined }) => {
                     primary={"Terms of Use"}
                     onClick={() => {
                       window.open(
-                        "https://www.notion.so/tart/WIP-94e269077baa4eda9afdba8fb51bb825",
+                        "https://www.notion.so/tart/56b8bbb17dfd44d6a3c67384fba943e4",
                         "_blank"
                       );
                       setShow(false);
@@ -85,7 +84,7 @@ export const AppHeader = (props: { account: string | null | undefined }) => {
                     primary={"Privacy Policy"}
                     onClick={() => {
                       window.open(
-                        "https://www.notion.so/tart/WIP-c47518b111684d6aaf0fd0ca5d431a41",
+                        "https://www.notion.so/tart/f84e94231ee04924ac68ad5436d63bee",
                         "_blank"
                       );
                       setShow(false);
@@ -97,7 +96,7 @@ export const AppHeader = (props: { account: string | null | undefined }) => {
                     primary={"Specified Commercial Transaction Act"}
                     onClick={() => {
                       window.open(
-                        "https://www.notion.so/tart/3d0b80d6b0ec4398aa72f4df4d084f04",
+                        "https://www.notion.so/tart/f4fef6d5ee584afc8c790d29a4e31c2a",
                         "_blank"
                       );
                       setShow(false);
