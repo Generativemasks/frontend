@@ -30,13 +30,6 @@ const PurchasePage = (props: DetailPageProps) => {
     "buy"
   );
 
-  console.debug(
-    chainId,
-    price,
-    walletBalance?.toString(),
-    process.env.REACT_APP_NFT_ADDRESS ?? ""
-  );
-
   return (
     <PurchasePageTemplate
       account={account}

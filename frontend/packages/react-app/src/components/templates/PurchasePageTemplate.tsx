@@ -546,7 +546,6 @@ const PurchasePageTemplate = ({
                       size="small"
                       onChange={(e) => {
                         const parsed = Number.parseInt(e.target.value);
-                        console.debug(parsed);
                         if (isNaN(parsed)) {
                           setAmount(1);
                           return;
