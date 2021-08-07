@@ -521,6 +521,17 @@ const PurchasePageTemplate = ({
               >
                 Roadmap
               </Typography>
+              <Typography
+                variant="body1"
+                align="left"
+                color="textPrimary"
+                paragraph
+                className={classes.enText}
+              >
+                The Generativemasks team is now developing the following
+                roadmap. We'll explore more new content while interacting with
+                the community.
+              </Typography>
               <Grid
                 container
                 className={classes.imgContent}
@@ -551,23 +562,25 @@ const PurchasePageTemplate = ({
                       style={{ fontWeight: "bold" }}
                       gutterBottom
                     >
-                      貢献
+                      Contribution
                     </Typography>
                     <Typography
                       variant="body1"
                       color="textPrimary"
                       className={classes.listText}
                     >
-                      アーティストのShunsuke
-                      Takawo氏は彼の収益の全額を業界の発展のために寄付します。
+                      The artist, Shunsuke Takawo, will donate all of his
+                      proceeds to the community for the further development of
+                      the industry.
                     </Typography>
                     <Typography
                       variant="body1"
                       color="textPrimary"
                       className={classes.listText}
                     >
-                      Creative
-                      Codingを楽しんでいるアーティストが楽しんで作品作りを続けられるように支援する仕組みを構築します。
+                      We’ll keep focusing on building a system to support the
+                      artists who love Creative Coding so they can enjoy and
+                      continue creating their beautiful works.
                     </Typography>
                   </div>
                 </Grid>
@@ -600,14 +613,16 @@ const PurchasePageTemplate = ({
                       color="textPrimary"
                       className={classes.listText}
                     >
-                      Decentraland上に土地を購入し、ギャラリーなどを構築します。
+                      Planning to buy some lands on Decentraland and build
+                      galleries and other facilities there.
                     </Typography>
                     <Typography
                       variant="body1"
                       color="textPrimary"
                       className={classes.listText}
                     >
-                      Decentraland上に土地を購入し、ギャラリーなどを構築します。
+                      Making it to have avatars on Decentraland actually wear
+                      the masks.
                     </Typography>
                   </div>
                 </Grid>
@@ -633,21 +648,21 @@ const PurchasePageTemplate = ({
                       style={{ fontWeight: "bold" }}
                       gutterBottom
                     >
-                      お楽しみ
+                      Future
                     </Typography>
                     <Typography
                       variant="body1"
                       color="textPrimary"
                       className={classes.listText}
                     >
-                      Generativemasksの公式プリントの提供
+                      Offering official printouts of Generativemasks.
                     </Typography>
                     <Typography
                       variant="body1"
                       color="textPrimary"
                       className={classes.listText}
                     >
-                      作品を集めたフォトブックの制作
+                      Making a photo book of the works.
                     </Typography>
                     <Typography
                       variant="body1"
@@ -655,10 +670,7 @@ const PurchasePageTemplate = ({
                       className={classes.listText}
                       gutterBottom
                     >
-                      実際の木彫りマスク
-                    </Typography>
-                    <Typography variant="body1" color="textPrimary">
-                      などコミュニティと対話しながら新しいコンテンツの制作を検討していきます。
+                      Providing the real carved wood masks.
                     </Typography>
                   </div>
                 </Grid>
