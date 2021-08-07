@@ -57,16 +57,10 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
-  pcTitleContent: {
+  titleContent: {
     display: "block",
     [theme.breakpoints.down(600)]: {
-      display: "none",
-    },
-  },
-  spTitleContent: {
-    display: "none",
-    [theme.breakpoints.down(600)]: {
-      display: "block",
+      fontSize: "1.8rem",
     },
   },
   headerImage: {
@@ -381,36 +375,12 @@ const PurchasePageTemplate = ({
                 variant="h3"
                 align="center"
                 color="textPrimary"
-                className={classes.pcTitleContent}
+                className={classes.titleContent}
                 style={{
                   overflowWrap: "break-word",
                 }}
               >
                 Generativemasks
-              </Typography>
-              <Typography
-                component="h2"
-                variant="h3"
-                align="center"
-                color="textPrimary"
-                className={classes.spTitleContent}
-                style={{
-                  overflowWrap: "normal",
-                }}
-              >
-                Generative
-              </Typography>
-              <Typography
-                component="h2"
-                variant="h3"
-                align="center"
-                color="textPrimary"
-                className={classes.spTitleContent}
-                style={{
-                  overflowWrap: "normal",
-                }}
-              >
-                masks
               </Typography>
               <div style={{ textAlign: "center", marginBottom: 40 }}>
                 <Chip
@@ -515,6 +485,7 @@ const PurchasePageTemplate = ({
                 variant="h4"
                 align="center"
                 color="textPrimary"
+                className={classes.titleContent}
                 style={{
                   overflowWrap: "break-word",
                 }}
@@ -685,6 +656,7 @@ const PurchasePageTemplate = ({
                 align="center"
                 color="textPrimary"
                 gutterBottom
+                className={classes.titleContent}
                 style={{
                   overflowWrap: "break-word",
                 }}
