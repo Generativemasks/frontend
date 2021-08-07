@@ -827,7 +827,7 @@ const PurchasePageTemplate = ({
                         variant="contained"
                         onClick={() => {
                           window.open(
-                            `https://metamask.app.link/dapp/${window.location.host}/#/arts/`
+                            `https://metamask.app.link/dapp/${window.location.host}/#/`
                           );
                         }}
                         fullWidth
@@ -854,7 +854,7 @@ const PurchasePageTemplate = ({
                   </div>
                   <div className={classes.flexBox}>
                     <QRCode
-                      value={`https://metamask.app.link/dapp/${window.location.host}/#/arts/`}
+                      value={`https://metamask.app.link/dapp/${window.location.host}/#/`}
                       size={80}
                     />
                   </div>
