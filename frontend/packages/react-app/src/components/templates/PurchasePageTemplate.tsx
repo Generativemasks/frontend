@@ -326,7 +326,7 @@ const PurchasePageTemplate = ({
   const classes = useStyles();
 
   const [progress, setProgress] = useState(false);
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   const isInsufficient = useMemo(() => {
     if (walletBalance === undefined || price === undefined) {
