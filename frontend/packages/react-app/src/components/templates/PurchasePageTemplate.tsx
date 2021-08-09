@@ -73,7 +73,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(600)]: {
       marginTop: 56,
       paddingTop: "60%",
-      backgroundSize: "auto",
     },
   },
   iconImage: {
