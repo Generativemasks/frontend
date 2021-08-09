@@ -303,6 +303,10 @@ const useStyles = makeStyles((theme) => ({
       backgroundImage: "url(/images/cover.jpg)",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
+      [theme.breakpoints.down(600)]: {
+        backgroundSize: "contain",
+        backgroundRepeat: "repeat",
+      },
     },
   },
 }));
