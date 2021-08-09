@@ -647,6 +647,84 @@ const PurchasePageTemplate = ({
                 </Grid>
               </Grid>
             </Container>
+            <Container className={classes.descriptionContainer}>
+              <Typography
+                component="h2"
+                variant="h4"
+                align="center"
+                color="textPrimary"
+                className={classes.titleContent}
+                style={{
+                  overflowWrap: "break-word",
+                }}
+              >
+                Charity
+              </Typography>
+              <Typography
+                variant="body1"
+                align="left"
+                color="textPrimary"
+                paragraph
+                className={classes.enText}
+              >
+                The artist, Takawo, will be donating all of his personal sales
+                from the project to the following organizations and companies.
+              </Typography>
+              <Grid
+                container
+                className={classes.imgContent}
+                direction="row"
+                justifyContent="center"
+                alignItems="stretch"
+                style={{ alignItems: "strech" }}
+              >
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={12}
+                  style={{ padding: 8, marginBottom: 8 }}
+                >
+                  <div className={classes.blockStyle}>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      Processing Foundation
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      Processing Community Japan
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      OpenProcessing
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      NEORT
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={classes.listText}
+                    >
+                      Coolors
+                    </Typography>
+                  </div>
+                </Grid>
+              </Grid>
+            </Container>
           </div>
           <div className={classes.purchaseContent}>
             <Container maxWidth="sm">
@@ -862,28 +940,125 @@ const PurchasePageTemplate = ({
               </Grid>
             </Grid>
           </Container>
-          <Container
-            className={classes.descriptionContainer}
-            style={{ paddingTop: 20 }}
-          >
-            <Typography
-              variant="body1"
-              align="left"
-              color="textSecondary"
-              paragraph
-              className={classes.enText}
+          <Container className={classes.descriptionContainer}>
+            <Grid
+              container
+              className={classes.imgContent}
+              direction="row"
+              justifyContent="center"
+              alignItems="stretch"
+              style={{ alignItems: "strech" }}
             >
-              This NFT is available for sale from July 19 to July 25. The NFTs
-              will be sent to your wallet immediately after purchase, but which
-              NFT it will be is not determined at that time. The details of the
-              NFT will be confirmed after the lottery is held on July 26. The
-              lottery will be conducted on-chain, and after that, you will be
-              able to see your NFTs on OpenSea and other NFT marketplaces. And
-              if there are still some NFTs available after July 26, you can
-              continue to purchase them. If your NFT status is not changed on
-              OpenSea after the lottery period, please click the “Refresh
-              Metadata” button on the OpenSea NFT page.
-            </Typography>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                style={{ padding: 8, marginBottom: 8 }}
+              >
+                <div className={classes.blockStyle}>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    The lottery sales for this NFT are available from August 17
+                    to August 24.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    If there are still some NFTs available after August 24, you
+                    can continue to purchase them. In that case, the details of
+                    the NFT will be confirmed right away.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    You need ETH to be able to purchase this NFT, and the price
+                    is 0.1 ETH.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    The NFTs will be instantly sent to your wallet after
+                    purchase, but at that time, it has not been decided which
+                    NFT it will be.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    The lottery will be held on-chain after August 24, and then
+                    the details of the NFT will be finalized.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    We would highly recommend OpenSea for browsing the NFT.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    If your NFT status is not changed on OpenSea after the
+                    lottery period, please click the “Refresh Metadata” button
+                    on the OpenSea NFT page.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    The maximum number of Generativemasks that can be issued is
+                    up to 10,000.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    For the purpose of marketing use, there will be 500 of the
+                    NFT issued beforehand. These are used for airdrop and other
+                    marketing purposes.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    As a development incentive, a total of five NFTs will be
+                    offered to the artist and the development company.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    There is no rarity setting for this NFT.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    className={classes.listText}
+                  >
+                    The NFTs will be equally randomly selected from the total
+                    (10,000 NFTs), regardless of the overall number of your
+                    purchases.
+                  </Typography>
+                </div>
+              </Grid>
+            </Grid>
           </Container>
           <Container className={classes.creatorInfo}>
             <Container maxWidth="sm" className={classes.creatorInfoInner}>
