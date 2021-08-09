@@ -1066,7 +1066,7 @@ const PurchasePageTemplate = ({
                 <div style={{ position: "relative" }}>
                   <Avatar
                     alt="takawo"
-                    src="/images/icon.png"
+                    src="/images/artist.png"
                     className={classes.large}
                   />
                   <span className={classes.creatorLabel}>🎨Creator</span>
