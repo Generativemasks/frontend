@@ -73,6 +73,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(600)]: {
       marginTop: 56,
       paddingTop: "60%",
+      backgroundSize: "contain",
+      backgroundRepeat: "repeat",
     },
   },
   iconImage: {
@@ -955,105 +957,33 @@ const PurchasePageTemplate = ({
                 md={12}
                 style={{ padding: 8, marginBottom: 8 }}
               >
-                <div className={classes.blockStyle}>
+                <div>
                   <Typography
                     variant="body1"
                     color="textPrimary"
-                    className={classes.listText}
+                    style={{ fontSize: 14 }}
                   >
                     The lottery sales for this NFT are available from August 17
-                    to August 24.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    If there are still some NFTs available after August 24, you
-                    can continue to purchase them. In that case, the details of
-                    the NFT will be confirmed right away.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    You need ETH to be able to purchase this NFT, and the price
-                    is 0.1 ETH.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    The NFTs will be instantly sent to your wallet after
-                    purchase, but at that time, it has not been decided which
-                    NFT it will be.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    The lottery will be held on-chain after August 24, and then
-                    the details of the NFT will be finalized.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    We would highly recommend OpenSea for browsing the NFT.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    If your NFT status is not changed on OpenSea after the
-                    lottery period, please click the “Refresh Metadata” button
-                    on the OpenSea NFT page.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    The maximum number of Generativemasks that can be issued is
-                    up to 10,000.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    For the purpose of marketing use, there will be 500 of the
-                    NFT issued beforehand. These are used for airdrop and other
-                    marketing purposes.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    As a development incentive, a total of five NFTs will be
-                    offered to the artist and the development company.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    There is no rarity setting for this NFT.
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    className={classes.listText}
-                  >
-                    The NFTs will be equally randomly selected from the total
-                    (10,000 NFTs), regardless of the overall number of your
-                    purchases.
+                    to August 24. If there are still some NFTs available after
+                    August 24, you can continue to purchase them. In that case,
+                    the details of the NFT will be confirmed right away. You
+                    need ETH to be able to purchase this NFT, and the price is
+                    0.1 ETH. The NFTs will be instantly sent to your wallet
+                    after purchase, but at that time, it has not been decided
+                    which NFT it will be. The lottery will be held on-chain
+                    after August 24, and then the details of the NFT will be
+                    finalized. We would highly recommend OpenSea for browsing
+                    the NFT. If your NFT status is not changed on OpenSea after
+                    the lottery period, please click the “Refresh Metadata”
+                    button on the OpenSea NFT page. The maximum number of
+                    Generativemasks that can be issued is up to 10,000. For the
+                    purpose of marketing use, there will be 500 of the NFT
+                    issued beforehand. These are used for airdrop and other
+                    marketing purposes. As a development incentive, a total of
+                    five NFTs will be offered to the artist and the development
+                    company. There is no rarity setting for this NFT. The NFTs
+                    will be equally randomly selected from the total (10,000
+                    NFTs), regardless of the overall number of your purchases.
                   </Typography>
                 </div>
               </Grid>
