@@ -64,11 +64,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   headerImage: {
+    positon: "relative",
     marginTop: 64,
-    backgroundImage: "url(/images/cover.jpg)",
-    backgroundAttachment: "fixed",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
     paddingTop: "20%",
     [theme.breakpoints.down(600)]: {
       marginTop: 56,
@@ -295,6 +292,19 @@ const useStyles = makeStyles((theme) => ({
     boxSizing: "border-box",
     height: "100%",
   },
+  background: {
+    "&::before": {
+      content: `""`,
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundImage: "url(/images/cover.jpg)",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+    },
+  },
 }));
 
 export interface DetailPageTemplateProps {
@@ -355,322 +365,612 @@ const PurchasePageTemplate = ({
       />
       <ChainModal chainId={chainId} />
       <AppHeader account={account} />
-      <div className={classes.headerImage}>
-        <div style={{ backgroundColor: "rgba(255,255,255,0.9)" }}>
-          <div className={classes.heroContent}>
-            <div className={classes.iconImage}>
-              <img
-                src="/images/icon.png"
-                alt=""
-                style={{
-                  width: "100%",
-                  borderRadius: "50%",
-                  position: "relative",
-                  zIndex: 2,
-                }}
-              />
-            </div>
-            <Container maxWidth="sm">
-              <Typography
-                component="h1"
-                variant="h3"
-                align="center"
-                color="textPrimary"
-                className={classes.titleContent}
-                style={{
-                  overflowWrap: "break-word",
-                }}
-              >
-                Generativemasks
-              </Typography>
-              <div style={{ textAlign: "center", marginBottom: 40 }}>
-                <Chip
-                  label="Created by @takawo"
-                  color="primary"
-                  clickable
-                  onClick={() => {
-                    window.open("https://twitter.com/takawo", "_blank");
+      <div className={classes.background}>
+        <div className={classes.headerImage}>
+          <div
+            style={{
+              backgroundColor: "rgba(255,255,255,0.9)",
+              position: "relative",
+              zIndex: 11,
+            }}
+          >
+            <div className={classes.heroContent}>
+              <div className={classes.iconImage}>
+                <img
+                  src="/images/icon.png"
+                  alt=""
+                  style={{
+                    width: "100%",
+                    borderRadius: "50%",
+                    position: "relative",
+                    zIndex: 2,
                   }}
                 />
               </div>
-            </Container>
-            <Container className={classes.descriptionContainer}>
+              <Container maxWidth="sm">
+                <Typography
+                  component="h1"
+                  variant="h3"
+                  align="center"
+                  color="textPrimary"
+                  className={classes.titleContent}
+                  style={{
+                    overflowWrap: "break-word",
+                  }}
+                >
+                  Generativemasks
+                </Typography>
+                <div style={{ textAlign: "center", marginBottom: 40 }}>
+                  <Chip
+                    label="Created by @takawo"
+                    color="primary"
+                    clickable
+                    onClick={() => {
+                      window.open("https://twitter.com/takawo", "_blank");
+                    }}
+                  />
+                </div>
+              </Container>
+              <Container className={classes.descriptionContainer}>
+                <Grid container className={classes.imgContent}>
+                  <Grid
+                    item
+                    xs={6}
+                    sm={6}
+                    md={3}
+                    style={{ padding: 8, marginBottom: 16 }}
+                  >
+                    <img
+                      src={"/images/masks/msks_0.png"}
+                      style={{ width: "100%", height: "100%" }}
+                      alt=""
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={6}
+                    sm={6}
+                    md={3}
+                    style={{ padding: 8, marginBottom: 16 }}
+                  >
+                    <img
+                      src={"/images/masks/msks_1.png"}
+                      style={{ width: "100%", height: "100%" }}
+                      alt=""
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={6}
+                    sm={6}
+                    md={3}
+                    style={{ padding: 8, marginBottom: 16 }}
+                  >
+                    <img
+                      src={"/images/masks/msks_2.png"}
+                      style={{ width: "100%", height: "100%" }}
+                      alt=""
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={6}
+                    sm={6}
+                    md={3}
+                    style={{ padding: 8, marginBottom: 16 }}
+                  >
+                    <img
+                      src={"/images/masks/msks_3.png"}
+                      style={{ width: "100%", height: "100%" }}
+                      alt=""
+                    />
+                  </Grid>
+                </Grid>
+              </Container>
+              <Container
+                className={classes.descriptionContainer}
+                style={{ paddingTop: 20, marginBottom: 42 }}
+              >
+                <Typography
+                  variant="body1"
+                  align="left"
+                  color="textPrimary"
+                  paragraph
+                  className={classes.enText}
+                >
+                  Generativemasks is an 10,000 unique NFT arts created with
+                  Generative Art. This NFT "generates" unique masks with
+                  different expressions one by one, and you can enjoy different
+                  colors of the masks every time you reload them on the NFT
+                  marketplace.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="left"
+                  color="textPrimary"
+                  paragraph
+                  className={classes.enText}
+                >
+                  The inspiration for this work came from discovering a sense of
+                  life in geometric patterns that are symmetrically arranged.
+                  With unexpected shapes and patterns, I tried to express the
+                  scary yet somehow charming atmosphere of Native American totem
+                  poles and indigenous Japanese Yokai.
+                </Typography>
+              </Container>
+              <Container className={classes.descriptionContainer}>
+                <Typography
+                  component="h2"
+                  variant="h4"
+                  align="center"
+                  color="textPrimary"
+                  className={classes.titleContent}
+                  style={{
+                    overflowWrap: "break-word",
+                  }}
+                >
+                  Roadmap
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="left"
+                  color="textPrimary"
+                  paragraph
+                  className={classes.enText}
+                >
+                  The Generativemasks team is now developing the following
+                  roadmap. We'll explore more new content while interacting with
+                  the community.
+                </Typography>
+                <Grid
+                  container
+                  className={classes.imgContent}
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="stretch"
+                  style={{ alignItems: "strech" }}
+                >
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ padding: 8, marginBottom: 16 }}
+                  >
+                    <div className={classes.blockStyle}>
+                      <Typography
+                        variant="subtitle2"
+                        color="primary"
+                        style={{ fontWeight: "bold" }}
+                      >
+                        Block 01
+                      </Typography>
+                      <Typography
+                        component="h3"
+                        variant="h5"
+                        color="primary"
+                        style={{ fontWeight: "bold" }}
+                        gutterBottom
+                      >
+                        Contribution
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        The artist, Shunsuke Takawo, will donate all of his
+                        proceeds to the community for the further development of
+                        the industry.
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        We’ll keep focusing on building a system to support the
+                        artists who love Creative Coding so they can enjoy and
+                        continue creating their beautiful works.
+                      </Typography>
+                    </div>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ padding: 8, marginBottom: 16 }}
+                  >
+                    <div className={classes.blockStyle}>
+                      <Typography
+                        variant="subtitle2"
+                        color="primary"
+                        style={{ fontWeight: "bold" }}
+                      >
+                        Block 02
+                      </Typography>
+                      <Typography
+                        component="h3"
+                        variant="h5"
+                        color="primary"
+                        style={{ fontWeight: "bold" }}
+                        gutterBottom
+                      >
+                        Metaverse
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        Planning to buy some lands on Decentraland and build
+                        galleries and other facilities there.
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        Making it to have avatars on Decentraland actually wear
+                        the masks.
+                      </Typography>
+                    </div>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ padding: 8, marginBottom: 16 }}
+                  >
+                    <div className={classes.blockStyle}>
+                      <Typography
+                        variant="subtitle2"
+                        color="primary"
+                        style={{ fontWeight: "bold" }}
+                      >
+                        Block 03
+                      </Typography>
+                      <Typography
+                        component="h3"
+                        variant="h5"
+                        color="primary"
+                        style={{ fontWeight: "bold" }}
+                        gutterBottom
+                      >
+                        Future
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        Offering official printouts of Generativemasks.
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        Making a photo book of the works.
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                        gutterBottom
+                      >
+                        Providing the real carved wood masks.
+                      </Typography>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Container>
+              <Container className={classes.descriptionContainer}>
+                <Typography
+                  component="h2"
+                  variant="h4"
+                  align="center"
+                  color="textPrimary"
+                  className={classes.titleContent}
+                  style={{
+                    overflowWrap: "break-word",
+                  }}
+                >
+                  Charity
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="left"
+                  color="textPrimary"
+                  paragraph
+                  className={classes.enText}
+                >
+                  The artist, Takawo, will be donating all of his personal sales
+                  from the project to the following organizations and companies.
+                </Typography>
+                <Grid
+                  container
+                  className={classes.imgContent}
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="stretch"
+                  style={{ alignItems: "strech" }}
+                >
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    style={{ padding: 8, marginBottom: 8 }}
+                  >
+                    <div className={classes.blockStyle}>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        Processing Foundation
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        Processing Community Japan
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        OpenProcessing
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        NEORT
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="textPrimary"
+                        className={classes.listText}
+                      >
+                        Coolors
+                      </Typography>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Container>
+            </div>
+            <div className={classes.purchaseContent}>
+              <Container maxWidth="sm">
+                <Typography
+                  component="h1"
+                  variant="h4"
+                  align="center"
+                  color="textPrimary"
+                  gutterBottom
+                  className={classes.titleContent}
+                  style={{
+                    overflowWrap: "break-word",
+                  }}
+                >
+                  Purchase here
+                </Typography>
+              </Container>
+            </div>
+            <Container className={classes.container}>
               <Grid container className={classes.imgContent}>
-                <Grid
-                  item
-                  xs={6}
-                  sm={6}
-                  md={3}
-                  style={{ padding: 8, marginBottom: 16 }}
-                >
-                  <img
-                    src={"/images/masks/msks_0.png"}
-                    style={{ width: "100%", height: "100%" }}
-                    alt=""
-                  />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={6}
-                  md={3}
-                  style={{ padding: 8, marginBottom: 16 }}
-                >
-                  <img
-                    src={"/images/masks/msks_1.png"}
-                    style={{ width: "100%", height: "100%" }}
-                    alt=""
-                  />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={6}
-                  md={3}
-                  style={{ padding: 8, marginBottom: 16 }}
-                >
-                  <img
-                    src={"/images/masks/msks_2.png"}
-                    style={{ width: "100%", height: "100%" }}
-                    alt=""
-                  />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={6}
-                  md={3}
-                  style={{ padding: 8, marginBottom: 16 }}
-                >
-                  <img
-                    src={"/images/masks/msks_3.png"}
-                    style={{ width: "100%", height: "100%" }}
-                    alt=""
-                  />
+                <Grid item xs={12} style={{ marginBottom: 16 }}>
+                  <div className={classes.sampleImage}>
+                    <img
+                      src={"/images/unrevealed.gif"}
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
                 </Grid>
               </Grid>
-            </Container>
-            <Container
-              className={classes.descriptionContainer}
-              style={{ paddingTop: 20, marginBottom: 42 }}
-            >
-              <Typography
-                variant="body1"
-                align="left"
-                color="textPrimary"
-                paragraph
-                className={classes.enText}
-              >
-                Generativemasks is an 10,000 unique NFT arts created with
-                Generative Art. This NFT "generates" unique masks with different
-                expressions one by one, and you can enjoy different colors of
-                the masks every time you reload them on the NFT marketplace.
-              </Typography>
-              <Typography
-                variant="body1"
-                align="left"
-                color="textPrimary"
-                paragraph
-                className={classes.enText}
-              >
-                The inspiration for this work came from discovering a sense of
-                life in geometric patterns that are symmetrically arranged. With
-                unexpected shapes and patterns, I tried to express the scary yet
-                somehow charming atmosphere of Native American totem poles and
-                indigenous Japanese Yokai.
-              </Typography>
-            </Container>
-            <Container className={classes.descriptionContainer}>
-              <Typography
-                component="h2"
-                variant="h4"
-                align="center"
-                color="textPrimary"
-                className={classes.titleContent}
-                style={{
-                  overflowWrap: "break-word",
-                }}
-              >
-                Roadmap
-              </Typography>
-              <Typography
-                variant="body1"
-                align="left"
-                color="textPrimary"
-                paragraph
-                className={classes.enText}
-              >
-                The Generativemasks team is now developing the following
-                roadmap. We'll explore more new content while interacting with
-                the community.
-              </Typography>
-              <Grid
-                container
-                className={classes.imgContent}
-                direction="row"
-                justifyContent="center"
-                alignItems="stretch"
-                style={{ alignItems: "strech" }}
-              >
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={4}
-                  style={{ padding: 8, marginBottom: 16 }}
-                >
-                  <div className={classes.blockStyle}>
-                    <Typography
-                      variant="subtitle2"
-                      color="primary"
-                      style={{ fontWeight: "bold" }}
+              <Grid container className={classes.infoContent}>
+                <Grid item xs={12}>
+                  {!!account && (
+                    <div style={{ marginBottom: 16, textAlign: "center" }}>
+                      <Typography gutterBottom>
+                        <span className={classes.itemName}>
+                          Number of purchases:
+                        </span>
+                      </Typography>
+                      <IconButton
+                        onClick={() => {
+                          if (amount === undefined) {
+                            setAmount(1);
+                            return;
+                          }
+                          if (amount <= 1) {
+                            return;
+                          }
+                          setAmount(amount - 1);
+                        }}
+                        area-label="minus"
+                      >
+                        <IndeterminateCheckBoxOutlined />
+                      </IconButton>
+                      <TextField
+                        variant="outlined"
+                        style={{ width: "20%" }}
+                        inputProps={{ style: { textAlign: "center" } }}
+                        value={amount ?? ""}
+                        size="small"
+                        onChange={(e) => {
+                          const parsed = Number.parseInt(e.target.value);
+                          if (isNaN(parsed)) {
+                            setAmount(1);
+                            return;
+                          }
+                          setAmount(parsed);
+                        }}
+                      />
+                      <IconButton
+                        onClick={() => setAmount((amount ?? 0) + 1)}
+                        area-label="plus"
+                      >
+                        <AddBoxOutlined />
+                      </IconButton>
+                    </div>
+                  )}
+                  {!!remainingAmount && !!price && (
+                    <div style={{ marginBottom: 16, textAlign: "center" }}>
+                      <Typography>
+                        <span className={classes.itemName}>
+                          Remaining amount:
+                        </span>
+                        {remainingAmount.toNumber()} / 10000
+                      </Typography>
+                      <Typography>
+                        <span className={classes.itemName}>Price:</span>
+                        <span style={{ fontSize: "1.65rem" }}>
+                          {formatEther(price.mul(amount).toString())} ETH
+                        </span>
+                      </Typography>
+                      {isInsufficient && walletBalance && (
+                        <Typography color="error">
+                          <span className={classes.itemName}>
+                            Insufficient wallet balance:
+                          </span>
+                          <span>
+                            {formatEther(walletBalance.toString())} ETH
+                          </span>
+                        </Typography>
+                      )}
+                    </div>
+                  )}
+                  {!account && (
+                    <div
+                      className={classes.flexBox}
+                      style={{ marginBottom: 16 }}
                     >
-                      Block 01
-                    </Typography>
-                    <Typography
-                      component="h3"
-                      variant="h5"
-                      color="primary"
-                      style={{ fontWeight: "bold" }}
-                      gutterBottom
+                      <div className={classes.connectInfo}>
+                        Please connect
+                        <br /> your wallet first 👛
+                      </div>
+                    </div>
+                  )}
+                  {!!account && !!remainingAmount && !!price ? (
+                    <div style={{ textAlign: "center" }}>
+                      <Button
+                        onClick={() => {
+                          buy(amount, {
+                            value: price.mul(amount),
+                          });
+                        }}
+                        variant="contained"
+                        color="primary"
+                        style={{ fontWeight: "bold" }}
+                        disabled
+                        // disabled={
+                        //   price === undefined ||
+                        //   remainingAmount.eq(0) ||
+                        //   !checked ||
+                        //   isInsufficient
+                        // }
+                        size="large"
+                        disableElevation
+                      >
+                        {remainingAmount.eq(0) ? "Sold out" : "Purchase"}
+                      </Button>
+                      <div
+                        style={{
+                          marginTop: 16,
+                          textAlign: "left",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Checkbox
+                          color="primary"
+                          checked={checked}
+                          onChange={() => setChecked(!checked)}
+                        />
+                        <span>
+                          I agree with the
+                          <Link
+                            href="https://tart.notion.site/e454816cc8f04f1e8ecffa20408f4370"
+                            target="_blank"
+                            rel="noopener"
+                            style={{
+                              paddingLeft: 8,
+                            }}
+                          >
+                            Terms & Conditions
+                          </Link>
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className={classes.flexBox}>
+                      <WalletButton />
+                    </div>
+                  )}
+                  {!window.ethereum?.isMetaMask && (
+                    <>
+                      <div
+                        className={classes.flexBox}
+                        style={{ marginTop: 16 }}
+                      >
+                        <Typography>or</Typography>
+                      </div>
+                      <div
+                        className={classes.spButton}
+                        style={{ marginTop: 16, marginBottom: 16 }}
+                      >
+                        <Button
+                          className={classes.spButton}
+                          color="primary"
+                          variant="contained"
+                          onClick={() => {
+                            window.open(
+                              `https://metamask.app.link/dapp/${window.location.host}/#/`
+                            );
+                          }}
+                          fullWidth
+                          disableElevation
+                          style={{ marginBottom: 40 }}
+                          startIcon={<Smartphone />}
+                          disabled={progress}
+                        >
+                          Use metamask
+                        </Button>
+                      </div>
+                    </>
+                  )}
+                  <div
+                    className={classes.qrCode}
+                    style={{ marginTop: 16, marginBottom: 16 }}
+                  >
+                    <div
+                      className={classes.flexBox}
+                      style={{ marginBottom: 16 }}
                     >
-                      Contribution
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      The artist, Shunsuke Takawo, will donate all of his
-                      proceeds to the community for the further development of
-                      the industry.
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      We’ll keep focusing on building a system to support the
-                      artists who love Creative Coding so they can enjoy and
-                      continue creating their beautiful works.
-                    </Typography>
-                  </div>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={4}
-                  style={{ padding: 8, marginBottom: 16 }}
-                >
-                  <div className={classes.blockStyle}>
-                    <Typography
-                      variant="subtitle2"
-                      color="primary"
-                      style={{ fontWeight: "bold" }}
-                    >
-                      Block 02
-                    </Typography>
-                    <Typography
-                      component="h3"
-                      variant="h5"
-                      color="primary"
-                      style={{ fontWeight: "bold" }}
-                      gutterBottom
-                    >
-                      Metaverse
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      Planning to buy some lands on Decentraland and build
-                      galleries and other facilities there.
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      Making it to have avatars on Decentraland actually wear
-                      the masks.
-                    </Typography>
-                  </div>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={4}
-                  style={{ padding: 8, marginBottom: 16 }}
-                >
-                  <div className={classes.blockStyle}>
-                    <Typography
-                      variant="subtitle2"
-                      color="primary"
-                      style={{ fontWeight: "bold" }}
-                    >
-                      Block 03
-                    </Typography>
-                    <Typography
-                      component="h3"
-                      variant="h5"
-                      color="primary"
-                      style={{ fontWeight: "bold" }}
-                      gutterBottom
-                    >
-                      Future
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      Offering official printouts of Generativemasks.
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      Making a photo book of the works.
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                      gutterBottom
-                    >
-                      Providing the real carved wood masks.
-                    </Typography>
+                      <Typography>
+                        Or you can scan QR code
+                        <br />
+                        to use metamask app.
+                      </Typography>
+                    </div>
+                    <div className={classes.flexBox}>
+                      <QRCode
+                        value={`https://metamask.app.link/dapp/${window.location.host}/#/`}
+                        size={80}
+                      />
+                    </div>
                   </div>
                 </Grid>
               </Grid>
             </Container>
             <Container className={classes.descriptionContainer}>
-              <Typography
-                component="h2"
-                variant="h4"
-                align="center"
-                color="textPrimary"
-                className={classes.titleContent}
-                style={{
-                  overflowWrap: "break-word",
-                }}
-              >
-                Charity
-              </Typography>
-              <Typography
-                variant="body1"
-                align="left"
-                color="textPrimary"
-                paragraph
-                className={classes.enText}
-              >
-                The artist, Takawo, will be donating all of his personal sales
-                from the project to the following organizations and companies.
-              </Typography>
               <Grid
                 container
                 className={classes.imgContent}
@@ -686,369 +986,100 @@ const PurchasePageTemplate = ({
                   md={12}
                   style={{ padding: 8, marginBottom: 8 }}
                 >
-                  <div className={classes.blockStyle}>
+                  <div>
                     <Typography
                       variant="body1"
                       color="textPrimary"
-                      className={classes.listText}
+                      style={{ fontSize: 14 }}
                     >
-                      Processing Foundation
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      Processing Community Japan
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      OpenProcessing
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      NEORT
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={classes.listText}
-                    >
-                      Coolors
+                      The lottery sales for this NFT are available from August
+                      17 to August 24. If there are still some NFTs available
+                      after August 24, you can continue to purchase them. In
+                      that case, the details of the NFT will be confirmed right
+                      away. You need ETH to be able to purchase this NFT, and
+                      the price is 0.1 ETH. The NFTs will be instantly sent to
+                      your wallet after purchase, but at that time, it has not
+                      been decided which NFT it will be. The lottery will be
+                      held on-chain after August 24, and then the details of the
+                      NFT will be finalized. We would highly recommend OpenSea
+                      for browsing the NFT. If your NFT status is not changed on
+                      OpenSea after the lottery period, please click the
+                      “Refresh Metadata” button on the OpenSea NFT page. The
+                      maximum number of Generativemasks that can be issued is up
+                      to 10,000. For the purpose of marketing use, there will be
+                      500 of the NFT issued beforehand. These are used for
+                      airdrop and other marketing purposes. As a development
+                      incentive, a total of five NFTs will be offered to the
+                      artist and the development company. There is no rarity
+                      setting for this NFT. The NFTs will be equally randomly
+                      selected from the total (10,000 NFTs), regardless of the
+                      overall number of your purchases.
                     </Typography>
                   </div>
                 </Grid>
               </Grid>
             </Container>
-          </div>
-          <div className={classes.purchaseContent}>
-            <Container maxWidth="sm">
-              <Typography
-                component="h1"
-                variant="h4"
-                align="center"
-                color="textPrimary"
-                gutterBottom
-                className={classes.titleContent}
-                style={{
-                  overflowWrap: "break-word",
-                }}
-              >
-                Purchase here
-              </Typography>
-            </Container>
-          </div>
-          <Container className={classes.container}>
-            <Grid container className={classes.imgContent}>
-              <Grid item xs={12} style={{ marginBottom: 16 }}>
-                <div className={classes.sampleImage}>
-                  <img
-                    src={"/images/unrevealed.gif"}
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                </div>
-              </Grid>
-            </Grid>
-            <Grid container className={classes.infoContent}>
-              <Grid item xs={12}>
-                {!!account && (
-                  <div style={{ marginBottom: 16, textAlign: "center" }}>
-                    <Typography gutterBottom>
-                      <span className={classes.itemName}>
-                        Number of purchases:
-                      </span>
-                    </Typography>
-                    <IconButton
-                      onClick={() => {
-                        if (amount === undefined) {
-                          setAmount(1);
-                          return;
-                        }
-                        if (amount <= 1) {
-                          return;
-                        }
-                        setAmount(amount - 1);
-                      }}
-                      area-label="minus"
-                    >
-                      <IndeterminateCheckBoxOutlined />
-                    </IconButton>
-                    <TextField
-                      variant="outlined"
-                      style={{ width: "20%" }}
-                      inputProps={{ style: { textAlign: "center" } }}
-                      value={amount ?? ""}
-                      size="small"
-                      onChange={(e) => {
-                        const parsed = Number.parseInt(e.target.value);
-                        if (isNaN(parsed)) {
-                          setAmount(1);
-                          return;
-                        }
-                        setAmount(parsed);
-                      }}
+            <Container className={classes.creatorInfo}>
+              <Container maxWidth="sm" className={classes.creatorInfoInner}>
+                <div className={classes.creatorInfoFrame}>
+                  <div style={{ position: "relative" }}>
+                    <Avatar
+                      alt="takawo"
+                      src="/images/artist.png"
+                      className={classes.large}
                     />
-                    <IconButton
-                      onClick={() => setAmount((amount ?? 0) + 1)}
-                      area-label="plus"
-                    >
-                      <AddBoxOutlined />
-                    </IconButton>
+                    <span className={classes.creatorLabel}>🎨Creator</span>
                   </div>
-                )}
-                {!!remainingAmount && !!price && (
-                  <div style={{ marginBottom: 16, textAlign: "center" }}>
-                    <Typography>
-                      <span className={classes.itemName}>
-                        Remaining amount:
-                      </span>
-                      {remainingAmount.toNumber()} / 10000
+                  <div>
+                    <Typography style={{ fontWeight: "bold", fontSize: 20 }}>
+                      takawo
                     </Typography>
                     <Typography>
-                      <span className={classes.itemName}>Price:</span>
-                      <span style={{ fontSize: "1.65rem" }}>
-                        {formatEther(price.mul(amount).toString())} ETH
-                      </span>
+                      I'm a creative coder based in Japan. #dailycoding
                     </Typography>
-                    {isInsufficient && walletBalance && (
-                      <Typography color="error">
-                        <span className={classes.itemName}>
-                          Insufficient wallet balance:
-                        </span>
-                        <span>{formatEther(walletBalance.toString())} ETH</span>
-                      </Typography>
-                    )}
-                  </div>
-                )}
-                {!account && (
-                  <div className={classes.flexBox} style={{ marginBottom: 16 }}>
-                    <div className={classes.connectInfo}>
-                      Please connect
-                      <br /> your wallet first 👛
-                    </div>
-                  </div>
-                )}
-                {!!account && !!remainingAmount && !!price ? (
-                  <div style={{ textAlign: "center" }}>
-                    <Button
-                      onClick={() => {
-                        buy(amount, {
-                          value: price.mul(amount),
-                        });
-                      }}
-                      variant="contained"
-                      color="primary"
-                      style={{ fontWeight: "bold" }}
-                      disabled
-                      // disabled={
-                      //   price === undefined ||
-                      //   remainingAmount.eq(0) ||
-                      //   !checked ||
-                      //   isInsufficient
-                      // }
-                      size="large"
-                      disableElevation
-                    >
-                      {remainingAmount.eq(0) ? "Sold out" : "Purchase"}
-                    </Button>
-                    <div
-                      style={{
-                        marginTop: 16,
-                        textAlign: "left",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <Checkbox
-                        color="primary"
-                        checked={checked}
-                        onChange={() => setChecked(!checked)}
-                      />
-                      <span>
-                        I agree with the
-                        <Link
-                          href="https://tart.notion.site/e454816cc8f04f1e8ecffa20408f4370"
-                          target="_blank"
-                          rel="noopener"
-                          style={{
-                            paddingLeft: 8,
-                          }}
-                        >
-                          Terms & Conditions
-                        </Link>
-                      </span>
-                    </div>
-                  </div>
-                ) : (
-                  <div className={classes.flexBox}>
-                    <WalletButton />
-                  </div>
-                )}
-                {!window.ethereum?.isMetaMask && (
-                  <>
-                    <div className={classes.flexBox} style={{ marginTop: 16 }}>
-                      <Typography>or</Typography>
-                    </div>
-                    <div
-                      className={classes.spButton}
-                      style={{ marginTop: 16, marginBottom: 16 }}
-                    >
-                      <Button
-                        className={classes.spButton}
-                        color="primary"
-                        variant="contained"
-                        onClick={() => {
-                          window.open(
-                            `https://metamask.app.link/dapp/${window.location.host}/#/`
-                          );
+                    <div className={classes.linkWrapper}>
+                      <Link
+                        href="https://twitter.com/takawo"
+                        target="_blank"
+                        rel="noopener"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginRight: 8,
                         }}
-                        fullWidth
-                        disableElevation
-                        style={{ marginBottom: 40 }}
-                        startIcon={<Smartphone />}
-                        disabled={progress}
                       >
-                        Use metamask
-                      </Button>
+                        <ArrowRightRoundedIcon fontSize="small" />
+                        <span>Twitter</span>
+                      </Link>
+                      <Link
+                        href="http://cenkhor.org/"
+                        target="_blank"
+                        rel="noopener"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginRight: 8,
+                        }}
+                      >
+                        <ArrowRightRoundedIcon fontSize="small" />
+                        <span>cenkhor.org</span>
+                      </Link>
+                      <Link
+                        href="https://openprocessing.org/user/6533?view=sketches&o=168"
+                        target="_blank"
+                        rel="noopener"
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <ArrowRightRoundedIcon fontSize="small" />
+                        <span>OpenProcessing</span>
+                      </Link>
                     </div>
-                  </>
-                )}
-                <div
-                  className={classes.qrCode}
-                  style={{ marginTop: 16, marginBottom: 16 }}
-                >
-                  <div className={classes.flexBox} style={{ marginBottom: 16 }}>
-                    <Typography>
-                      Or you can scan QR code
-                      <br />
-                      to use metamask app.
-                    </Typography>
-                  </div>
-                  <div className={classes.flexBox}>
-                    <QRCode
-                      value={`https://metamask.app.link/dapp/${window.location.host}/#/`}
-                      size={80}
-                    />
                   </div>
                 </div>
-              </Grid>
-            </Grid>
-          </Container>
-          <Container className={classes.descriptionContainer}>
-            <Grid
-              container
-              className={classes.imgContent}
-              direction="row"
-              justifyContent="center"
-              alignItems="stretch"
-              style={{ alignItems: "strech" }}
-            >
-              <Grid
-                item
-                xs={12}
-                sm={12}
-                md={12}
-                style={{ padding: 8, marginBottom: 8 }}
-              >
-                <div>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    style={{ fontSize: 14 }}
-                  >
-                    The lottery sales for this NFT are available from August 17
-                    to August 24. If there are still some NFTs available after
-                    August 24, you can continue to purchase them. In that case,
-                    the details of the NFT will be confirmed right away. You
-                    need ETH to be able to purchase this NFT, and the price is
-                    0.1 ETH. The NFTs will be instantly sent to your wallet
-                    after purchase, but at that time, it has not been decided
-                    which NFT it will be. The lottery will be held on-chain
-                    after August 24, and then the details of the NFT will be
-                    finalized. We would highly recommend OpenSea for browsing
-                    the NFT. If your NFT status is not changed on OpenSea after
-                    the lottery period, please click the “Refresh Metadata”
-                    button on the OpenSea NFT page. The maximum number of
-                    Generativemasks that can be issued is up to 10,000. For the
-                    purpose of marketing use, there will be 500 of the NFT
-                    issued beforehand. These are used for airdrop and other
-                    marketing purposes. As a development incentive, a total of
-                    five NFTs will be offered to the artist and the development
-                    company. There is no rarity setting for this NFT. The NFTs
-                    will be equally randomly selected from the total (10,000
-                    NFTs), regardless of the overall number of your purchases.
-                  </Typography>
-                </div>
-              </Grid>
-            </Grid>
-          </Container>
-          <Container className={classes.creatorInfo}>
-            <Container maxWidth="sm" className={classes.creatorInfoInner}>
-              <div className={classes.creatorInfoFrame}>
-                <div style={{ position: "relative" }}>
-                  <Avatar
-                    alt="takawo"
-                    src="/images/artist.png"
-                    className={classes.large}
-                  />
-                  <span className={classes.creatorLabel}>🎨Creator</span>
-                </div>
-                <div>
-                  <Typography style={{ fontWeight: "bold", fontSize: 20 }}>
-                    takawo
-                  </Typography>
-                  <Typography>
-                    I'm a creative coder based in Japan. #dailycoding
-                  </Typography>
-                  <div className={classes.linkWrapper}>
-                    <Link
-                      href="https://twitter.com/takawo"
-                      target="_blank"
-                      rel="noopener"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginRight: 8,
-                      }}
-                    >
-                      <ArrowRightRoundedIcon fontSize="small" />
-                      <span>Twitter</span>
-                    </Link>
-                    <Link
-                      href="http://cenkhor.org/"
-                      target="_blank"
-                      rel="noopener"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginRight: 8,
-                      }}
-                    >
-                      <ArrowRightRoundedIcon fontSize="small" />
-                      <span>cenkhor.org</span>
-                    </Link>
-                    <Link
-                      href="https://openprocessing.org/user/6533?view=sketches&o=168"
-                      target="_blank"
-                      rel="noopener"
-                      style={{ display: "flex", alignItems: "center" }}
-                    >
-                      <ArrowRightRoundedIcon fontSize="small" />
-                      <span>OpenProcessing</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              </Container>
             </Container>
-          </Container>
-          <AppFooter />
+            <AppFooter />
+          </div>
         </div>
       </div>
     </div>
