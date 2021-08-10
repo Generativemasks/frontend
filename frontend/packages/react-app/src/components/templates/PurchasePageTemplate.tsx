@@ -826,12 +826,12 @@ const PurchasePageTemplate = ({
                   )}
                   {!!remainingAmount && !!price && (
                     <div style={{ marginBottom: 16, textAlign: "center" }}>
-                      <Typography>
-                        <span className={classes.itemName}>
-                          Remaining amount:
-                        </span>
-                        {remainingAmount.toNumber()} / 10000
-                      </Typography>
+                      {/*<Typography>*/}
+                      {/*  <span className={classes.itemName}>*/}
+                      {/*    Remaining amount:*/}
+                      {/*  </span>*/}
+                      {/*  {remainingAmount.toNumber()} / 10000*/}
+                      {/*</Typography>*/}
                       <Typography>
                         <span className={classes.itemName}>Price:</span>
                         <span style={{ fontSize: "1.65rem" }}>
