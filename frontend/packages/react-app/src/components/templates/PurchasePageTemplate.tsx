@@ -482,7 +482,7 @@ const PurchasePageTemplate = ({
                   paragraph
                   className={classes.enText}
                 >
-                  Generativemasks is an 10,000 unique NFT arts created with
+                  Generativemasks is a 10,000 unique NFT art created with
                   Generative Art. This NFT "generates" unique masks with
                   different expressions one by one, and you can enjoy different
                   colors of the masks every time you reload them on the NFT
