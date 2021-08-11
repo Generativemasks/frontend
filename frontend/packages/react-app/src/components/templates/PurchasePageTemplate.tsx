@@ -132,16 +132,13 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(9),
     height: theme.spacing(9),
     marginRight: theme.spacing(2),
-    [theme.breakpoints.down(600)]: {
-      margin: "0 auto",
-    },
   },
   creatorLabel: {
     backgroundColor: theme.palette.primary.main,
     color: "#fff",
     position: "absolute",
-    top: "-40px",
-    left: -14,
+    top: "-16px",
+    left: 10,
     width: 90,
     padding: "0 8px",
     fontWeight: "bold",
@@ -161,10 +158,15 @@ const useStyles = makeStyles((theme) => ({
       zIndex: -1,
     },
     [theme.breakpoints.down(600)]: {
-      top: "-50px",
-      left: "50%",
-      transform: "translateX(-50%)",
-      padding: 8,
+      top: "4px",
+      left: "auto",
+      right: "4px",
+      padding: 0,
+      fontSize: 14,
+      width: 78,
+      "&::after": {
+        content: "none",
+      },
     },
   },
   linkWrapper: {
@@ -285,6 +287,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   blockStyle: {
+    position: "relative",
     backgroundColor: "#fff",
     border: "1px solid #E86D64",
     borderRadius: 3,
@@ -308,6 +311,12 @@ const useStyles = makeStyles((theme) => ({
         backgroundRepeat: "repeat",
       },
     },
+  },
+  profWrapper: {
+    display: "flex",
+    position: "relative",
+    alignItems: "center",
+    height: "100%",
   },
 }));
 
@@ -1023,64 +1032,162 @@ const PurchasePageTemplate = ({
                 </Grid>
               </Grid>
             </Container>
-            <Container className={classes.creatorInfo}>
-              <Container maxWidth="sm" className={classes.creatorInfoInner}>
-                <div className={classes.creatorInfoFrame}>
-                  <div style={{ position: "relative" }}>
-                    <Avatar
-                      alt="takawo"
-                      src="/images/artist.png"
-                      className={classes.large}
-                    />
+            <Container className={classes.descriptionContainer}>
+              <Typography
+                component="h2"
+                variant="h4"
+                align="center"
+                color="textPrimary"
+                className={classes.titleContent}
+                style={{
+                  overflowWrap: "break-word",
+                }}
+              >
+                Member
+              </Typography>
+              <Grid
+                container
+                className={classes.imgContent}
+                direction="row"
+                justifyContent="center"
+                alignItems="stretch"
+                style={{ alignItems: "strech" }}
+              >
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={4}
+                  style={{ padding: 8, marginBottom: 8 }}
+                >
+                  <div className={classes.blockStyle}>
                     <span className={classes.creatorLabel}>🎨Creator</span>
-                  </div>
-                  <div>
-                    <Typography style={{ fontWeight: "bold", fontSize: 20 }}>
-                      takawo
-                    </Typography>
-                    <Typography>
-                      I'm a creative coder based in Japan. #dailycoding
-                    </Typography>
-                    <div className={classes.linkWrapper}>
-                      <Link
-                        href="https://twitter.com/takawo"
-                        target="_blank"
-                        rel="noopener"
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          marginRight: 8,
-                        }}
-                      >
-                        <ArrowRightRoundedIcon fontSize="small" />
-                        <span>Twitter</span>
-                      </Link>
-                      <Link
-                        href="http://cenkhor.org/"
-                        target="_blank"
-                        rel="noopener"
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          marginRight: 8,
-                        }}
-                      >
-                        <ArrowRightRoundedIcon fontSize="small" />
-                        <span>cenkhor.org</span>
-                      </Link>
-                      <Link
-                        href="https://openprocessing.org/user/6533?view=sketches&o=168"
-                        target="_blank"
-                        rel="noopener"
-                        style={{ display: "flex", alignItems: "center" }}
-                      >
-                        <ArrowRightRoundedIcon fontSize="small" />
-                        <span>OpenProcessing</span>
-                      </Link>
+                    <div className={classes.profWrapper}>
+                      <Avatar
+                        alt="takawo"
+                        src="/images/artist.png"
+                        className={classes.large}
+                      />
+                      <div>
+                        <Typography
+                          style={{ fontWeight: "bold", fontSize: 20 }}
+                        >
+                          takawo
+                        </Typography>
+                        <Link
+                          href="https://twitter.com/takawo"
+                          target="_blank"
+                          rel="noopener"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            marginRight: 8,
+                          }}
+                        >
+                          <ArrowRightRoundedIcon fontSize="small" />
+                          <span>Twitter</span>
+                        </Link>
+                        <Link
+                          href="http://cenkhor.org/"
+                          target="_blank"
+                          rel="noopener"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            marginRight: 8,
+                          }}
+                        >
+                          <ArrowRightRoundedIcon fontSize="small" />
+                          <span>cenkhor.org</span>
+                        </Link>
+                        <Link
+                          href="https://openprocessing.org/user/6533?view=sketches&o=168"
+                          target="_blank"
+                          rel="noopener"
+                          style={{ display: "flex", alignItems: "center" }}
+                        >
+                          <ArrowRightRoundedIcon fontSize="small" />
+                          <span>OpenProcessing</span>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Container>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  style={{ padding: 8, marginBottom: 8 }}
+                >
+                  <div className={classes.blockStyle}>
+                    <div className={classes.profWrapper}>
+                      <Avatar
+                        alt="Toshiaki Takase"
+                        src="/images/tt.jpeg"
+                        className={classes.large}
+                      />
+                      <div>
+                        <Typography
+                          style={{ fontWeight: "bold", fontSize: 20 }}
+                        >
+                          Toshiaki Takase
+                        </Typography>
+                        <Link
+                          href="https://twitter.com/toshiaki_takase"
+                          target="_blank"
+                          rel="noopener"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            marginRight: 8,
+                          }}
+                        >
+                          <ArrowRightRoundedIcon fontSize="small" />
+                          <span>Twitter</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  style={{ padding: 8, marginBottom: 8 }}
+                >
+                  <div className={classes.blockStyle}>
+                    <div className={classes.profWrapper}>
+                      <Avatar
+                        alt="wildmouse"
+                        src="/images/wm.jpeg"
+                        className={classes.large}
+                      />
+                      <div>
+                        <Typography
+                          style={{ fontWeight: "bold", fontSize: 20 }}
+                        >
+                          wildmous
+                        </Typography>
+                        <Link
+                          href="https://twitter.com/wildmouse_"
+                          target="_blank"
+                          rel="noopener"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            marginRight: 8,
+                          }}
+                        >
+                          <ArrowRightRoundedIcon fontSize="small" />
+                          <span>Twitter</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+              </Grid>
             </Container>
             <AppFooter />
           </div>
