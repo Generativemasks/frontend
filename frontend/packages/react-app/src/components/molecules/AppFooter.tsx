@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
-import { Breadcrumbs, makeStyles, Typography } from "@material-ui/core";
+import { Breadcrumbs, Link, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import { useWindowDimensions } from "../../hooks/useWindowDimensions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -25,7 +26,7 @@ export const AppFooter = () => {
   return (
     <footer className={classes.footer}>
       {width >= 600 && (
-        <div style={{ display: "inline-block", marginBottom: 32 }}>
+        <div style={{ display: "inline-block", marginBottom: 16 }}>
           <Breadcrumbs
             separator="|"
             aria-label="breadcrumb"
@@ -58,6 +59,14 @@ export const AppFooter = () => {
           </Breadcrumbs>
         </div>
       )}
+      <div style={{ marginBottom: 16 }}>
+        <Link href="https://twitter.com/generativemasks" color="inherit">
+          <FontAwesomeIcon style={{ padding: 8 }} icon={faTwitter} />
+        </Link>
+        <Link href="https://discord.gg/fH9F7p2CpW" color="inherit">
+          <FontAwesomeIcon style={{ padding: 8 }} icon={faDiscord} />
+        </Link>
+      </div>
       <div>
         <Typography variant="body2" color="textSecondary" align="center">
           {"Copyright © "}
