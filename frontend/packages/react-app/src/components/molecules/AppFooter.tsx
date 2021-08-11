@@ -1,4 +1,10 @@
-import { Breadcrumbs, Link, makeStyles, Typography } from "@material-ui/core";
+import {
+  Breadcrumbs,
+  IconButton,
+  Link,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
 import React from "react";
 import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -60,12 +66,18 @@ export const AppFooter = () => {
         </div>
       )}
       <div style={{ marginBottom: 16 }}>
-        <Link href="https://twitter.com/generativemasks" color="inherit">
+        <IconButton
+          onClick={() =>
+            window.open("https://twitter.com/generativemasks", "_blank")
+          }
+        >
           <FontAwesomeIcon style={{ padding: 8 }} icon={faTwitter} />
-        </Link>
-        <Link href="https://discord.gg/fH9F7p2CpW" color="inherit">
+        </IconButton>
+        <IconButton
+          onClick={() => window.open("https://discord.gg/fH9F7p2CpW", "_blank")}
+        >
           <FontAwesomeIcon style={{ padding: 8 }} icon={faDiscord} />
-        </Link>
+        </IconButton>
       </div>
       <div>
         <Typography variant="body2" color="textSecondary" align="center">
