@@ -1168,7 +1168,7 @@ const PurchasePageTemplate = ({
                         <Typography
                           style={{ fontWeight: "bold", fontSize: 20 }}
                         >
-                          wildmous
+                          wildmouse
                         </Typography>
                         <Link
                           href="https://twitter.com/wildmouse_"
