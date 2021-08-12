@@ -492,10 +492,10 @@ const PurchasePageTemplate = ({
                   className={classes.enText}
                 >
                   Generativemasks is a 10,000 unique NFT art created with
-                  Generative Art. This NFT "generates" unique masks with
+                  Generative Art. This NFT automatically "generates" unique masks with
                   different expressions one by one, and you can enjoy different
                   colors of the masks every time you reload them on the NFT
-                  marketplace.
+                  marketplaces.
                 </Typography>
                 <Typography
                   variant="body1"
@@ -533,7 +533,7 @@ const PurchasePageTemplate = ({
                 >
                   The Generativemasks team is now developing the following
                   roadmap. We'll explore more new content while interacting with
-                  the community.
+                  the community and the people.
                 </Typography>
                 <Grid
                   container
@@ -582,8 +582,8 @@ const PurchasePageTemplate = ({
                         className={classes.listText}
                       >
                         We’ll keep focusing on building a system to support the
-                        artists who love Creative Coding so they can enjoy and
-                        continue creating their beautiful works.
+                        artists who love and enjoy Creative Coding so they can
+                        continue to create their beautiful works.
                       </Typography>
                     </div>
                   </Grid>
@@ -624,7 +624,7 @@ const PurchasePageTemplate = ({
                         color="textPrimary"
                         className={classes.listText}
                       >
-                        Making it to have avatars on Decentraland actually wear
+                        Making it fun to have avatars on Decentraland actually wear
                         the masks.
                       </Typography>
                     </div>
@@ -699,8 +699,8 @@ const PurchasePageTemplate = ({
                   paragraph
                   className={classes.enText}
                 >
-                  The artist, Takawo, will be donating all of his personal sales
-                  from the project to the following organizations and companies.
+                  The artist of this work, Shunsuke Takawo, will be donating all his proceeds
+                  from this project to the following organizations and companies.
                 </Typography>
                 <Grid
                   container
@@ -1006,27 +1006,27 @@ const PurchasePageTemplate = ({
                       style={{ fontSize: 14 }}
                     >
                       The lottery sales for this NFT are available from August
-                      17 to August 24. If there are still some NFTs available
+                      17 to August 24. If there are still the NFTs available
                       after August 24, you can continue to purchase them. In
                       that case, the details of the NFT will be confirmed right
-                      away. You need ETH to be able to purchase this NFT, and
+                      away. You need ETH to be able to purchase this NFTs, and
                       the price is 0.1 ETH. The NFTs will be instantly sent to
-                      your wallet after purchase, but at that time, it has not
-                      been decided which NFT it will be. The lottery will be
+                      your wallet after purchase, but at that time, it hasn't
+                      been decided which NFT it will be. So the lottery will be
                       held on-chain after August 24, and then the details of the
-                      NFT will be finalized. We would highly recommend OpenSea
-                      for browsing the NFT. If your NFT status is not changed on
-                      OpenSea after the lottery period, please click the
+                      NFT will be finalized at this point. We would highly recommend
+                      OpenSea for browsing this NFT. And if your NFT status on OpenSea
+                      is not changed after the lottery period, please click the
                       “Refresh Metadata” button on the OpenSea NFT page. The
                       maximum number of Generativemasks that can be issued is up
                       to 10,000. For the purpose of marketing use, there will be
                       500 of the NFT issued beforehand. These are used for
-                      airdrop and other marketing purposes. As a development
+                      airdrop campaigns and other marketing purposes. As a development
                       incentive, a total of five NFTs will be offered to the
                       artist and the development company. There is no rarity
                       setting for this NFT. The NFTs will be equally randomly
                       selected from the total (10,000 NFTs), regardless of the
-                      overall number of your purchases.
+                      overall number of purchases.
                     </Typography>
                   </div>
                 </Grid>
