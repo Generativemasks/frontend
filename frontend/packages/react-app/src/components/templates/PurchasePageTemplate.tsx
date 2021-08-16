@@ -863,7 +863,7 @@ const PurchasePageTemplate = ({
                   {!account && (
                     <div
                       className={classes.flexBox}
-                      style={{ marginBottom: 16 }}
+                      style={{ marginBottom: 8 }}
                     >
                       <div className={classes.connectInfo}>
                         Please connect
@@ -873,29 +873,10 @@ const PurchasePageTemplate = ({
                   )}
                   {!!account && !!remainingAmount && !!price ? (
                     <div style={{ textAlign: "center" }}>
-                      <Button
-                        onClick={() => {
-                          buy(amount, {
-                            value: price.mul(amount),
-                          });
-                        }}
-                        variant="contained"
-                        color="primary"
-                        style={{ fontWeight: "bold" }}
-                        disabled={
-                          price === undefined ||
-                          remainingAmount.eq(0) ||
-                          !checked ||
-                          isInsufficient
-                        }
-                        size="large"
-                        disableElevation
-                      >
-                        {remainingAmount.eq(0) ? "Sold out" : "Purchase"}
-                      </Button>
                       <div
                         style={{
-                          marginTop: 16,
+                          marginTop: 8,
+                          marginBottom: 16,
                           textAlign: "left",
                           display: "flex",
                           alignItems: "center",
@@ -921,6 +902,26 @@ const PurchasePageTemplate = ({
                           </Link>
                         </span>
                       </div>
+                      <Button
+                        onClick={() => {
+                          buy(amount, {
+                            value: price.mul(amount),
+                          });
+                        }}
+                        variant="contained"
+                        color="primary"
+                        style={{ fontWeight: "bold" }}
+                        disabled={
+                          price === undefined ||
+                          remainingAmount.eq(0) ||
+                          !checked ||
+                          isInsufficient
+                        }
+                        size="large"
+                        disableElevation
+                      >
+                        {remainingAmount.eq(0) ? "Sold out" : "Purchase"}
+                      </Button>
                     </div>
                   ) : (
                     <div className={classes.flexBox}>
