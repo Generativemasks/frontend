@@ -789,51 +789,7 @@ const PurchasePageTemplate = ({
               </Grid>
               <Grid container className={classes.infoContent}>
                 <Grid item xs={12}>
-                  {!!account && (
-                    <div style={{ marginBottom: 16, textAlign: "center" }}>
-                      <Typography gutterBottom>
-                        <span className={classes.itemName}>
-                          Number of purchases:
-                        </span>
-                      </Typography>
-                      <IconButton
-                        onClick={() => {
-                          if (amount === undefined) {
-                            setAmount(1);
-                            return;
-                          }
-                          if (amount <= 1) {
-                            return;
-                          }
-                          setAmount(amount - 1);
-                        }}
-                        area-label="minus"
-                      >
-                        <IndeterminateCheckBoxOutlined />
-                      </IconButton>
-                      <TextField
-                        variant="outlined"
-                        style={{ width: "20%" }}
-                        inputProps={{ style: { textAlign: "center" } }}
-                        value={amount ?? ""}
-                        size="small"
-                        onChange={(e) => {
-                          const parsed = Number.parseInt(e.target.value);
-                          if (isNaN(parsed)) {
-                            setAmount(1);
-                            return;
-                          }
-                          setAmount(parsed);
-                        }}
-                      />
-                      <IconButton
-                        onClick={() => setAmount((amount ?? 0) + 1)}
-                        area-label="plus"
-                      >
-                        <AddBoxOutlined />
-                      </IconButton>
-                    </div>
-                  )}
+                  
                   {!!remainingAmount && !!price && (
                     <div style={{ marginBottom: 16, textAlign: "center" }}>
                       <Typography>
@@ -873,54 +829,17 @@ const PurchasePageTemplate = ({
                   )}
                   {!!account && !!remainingAmount && !!price ? (
                     <div style={{ textAlign: "center" }}>
-                      <div
-                        style={{
-                          marginTop: 8,
-                          marginBottom: 16,
-                          textAlign: "left",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <Checkbox
-                          color="primary"
-                          checked={checked}
-                          onChange={() => setChecked(!checked)}
-                        />
-                        <span>
-                          I agree with the
-                          <Link
-                            href="https://tart.notion.site/e454816cc8f04f1e8ecffa20408f4370"
-                            target="_blank"
-                            rel="noopener"
-                            style={{
-                              paddingLeft: 8,
-                            }}
-                          >
-                            Terms & Conditions
-                          </Link>
-                        </span>
-                      </div>
                       <Button
-                        onClick={() => {
-                          buy(amount, {
-                            value: price.mul(amount),
-                          });
-                        }}
                         variant="contained"
                         color="primary"
                         style={{ fontWeight: "bold" }}
                         disabled={
-                          price === undefined ||
-                          remainingAmount.eq(0) ||
-                          !checked ||
-                          isInsufficient
+                          true
                         }
                         size="large"
                         disableElevation
                       >
-                        {remainingAmount.eq(0) ? "Sold out" : "Purchase"}
+                        {"Sold out"}
                       </Button>
                     </div>
                   ) : (
