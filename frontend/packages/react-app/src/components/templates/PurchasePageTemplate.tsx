@@ -32,6 +32,8 @@ import {
   Smartphone,
 } from "@material-ui/icons";
 import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -789,96 +791,6 @@ const PurchasePageTemplate = ({
               </Grid>
               <Grid container className={classes.infoContent}>
                 <Grid item xs={12}>
-                  
-                  {!!remainingAmount && !!price && (
-                    <div style={{ marginBottom: 16, textAlign: "center" }}>
-                      <Typography>
-                        <span className={classes.itemName}>
-                          Remaining amount:
-                        </span>
-                        {remainingAmount.toNumber()} / 10000
-                      </Typography>
-                      <Typography>
-                        <span className={classes.itemName}>Price:</span>
-                        <span style={{ fontSize: "1.65rem" }}>
-                          {formatEther(price.mul(amount).toString())} ETH
-                        </span>
-                      </Typography>
-                      {isInsufficient && walletBalance && (
-                        <Typography color="error">
-                          <span className={classes.itemName}>
-                            Insufficient wallet balance:
-                          </span>
-                          <span>
-                            {formatEther(walletBalance.toString())} ETH
-                          </span>
-                        </Typography>
-                      )}
-                    </div>
-                  )}
-                  {!account && (
-                    <div
-                      className={classes.flexBox}
-                      style={{ marginBottom: 8 }}
-                    >
-                      <div className={classes.connectInfo}>
-                        Please connect
-                        <br /> your wallet first 👛
-                      </div>
-                    </div>
-                  )}
-                  {!!account && !!remainingAmount && !!price ? (
-                    <div style={{ textAlign: "center" }}>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        style={{ fontWeight: "bold" }}
-                        disabled={
-                          true
-                        }
-                        size="large"
-                        disableElevation
-                      >
-                        {"Sold out"}
-                      </Button>
-                    </div>
-                  ) : (
-                    <div className={classes.flexBox}>
-                      <WalletButton />
-                    </div>
-                  )}
-                  {!window.ethereum?.isMetaMask && (
-                    <>
-                      <div
-                        className={classes.flexBox}
-                        style={{ marginTop: 16 }}
-                      >
-                        <Typography>or</Typography>
-                      </div>
-                      <div
-                        className={classes.spButton}
-                        style={{ marginTop: 16, marginBottom: 16 }}
-                      >
-                        <Button
-                          className={classes.spButton}
-                          color="primary"
-                          variant="contained"
-                          onClick={() => {
-                            window.open(
-                              `https://metamask.app.link/dapp/${window.location.host}/#/`
-                            );
-                          }}
-                          fullWidth
-                          disableElevation
-                          style={{ marginBottom: 40 }}
-                          startIcon={<Smartphone />}
-                          disabled={progress}
-                        >
-                          Use metamask
-                        </Button>
-                      </div>
-                    </>
-                  )}
                   <div
                     className={classes.qrCode}
                     style={{ marginTop: 16, marginBottom: 16 }}
@@ -887,18 +799,50 @@ const PurchasePageTemplate = ({
                       className={classes.flexBox}
                       style={{ marginBottom: 16 }}
                     >
-                      <Typography>
-                        Or you can scan QR code
-                        <br />
-                        to use metamask app.
-                      </Typography>
+                      <Typography>All NFTs are minted!</Typography>
                     </div>
-                    <div className={classes.flexBox}>
-                      <QRCode
-                        value={`https://metamask.app.link/dapp/${window.location.host}/#/`}
-                        size={80}
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                      size="large"
+                      disableElevation
+                      onClick={() =>
+                        window.open(
+                          "https://opensea.io/collection/generativemasks",
+                          "_blank"
+                        )
+                      }
+                    >
+                      {"View on OpenSea"}
+                    </Button>
+                  </div>
+                  <div style={{ marginBottom: 16 }}>
+                    <IconButton
+                      onClick={() =>
+                        window.open(
+                          "https://twitter.com/generativemasks",
+                          "_blank"
+                        )
+                      }
+                    >
+                      <FontAwesomeIcon
+                        style={{ padding: 8 }}
+                        icon={faTwitter}
                       />
-                    </div>
+                    </IconButton>
+                    <IconButton
+                      onClick={() =>
+                        window.open("https://discord.gg/fH9F7p2CpW", "_blank")
+                      }
+                    >
+                      <FontAwesomeIcon
+                        style={{ padding: 8 }}
+                        icon={faDiscord}
+                      />
+                    </IconButton>
                   </div>
                 </Grid>
               </Grid>
