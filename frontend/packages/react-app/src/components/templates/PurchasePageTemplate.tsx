@@ -882,7 +882,6 @@ const PurchasePageTemplate = ({
                       setting for this NFT. Lastly, the NFTs were equally randomly
                       selected from the total (10,000 NFTs), regardless of the
                       overall number of purchases.
-
                     </Typography>
                   </div>
                 </Grid>
