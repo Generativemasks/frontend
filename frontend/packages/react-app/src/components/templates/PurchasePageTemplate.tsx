@@ -32,6 +32,8 @@ import {
   Smartphone,
 } from "@material-ui/icons";
 import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -492,10 +494,10 @@ const PurchasePageTemplate = ({
                   className={classes.enText}
                 >
                   Generativemasks is a 10,000 unique NFT art created with
-                  Generative Art. This NFT automatically "generates" unique masks with
-                  different expressions one by one, and you can enjoy different
-                  colors of the masks every time you reload them on the NFT
-                  marketplaces.
+                  Generative Art. This NFT automatically "generates" unique
+                  masks with different expressions one by one, and you can enjoy
+                  different colors of the masks every time you reload them on
+                  the NFT marketplaces.
                 </Typography>
                 <Typography
                   variant="body1"
@@ -624,8 +626,8 @@ const PurchasePageTemplate = ({
                         color="textPrimary"
                         className={classes.listText}
                       >
-                        Making it fun to have avatars on Decentraland actually wear
-                        the masks.
+                        Making it fun to have avatars on Decentraland actually
+                        wear the masks.
                       </Typography>
                     </div>
                   </Grid>
@@ -699,8 +701,9 @@ const PurchasePageTemplate = ({
                   paragraph
                   className={classes.enText}
                 >
-                  The artist of this work, Shunsuke Takawo, will be donating all his proceeds
-                  from this project to the following organizations and companies.
+                  The artist of this work, Shunsuke Takawo, will be donating all
+                  his proceeds from this project to the following organizations
+                  and companies.
                 </Typography>
                 <Grid
                   container
@@ -788,177 +791,6 @@ const PurchasePageTemplate = ({
               </Grid>
               <Grid container className={classes.infoContent}>
                 <Grid item xs={12}>
-                  {!!account && (
-                    <div style={{ marginBottom: 16, textAlign: "center" }}>
-                      <Typography gutterBottom>
-                        <span className={classes.itemName}>
-                          Number of purchases:
-                        </span>
-                      </Typography>
-                      <IconButton
-                        onClick={() => {
-                          if (amount === undefined) {
-                            setAmount(1);
-                            return;
-                          }
-                          if (amount <= 1) {
-                            return;
-                          }
-                          setAmount(amount - 1);
-                        }}
-                        area-label="minus"
-                      >
-                        <IndeterminateCheckBoxOutlined />
-                      </IconButton>
-                      <TextField
-                        variant="outlined"
-                        style={{ width: "20%" }}
-                        inputProps={{ style: { textAlign: "center" } }}
-                        value={amount ?? ""}
-                        size="small"
-                        onChange={(e) => {
-                          const parsed = Number.parseInt(e.target.value);
-                          if (isNaN(parsed)) {
-                            setAmount(1);
-                            return;
-                          }
-                          setAmount(parsed);
-                        }}
-                      />
-                      <IconButton
-                        onClick={() => setAmount((amount ?? 0) + 1)}
-                        area-label="plus"
-                      >
-                        <AddBoxOutlined />
-                      </IconButton>
-                    </div>
-                  )}
-                  {!!remainingAmount && !!price && (
-                    <div style={{ marginBottom: 16, textAlign: "center" }}>
-                      {/*<Typography>*/}
-                      {/*  <span className={classes.itemName}>*/}
-                      {/*    Remaining amount:*/}
-                      {/*  </span>*/}
-                      {/*  {remainingAmount.toNumber()} / 10000*/}
-                      {/*</Typography>*/}
-                      <Typography>
-                        <span className={classes.itemName}>Price:</span>
-                        <span style={{ fontSize: "1.65rem" }}>
-                          {formatEther(price.mul(amount).toString())} ETH
-                        </span>
-                      </Typography>
-                      {isInsufficient && walletBalance && (
-                        <Typography color="error">
-                          <span className={classes.itemName}>
-                            Insufficient wallet balance:
-                          </span>
-                          <span>
-                            {formatEther(walletBalance.toString())} ETH
-                          </span>
-                        </Typography>
-                      )}
-                    </div>
-                  )}
-                  {!account && (
-                    <div
-                      className={classes.flexBox}
-                      style={{ marginBottom: 16 }}
-                    >
-                      <div className={classes.connectInfo}>
-                        Please connect
-                        <br /> your wallet first 👛
-                      </div>
-                    </div>
-                  )}
-                  {!!account && !!remainingAmount && !!price ? (
-                    <div style={{ textAlign: "center" }}>
-                      <Button
-                        onClick={() => {
-                          buy(amount, {
-                            value: price.mul(amount),
-                          });
-                        }}
-                        variant="contained"
-                        color="primary"
-                        style={{ fontWeight: "bold" }}
-                        disabled
-                        // disabled={
-                        //   price === undefined ||
-                        //   remainingAmount.eq(0) ||
-                        //   !checked ||
-                        //   isInsufficient
-                        // }
-                        size="large"
-                        disableElevation
-                      >
-                        {remainingAmount.eq(0) ? "Sold out" : "Purchase"}
-                      </Button>
-                      <div
-                        style={{
-                          marginTop: 16,
-                          textAlign: "left",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <Checkbox
-                          color="primary"
-                          checked={checked}
-                          onChange={() => setChecked(!checked)}
-                        />
-                        <span>
-                          I agree with the
-                          <Link
-                            href="https://tart.notion.site/e454816cc8f04f1e8ecffa20408f4370"
-                            target="_blank"
-                            rel="noopener"
-                            style={{
-                              paddingLeft: 8,
-                            }}
-                          >
-                            Terms & Conditions
-                          </Link>
-                        </span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className={classes.flexBox}>
-                      <WalletButton />
-                    </div>
-                  )}
-                  {!window.ethereum?.isMetaMask && (
-                    <>
-                      <div
-                        className={classes.flexBox}
-                        style={{ marginTop: 16 }}
-                      >
-                        <Typography>or</Typography>
-                      </div>
-                      <div
-                        className={classes.spButton}
-                        style={{ marginTop: 16, marginBottom: 16 }}
-                      >
-                        <Button
-                          className={classes.spButton}
-                          color="primary"
-                          variant="contained"
-                          onClick={() => {
-                            window.open(
-                              `https://metamask.app.link/dapp/${window.location.host}/#/`
-                            );
-                          }}
-                          fullWidth
-                          disableElevation
-                          style={{ marginBottom: 40 }}
-                          startIcon={<Smartphone />}
-                          disabled={progress}
-                        >
-                          Use metamask
-                        </Button>
-                      </div>
-                    </>
-                  )}
                   <div
                     className={classes.qrCode}
                     style={{ marginTop: 16, marginBottom: 16 }}
@@ -967,18 +799,50 @@ const PurchasePageTemplate = ({
                       className={classes.flexBox}
                       style={{ marginBottom: 16 }}
                     >
-                      <Typography>
-                        Or you can scan QR code
-                        <br />
-                        to use metamask app.
-                      </Typography>
+                      <Typography>All NFTs are minted!</Typography>
                     </div>
-                    <div className={classes.flexBox}>
-                      <QRCode
-                        value={`https://metamask.app.link/dapp/${window.location.host}/#/`}
-                        size={80}
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                      size="large"
+                      disableElevation
+                      onClick={() =>
+                        window.open(
+                          "https://opensea.io/collection/generativemasks",
+                          "_blank"
+                        )
+                      }
+                    >
+                      {"View on OpenSea"}
+                    </Button>
+                  </div>
+                  <div style={{ marginBottom: 16 }}>
+                    <IconButton
+                      onClick={() =>
+                        window.open(
+                          "https://twitter.com/generativemasks",
+                          "_blank"
+                        )
+                      }
+                    >
+                      <FontAwesomeIcon
+                        style={{ padding: 8 }}
+                        icon={faTwitter}
                       />
-                    </div>
+                    </IconButton>
+                    <IconButton
+                      onClick={() =>
+                        window.open("https://discord.gg/fH9F7p2CpW", "_blank")
+                      }
+                    >
+                      <FontAwesomeIcon
+                        style={{ padding: 8 }}
+                        icon={faDiscord}
+                      />
+                    </IconButton>
                   </div>
                 </Grid>
               </Grid>
@@ -1018,6 +882,7 @@ const PurchasePageTemplate = ({
                       setting for this NFT. Lastly, the NFTs were equally randomly
                       selected from the total (10,000 NFTs), regardless of the
                       overall number of purchases.
+
                     </Typography>
                   </div>
                 </Grid>
