@@ -350,10 +350,6 @@ const tools = [
     link: "https://openprocessing.org/sketch/1249649",
   },
   {
-    name: "mask modder(created by junosz.eth)",
-    link: "https://junosuarez.github.io/maskmod/",
-  },
-  {
     name: "Analytics dashboard(Dune Analytics)",
     link: "https://dune.xyz/venture_capital/generativemasks",
   },
