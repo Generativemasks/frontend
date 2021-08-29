@@ -350,6 +350,10 @@ const tools = [
     link: "https://openprocessing.org/sketch/1249649",
   },
   {
+    name: "Mask on Snapchat(created by Chicken McDougget)",
+    link: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=6b1f7e54751749328e608b9e6b386899&metadata=01",
+  },
+  {
     name: "Analytics dashboard(Dune Analytics)",
     link: "https://dune.xyz/venture_capital/generativemasks",
   },
