@@ -350,6 +350,10 @@ const tools = [
     link: "https://openprocessing.org/sketch/1249649",
   },
   {
+    name: "Mask on Snapchat(created by Chicken McDougget)",
+    link: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=6b1f7e54751749328e608b9e6b386899&metadata=01",
+  },
+  {
     name: "Analytics dashboard(Dune Analytics)",
     link: "https://dune.xyz/venture_capital/generativemasks",
   },
@@ -704,64 +708,7 @@ const PurchasePageTemplate = ({
                   </Grid>
                 </Grid>
               </Container>
-              <Container className={classes.descriptionContainer}>
-                <Typography
-                  component="h2"
-                  variant="h4"
-                  align="center"
-                  color="textPrimary"
-                  className={classes.titleContent}
-                  style={{
-                    overflowWrap: "break-word",
-                  }}
-                >
-                  Tools
-                </Typography>
-                <Typography
-                  variant="body1"
-                  align="left"
-                  color="textPrimary"
-                  paragraph
-                  className={classes.enText}
-                >
-                  The community develop a tools continuously. You can check and
-                  use these tools.{" "}
-                </Typography>
-                <Grid
-                  container
-                  className={classes.imgContent}
-                  direction="row"
-                  justifyContent="center"
-                  alignItems="stretch"
-                  style={{ alignItems: "strech" }}
-                >
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={12}
-                    style={{ padding: 8, marginBottom: 8 }}
-                  >
-                    <div className={classes.blockStyle}>
-                      {tools.map((tool, index) => (
-                        <Link
-                          key={"tool" + index}
-                          href={tool.link}
-                          target="_blank"
-                          rel="noopener"
-                        >
-                          <Typography
-                            variant="body1"
-                            className={classes.listText}
-                          >
-                            {tool.name}
-                          </Typography>
-                        </Link>
-                      ))}
-                    </div>
-                  </Grid>
-                </Grid>
-              </Container>
+
               <Container className={classes.descriptionContainer}>
                 <Typography
                   component="h2"
@@ -842,6 +789,64 @@ const PurchasePageTemplate = ({
                 </Grid>
               </Container>
             </div>
+            <Container className={classes.descriptionContainer}>
+              <Typography
+                component="h2"
+                variant="h4"
+                align="center"
+                color="textPrimary"
+                className={classes.titleContent}
+                style={{
+                  overflowWrap: "break-word",
+                }}
+              >
+                Tools
+              </Typography>
+              <Typography
+                variant="body1"
+                align="left"
+                color="textPrimary"
+                paragraph
+                className={classes.enText}
+              >
+                The community develop a tools continuously. You can check and
+                use these tools.{" "}
+              </Typography>
+              <Grid
+                container
+                className={classes.imgContent}
+                direction="row"
+                justifyContent="center"
+                alignItems="stretch"
+                style={{ alignItems: "strech" }}
+              >
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={12}
+                  style={{ padding: 8, marginBottom: 8 }}
+                >
+                  <div className={classes.blockStyle}>
+                    {tools.map((tool, index) => (
+                      <Link
+                        key={"tool" + index}
+                        href={tool.link}
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <Typography
+                          variant="body1"
+                          className={classes.listText}
+                        >
+                          {tool.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </div>
+                </Grid>
+              </Grid>
+            </Container>
             <div className={classes.purchaseContent}>
               <Container maxWidth="sm">
                 <Typography
