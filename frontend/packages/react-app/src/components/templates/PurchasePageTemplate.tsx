@@ -354,6 +354,10 @@ const tools = [
     link: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=6b1f7e54751749328e608b9e6b386899&metadata=01",
   },
   {
+    name: "mask modder(created by junosz.eth)",
+    link: "https://junosuarez.github.io/maskmod/",
+  },
+  {
     name: "Analytics dashboard(Dune Analytics)",
     link: "https://dune.xyz/venture_capital/generativemasks",
   },
