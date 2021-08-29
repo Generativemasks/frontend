@@ -336,6 +336,29 @@ export interface DetailPageTemplateProps {
   readonly walletBalance: BigNumber | undefined;
 }
 
+const tools = [
+  {
+    name: "Mask on the webcam(created by takawo)",
+    link: "https://openprocessing.org/sketch/1248797",
+  },
+  {
+    name: "Pattern Extractor(created by takawo)",
+    link: "https://openprocessing.org/sketch/1250271",
+  },
+  {
+    name: "3x3 Tile Generator(created by takawo)",
+    link: "https://openprocessing.org/sketch/1249649",
+  },
+  {
+    name: "Analytics dashboard(Dune Analytics)",
+    link: "https://dune.xyz/venture_capital/generativemasks",
+  },
+  {
+    name: "Original Script(github pages)",
+    link: "https://github.com/Generativemasks/generativemasks.github.io",
+  },
+];
+
 const PurchasePageTemplate = ({
   amount,
   setAmount,
@@ -692,6 +715,64 @@ const PurchasePageTemplate = ({
                     overflowWrap: "break-word",
                   }}
                 >
+                  Tools
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="left"
+                  color="textPrimary"
+                  paragraph
+                  className={classes.enText}
+                >
+                  The community develop a tools continuously. You can check and
+                  use these tools.{" "}
+                </Typography>
+                <Grid
+                  container
+                  className={classes.imgContent}
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="stretch"
+                  style={{ alignItems: "strech" }}
+                >
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    style={{ padding: 8, marginBottom: 8 }}
+                  >
+                    <div className={classes.blockStyle}>
+                      {tools.map((tool, index) => (
+                        <Link
+                          key={"tool" + index}
+                          href={tool.link}
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          <Typography
+                            variant="body1"
+                            className={classes.listText}
+                          >
+                            {tool.name}
+                          </Typography>
+                        </Link>
+                      ))}
+                    </div>
+                  </Grid>
+                </Grid>
+              </Container>
+              <Container className={classes.descriptionContainer}>
+                <Typography
+                  component="h2"
+                  variant="h4"
+                  align="center"
+                  color="textPrimary"
+                  className={classes.titleContent}
+                  style={{
+                    overflowWrap: "break-word",
+                  }}
+                >
                   Charity
                 </Typography>
                 <Typography
@@ -869,19 +950,20 @@ const PurchasePageTemplate = ({
                       color="textPrimary"
                       style={{ fontSize: 14 }}
                     >
-                      The release day was August 17th 2021 (~Aug 24th 2021), but since all of the NFTs
-                      were minted at this point, we've revealed them already.
-                      And we highly recommend you using OpenSea for browsing this NFTs.
-                      If you see that there is something wrong with
-                      your NFT status on OpenSea, please click the “Refresh Metadata” button
-                      on the page. The maximum number of Generativemasks
-                      issued was 10,000 and there were 500 of them for the marketing use.
-                      These were used for our airdrop campaigns and other marketing purposes.
-                      As a development incentive, a total of five NFTs was offered to the
-                      artist and the development company. There is no rarity
-                      setting for this NFT. Lastly, the NFTs were equally randomly
-                      selected from the total (10,000 NFTs), regardless of the
-                      overall number of purchases.
+                      The release day was August 17th 2021 (~Aug 24th 2021), but
+                      since all of the NFTs were minted at this point, we've
+                      revealed them already. And we highly recommend you using
+                      OpenSea for browsing this NFTs. If you see that there is
+                      something wrong with your NFT status on OpenSea, please
+                      click the “Refresh Metadata” button on the page. The
+                      maximum number of Generativemasks issued was 10,000 and
+                      there were 500 of them for the marketing use. These were
+                      used for our airdrop campaigns and other marketing
+                      purposes. As a development incentive, a total of five NFTs
+                      was offered to the artist and the development company.
+                      There is no rarity setting for this NFT. Lastly, the NFTs
+                      were equally randomly selected from the total (10,000
+                      NFTs), regardless of the overall number of purchases.
                     </Typography>
                   </div>
                 </Grid>
