@@ -813,8 +813,22 @@ const PurchasePageTemplate = ({
                 paragraph
                 className={classes.enText}
               >
-                The community develop a tools continuously. You can check and
-                use these tools.{" "}
+                The community develop a tools continuously and you can check and
+                use these tools.
+              </Typography>
+              <Typography
+                variant="body1"
+                align="left"
+                color="textPrimary"
+                paragraph
+                className={classes.enText}
+              >
+                Generativemasks has been licensed under CC BY-NC-SA 3.0, so you
+                are free to modify and release it for non-commercial use. If you
+                would like to use it for commercial purposes, please contact the
+                team by sending DMs on{" "}
+                <Link href="https://twitter.com/generativemasks">Twitter</Link>{" "}
+                or <Link href="https://discord.gg/fH9F7p2CpW">Discord</Link>.
               </Typography>
               <Grid
                 container
