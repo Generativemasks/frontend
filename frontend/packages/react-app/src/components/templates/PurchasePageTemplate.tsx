@@ -823,11 +823,17 @@ const PurchasePageTemplate = ({
                 paragraph
                 className={classes.enText}
               >
-                Generativemasks has been licensed under CC BY-NC-SA 3.0, so you
-                are free to modify and release it for non-commercial use. If you
-                would like to use it for commercial purposes, please contact the
-                team by sending DMs on{" "}
-                <Link href="https://twitter.com/generativemasks">Twitter</Link>{" "}
+                Generativemasks has been licensed under{" "}
+                <Link href="https://creativecommons.org/licenses/by-nc-sa/3.0/">
+                  {" "}
+                  CC BY-NC-SA 3.0
+                </Link>
+                , so you are free to modify and release it for non-commercial
+                use. If you would like to use it for commercial purposes, please
+                contact the team by sending DMs on{" "}
+                <Link href="https://twitter.com/generativemasks">
+                  Twitter
+                </Link>{" "}
                 or <Link href="https://discord.gg/fH9F7p2CpW">Discord</Link>.
               </Typography>
               <Grid
