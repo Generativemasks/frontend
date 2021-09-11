@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import { WalletButton } from "../pages/TopPage";
+import { WalletButton } from "./WalletButton";
 import React, { useState } from "react";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import { useWindowDimensions } from "../../hooks/useWindowDimensions";
