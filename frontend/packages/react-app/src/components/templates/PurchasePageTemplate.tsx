@@ -16,7 +16,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { AppFooter } from "../molecules/AppFooter";
-import { WalletButton } from "../pages/TopPage";
+import { WalletButton } from "../molecules/WalletButton";
 import { ChainId } from "@usedapp/core";
 import ChainModal from "../molecules/ChainModal";
 import WaitingProcessDialog from "../molecules/WaitingProcessDialog";
