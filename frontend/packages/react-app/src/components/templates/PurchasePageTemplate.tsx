@@ -892,9 +892,11 @@ const PurchasePageTemplate = ({
               <Grid container className={classes.imgContent}>
                 <Grid item xs={12} style={{ marginBottom: 16 }}>
                   <div className={classes.sampleImage}>
-                    <img
-                      src={"/images/unrevealed.gif"}
-                      style={{ width: "100%", height: "100%" }}
+                    <iframe
+                      src="/onchain_demo.html"
+                      style={{
+                        width: "100%",
+                      }}
                     />
                   </div>
                 </Grid>
