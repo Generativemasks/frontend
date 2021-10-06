@@ -256,6 +256,11 @@ const useStyles = makeStyles((theme) => ({
   },
   sampleImage: {
     position: "relative",
+    "&:before": {
+      content: `""`,
+      paddingTop: "100%",
+      display: "block",
+    },
   },
   undefinedImage: {
     position: "absolute",
@@ -896,6 +901,13 @@ const PurchasePageTemplate = ({
                       src="/onchain_demo.html"
                       style={{
                         width: "100%",
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        height: "100%",
+                        border: "none",
                       }}
                     />
                   </div>
