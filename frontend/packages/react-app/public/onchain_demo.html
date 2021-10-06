@@ -1,0 +1,39 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/onchain_demo_style.css">
+    <script src="/js/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script>
+        const gmABI = [
+            {
+                "inputs": [],
+                "name": "ORIGINAL_SCRIPT",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ]
+
+        let provider = new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/19f69a0981a5492ea81b24e654d7b3d6", 4)
+        let address = "0x9e9bD1D38776443F3780C8dc7ed5EF83CcEFB3a8" // demo script contract on rinkeby testnet
+        const gmScriptContract = new ethers.Contract(address, gmABI, provider);
+
+        gmScriptContract.ORIGINAL_SCRIPT().then(script => {
+            let gmScript = document.createElement("script")
+            gmScript.append(script)
+            document.body.appendChild(gmScript)
+            let p5 = document.createElement("script")
+            p5.setAttribute("src", "https://cdn.jsdelivr.net/npm/p5@vv1.4.0/lib/p5.js")
+            p5.setAttribute("type", "text/javascript")
+            document.body.appendChild(p5)
+        })
+    </script>
+</head>
+<body></body>
+
+</html>
