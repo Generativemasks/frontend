@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useMemo, useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { AppHeader } from "../molecules/AppHeader";
 import {
   Avatar,
@@ -15,8 +15,6 @@ import {
 import { AppFooter } from "../molecules/AppFooter";
 import { ChainId } from "@usedapp/core";
 import ChainModal from "../molecules/ChainModal";
-import WaitingProcessDialog from "../molecules/WaitingProcessDialog";
-import ReactConfetti from "react-confetti";
 
 // @ts-ignore
 import { addresses, abis } from "@project/contracts";
@@ -320,12 +318,8 @@ export interface DetailPageTemplateProps {
   readonly setAmount: (amount: number) => void;
   readonly account: string | null | undefined;
   readonly chainId: ChainId | undefined;
-  readonly sendBuyState: any;
   readonly isPurchasing: boolean;
   readonly imageURL: string;
-  readonly remainingAmount: BigNumber | undefined;
-  readonly price: BigNumber | undefined;
-  readonly buy: (amount: number, config: object) => void;
   readonly walletBalance: BigNumber | undefined;
 }
 
@@ -361,30 +355,15 @@ const tools = [
 ];
 
 const PurchasePageTemplate = ({
-  amount,
-  setAmount,
   account,
   chainId,
-  isPurchasing,
   imageURL,
-  price,
-  buy,
-  remainingAmount,
-  sendBuyState,
-  walletBalance,
 }: DetailPageTemplateProps) => {
   const classes = useStyles();
 
   const [progress, setProgress] = useState(false);
-  const [checked, setChecked] = useState(false);
   const [tmpSeed, setTmpSeed] = useState<number | undefined>(undefined);
   const [seed, setSeed] = useState<number | undefined>(undefined);
-  const isInsufficient = useMemo(() => {
-    if (walletBalance === undefined || price === undefined) {
-      return false;
-    }
-    return walletBalance.sub(price.mul(amount)).isNegative();
-  }, [walletBalance, price, amount]);
 
   const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
 
@@ -398,13 +377,6 @@ const PurchasePageTemplate = ({
 
   return (
     <div>
-      {sendBuyState.status === "Success" && <ReactConfetti />}
-      <WaitingProcessDialog
-        transactionStatus={sendBuyState}
-        isPurchasing={isPurchasing}
-        chainId={chainId}
-        account={account}
-      />
       <ChainModal chainId={chainId} />
       <AppHeader account={account} />
       <div className={classes.background}>
