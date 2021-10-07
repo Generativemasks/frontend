@@ -865,9 +865,9 @@ const PurchasePageTemplate = ({
                 paragraph
                 className={classes.enText}
               >
-                Generativemasks have been migrated, they are now fully on-chain.
-                The script has been recorded and is now on the Ethereum network.
-                You can see a demo of retrieving and displaying the script from
+                Generativemasks has been migrated, it's now fully on-chain. The
+                script has been recorded and is now on the Ethereum network. You
+                can see a demo of retrieving and displaying the script from
                 Ethereum here:
               </Typography>
             </Container>
