@@ -893,10 +893,10 @@ const PurchasePageTemplate = ({
                 paragraph
                 className={classes.enText}
               >
-                Generativemasks have been migrated to fully on-chain. The script
-                has been recorded and persisted on the Ethereum network. You can
-                see a demo of retrieving the script from Ethereum and displaying
-                it here.
+                Generativemasks have been migrated, they are now fully on-chain.
+                The script has been recorded and is now on the Ethereum network.
+                You can see a demo of retrieving and displaying the script from
+                Ethereum here:
               </Typography>
             </Container>
             <Container className={classes.container}>
@@ -906,11 +906,13 @@ const PurchasePageTemplate = ({
                     <iframe
                       key={ignored}
                       id="onchaindemo"
-                      src={
-                        seed === undefined
-                          ? `/onchain_demo.html`
-                          : `/onchain_demo.html?seed=${seed}`
-                      }
+                      src={`/onchain_demo.html?network=${
+                        process.env.REACT_APP_NETWORK
+                      }&infuraId=${
+                        process.env.REACT_APP_INFURA_PROJECT_ID
+                      }&address=${process.env.REACT_APP_GMSCRIPT_ADDRESS}${
+                        seed === undefined ? "" : `&seed=${seed}`
+                      }`}
                       style={{
                         background: "#ffffff",
                         width: "100%",

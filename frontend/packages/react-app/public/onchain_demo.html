@@ -3,6 +3,11 @@
     <link rel="stylesheet" type="text/css" href="/css/onchain_demo_style.css">
     <script src="/js/ethers-5.2.umd.min.js" type="application/javascript"></script>
     <script>
+        const params = new URLSearchParams(window.location.search);
+        const network = params.get("network")
+        const infuraId = params.get("infuraId")
+        const address = params.get("address")
+
         const gmABI = [
             {
                 "inputs": [],
@@ -19,8 +24,9 @@
             }
         ]
 
-        let provider = new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/19f69a0981a5492ea81b24e654d7b3d6", 4)
-        let address = "0x9e9bD1D38776443F3780C8dc7ed5EF83CcEFB3a8" // demo script contract on rinkeby testnet
+        let provider = new ethers.providers.JsonRpcProvider(
+            `https://${network}.infura.io/v3/${infuraId}`, network
+        )
         const gmScriptContract = new ethers.Contract(address, gmABI, provider);
 
         gmScriptContract.ORIGINAL_SCRIPT().then(script => {
