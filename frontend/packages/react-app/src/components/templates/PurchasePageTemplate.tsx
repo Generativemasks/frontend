@@ -24,7 +24,7 @@ import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     position: "relative",
-    padding: theme.spacing(8, 0, 4),
+    padding: theme.spacing(8, 0, 2),
   },
   purchaseContent: {
     position: "relative",
@@ -729,6 +729,7 @@ const PurchasePageTemplate = ({
                 </Grid>
               </Container>
             </div>
+
             <Container
               className={classes.descriptionContainer}
               style={{ paddingBottom: 32 }}
@@ -760,6 +761,23 @@ const PurchasePageTemplate = ({
                 </Link>
                 .
               </Typography>
+            </Container>
+            <Container
+              className={classes.descriptionContainer}
+              style={{ paddingBottom: 32 }}
+            >
+              <Typography
+                component="h2"
+                variant="h4"
+                align="center"
+                color="textPrimary"
+                className={classes.titleContent}
+                style={{
+                  overflowWrap: "break-word",
+                }}
+              >
+                License
+              </Typography>
               <Typography
                 variant="body1"
                 align="left"
@@ -781,7 +799,6 @@ const PurchasePageTemplate = ({
                 or <Link href="https://discord.gg/fH9F7p2CpW">Discord</Link>.
               </Typography>
             </Container>
-
             <div className={classes.purchaseContent}>
               <Container maxWidth="sm">
                 <Typography
@@ -789,7 +806,6 @@ const PurchasePageTemplate = ({
                   variant="h4"
                   align="center"
                   color="textPrimary"
-                  gutterBottom
                   className={classes.titleContent}
                   style={{
                     overflowWrap: "break-word",
