@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
   },
   purchaseContent: {
     position: "relative",
-    padding: theme.spacing(0, 0, 2),
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
@@ -335,37 +334,6 @@ export interface DetailPageTemplateProps {
   readonly buy: (amount: number, config: object) => void;
   readonly walletBalance: BigNumber | undefined;
 }
-
-const tools = [
-  {
-    name: "Mask on the webcam(created by takawo)",
-    link: "https://openprocessing.org/sketch/1248797",
-  },
-  {
-    name: "Pattern Extractor(created by takawo)",
-    link: "https://openprocessing.org/sketch/1250271",
-  },
-  {
-    name: "3x3 Tile Generator(created by takawo)",
-    link: "https://openprocessing.org/sketch/1249649",
-  },
-  {
-    name: "Mask on Snapchat(created by Chicken McDougget)",
-    link: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=6b1f7e54751749328e608b9e6b386899&metadata=01",
-  },
-  {
-    name: "mask modder(created by junosz.eth)",
-    link: "https://junosuarez.github.io/maskmod/",
-  },
-  {
-    name: "Analytics dashboard(Dune Analytics)",
-    link: "https://dune.xyz/venture_capital/generativemasks",
-  },
-  {
-    name: "Original Script(github pages)",
-    link: "https://github.com/Generativemasks/generativemasks.github.io",
-  },
-];
 
 const PurchasePageTemplate = ({
   amount,
@@ -793,7 +761,10 @@ const PurchasePageTemplate = ({
                 </Grid>
               </Container>
             </div>
-            <Container className={classes.descriptionContainer}>
+            <Container
+              className={classes.descriptionContainer}
+              style={{ paddingBottom: 32 }}
+            >
               <Typography
                 component="h2"
                 variant="h4"
@@ -814,7 +785,12 @@ const PurchasePageTemplate = ({
                 className={classes.enText}
               >
                 The community develop a tools continuously and you can check and
-                use these tools.
+                use these tools
+                <Link href="https://generativemasks.github.io/site/tools/">
+                  {" "}
+                  here
+                </Link>
+                .
               </Typography>
               <Typography
                 variant="body1"
@@ -836,45 +812,11 @@ const PurchasePageTemplate = ({
                 </Link>{" "}
                 or <Link href="https://discord.gg/fH9F7p2CpW">Discord</Link>.
               </Typography>
-              <Grid
-                container
-                className={classes.imgContent}
-                direction="row"
-                justifyContent="center"
-                alignItems="stretch"
-                style={{ alignItems: "strech" }}
-              >
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  style={{ padding: 8, marginBottom: 8 }}
-                >
-                  <div className={classes.blockStyle}>
-                    {tools.map((tool, index) => (
-                      <Link
-                        key={"tool" + index}
-                        href={tool.link}
-                        target="_blank"
-                        rel="noopener"
-                      >
-                        <Typography
-                          variant="body1"
-                          className={classes.listText}
-                        >
-                          {tool.name}
-                        </Typography>
-                      </Link>
-                    ))}
-                  </div>
-                </Grid>
-              </Grid>
             </Container>
             <div className={classes.purchaseContent}>
               <Container maxWidth="sm">
                 <Typography
-                  component="h1"
+                  component="h2"
                   variant="h4"
                   align="center"
                   color="textPrimary"
