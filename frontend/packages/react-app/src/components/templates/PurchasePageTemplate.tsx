@@ -1,44 +1,30 @@
 import * as React from "react";
-import { useEffect, useMemo, useState } from "react";
-import { formatEther } from "ethers/lib/utils";
+import { useEffect, useReducer, useState } from "react";
 import { AppHeader } from "../molecules/AppHeader";
 import {
   Avatar,
   Button,
-  Checkbox,
   Chip,
   Container,
   Grid,
-  IconButton,
   Link,
   makeStyles,
   TextField,
   Typography,
 } from "@material-ui/core";
 import { AppFooter } from "../molecules/AppFooter";
-import { WalletButton } from "../molecules/WalletButton";
 import { ChainId } from "@usedapp/core";
 import ChainModal from "../molecules/ChainModal";
-import WaitingProcessDialog from "../molecules/WaitingProcessDialog";
-import ReactConfetti from "react-confetti";
-import QRCode from "qrcode.react";
 
 // @ts-ignore
 import { addresses, abis } from "@project/contracts";
 import { BigNumber } from "ethers";
-import {
-  AddBoxOutlined,
-  IndeterminateCheckBoxOutlined,
-  Smartphone,
-} from "@material-ui/icons";
 import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     position: "relative",
-    padding: theme.spacing(8, 0, 4),
+    padding: theme.spacing(8, 0, 2),
   },
   purchaseContent: {
     position: "relative",
@@ -255,6 +241,11 @@ const useStyles = makeStyles((theme) => ({
   },
   sampleImage: {
     position: "relative",
+    "&:before": {
+      content: `""`,
+      paddingTop: "100%",
+      display: "block",
+    },
   },
   undefinedImage: {
     position: "absolute",
@@ -326,39 +317,23 @@ export interface DetailPageTemplateProps {
   readonly setAmount: (amount: number) => void;
   readonly account: string | null | undefined;
   readonly chainId: ChainId | undefined;
-  readonly sendBuyState: any;
   readonly isPurchasing: boolean;
   readonly imageURL: string;
-  readonly remainingAmount: BigNumber | undefined;
-  readonly price: BigNumber | undefined;
-  readonly buy: (amount: number, config: object) => void;
   readonly walletBalance: BigNumber | undefined;
 }
 
 const PurchasePageTemplate = ({
-  amount,
-  setAmount,
   account,
   chainId,
-  isPurchasing,
   imageURL,
-  price,
-  buy,
-  remainingAmount,
-  sendBuyState,
-  walletBalance,
 }: DetailPageTemplateProps) => {
   const classes = useStyles();
 
   const [progress, setProgress] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [tmpSeed, setTmpSeed] = useState<number | undefined>(undefined);
+  const [seed, setSeed] = useState<number | undefined>(undefined);
 
-  const isInsufficient = useMemo(() => {
-    if (walletBalance === undefined || price === undefined) {
-      return false;
-    }
-    return walletBalance.sub(price.mul(amount)).isNegative();
-  }, [walletBalance, price, amount]);
+  const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
 
   useEffect(() => {
     if (imageURL === "") {
@@ -370,13 +345,6 @@ const PurchasePageTemplate = ({
 
   return (
     <div>
-      {sendBuyState.status === "Success" && <ReactConfetti />}
-      <WaitingProcessDialog
-        transactionStatus={sendBuyState}
-        isPurchasing={isPurchasing}
-        chainId={chainId}
-        account={account}
-      />
       <ChainModal chainId={chainId} />
       <AppHeader account={account} />
       <div className={classes.background}>
@@ -761,6 +729,7 @@ const PurchasePageTemplate = ({
                 </Grid>
               </Container>
             </div>
+
             <Container
               className={classes.descriptionContainer}
               style={{ paddingBottom: 32 }}
@@ -792,6 +761,23 @@ const PurchasePageTemplate = ({
                 </Link>
                 .
               </Typography>
+            </Container>
+            <Container
+              className={classes.descriptionContainer}
+              style={{ paddingBottom: 32 }}
+            >
+              <Typography
+                component="h2"
+                variant="h4"
+                align="center"
+                color="textPrimary"
+                className={classes.titleContent}
+                style={{
+                  overflowWrap: "break-word",
+                }}
+              >
+                License
+              </Typography>
               <Typography
                 variant="body1"
                 align="left"
@@ -820,127 +806,123 @@ const PurchasePageTemplate = ({
                   variant="h4"
                   align="center"
                   color="textPrimary"
-                  gutterBottom
                   className={classes.titleContent}
                   style={{
                     overflowWrap: "break-word",
                   }}
                 >
-                  Purchase here
+                  About fully on-chain migration
                 </Typography>
               </Container>
             </div>
+            <Container className={classes.descriptionContainer}>
+              <Typography
+                variant="body1"
+                align="left"
+                color="textPrimary"
+                paragraph
+                className={classes.enText}
+              >
+                Generativemasks has been migrated, it's now fully on-chain. The
+                script has been recorded and is now on the Ethereum network. You
+                can see a demo of retrieving and displaying the script from
+                Ethereum here:
+              </Typography>
+            </Container>
             <Container className={classes.container}>
               <Grid container className={classes.imgContent}>
                 <Grid item xs={12} style={{ marginBottom: 16 }}>
                   <div className={classes.sampleImage}>
-                    <img
-                      src={"/images/unrevealed.gif"}
-                      style={{ width: "100%", height: "100%" }}
+                    <iframe
+                      key={ignored}
+                      id="onchaindemo"
+                      src={`/onchain_demo.html?network=${
+                        process.env.REACT_APP_NETWORK
+                      }&infuraId=${
+                        process.env.REACT_APP_INFURA_PROJECT_ID
+                      }&address=${process.env.REACT_APP_GMSCRIPT_ADDRESS}${
+                        seed === undefined ? "" : `&seed=${seed}`
+                      }`}
+                      style={{
+                        background: "#ffffff",
+                        width: "100%",
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        height: "100%",
+                        border: "solid",
+                      }}
                     />
                   </div>
                 </Grid>
               </Grid>
               <Grid container className={classes.infoContent}>
                 <Grid item xs={12}>
-                  <div
-                    className={classes.qrCode}
-                    style={{ marginTop: 16, marginBottom: 16 }}
-                  >
+                  <div style={{ marginTop: 16, marginBottom: 16 }}>
                     <div
                       className={classes.flexBox}
                       style={{ marginBottom: 16 }}
                     >
-                      <Typography>All NFTs are minted!</Typography>
+                      <Typography>
+                        You can restore masks from on-chain with specified mask
+                        number.
+                      </Typography>
                     </div>
                   </div>
-                  <div style={{ textAlign: "center" }}>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      style={{ fontWeight: "bold" }}
-                      size="large"
-                      disableElevation
-                      onClick={() =>
-                        window.open(
-                          "https://opensea.io/collection/generativemasks",
-                          "_blank"
-                        )
-                      }
-                    >
-                      {"View on OpenSea"}
-                    </Button>
+                  <div style={{ marginTop: 16, marginBottom: 16 }}>
+                    <TextField
+                      label="0-9999"
+                      helperText="Please input mask number"
+                      variant="outlined"
+                      value={tmpSeed ?? ""}
+                      onBlur={() => {
+                        setSeed(tmpSeed);
+                      }}
+                      onChange={(e) => {
+                        const parsed = parseInt(e.target.value);
+                        if (isNaN(parsed)) {
+                          setTmpSeed(undefined);
+                          return;
+                        }
+                        if (parsed < 0) {
+                          setTmpSeed(0);
+                          return;
+                        }
+                        if (10000 <= parsed) {
+                          setTmpSeed(9999);
+                          return;
+                        }
+                        setTmpSeed(parsed);
+                      }}
+                    />
                   </div>
-                  <div style={{ marginBottom: 16 }}>
-                    <IconButton
-                      onClick={() =>
-                        window.open(
-                          "https://twitter.com/generativemasks",
-                          "_blank"
-                        )
-                      }
-                    >
-                      <FontAwesomeIcon
-                        style={{ padding: 8 }}
-                        icon={faTwitter}
-                      />
-                    </IconButton>
-                    <IconButton
-                      onClick={() =>
-                        window.open("https://discord.gg/fH9F7p2CpW", "_blank")
-                      }
-                    >
-                      <FontAwesomeIcon
-                        style={{ padding: 8 }}
-                        icon={faDiscord}
-                      />
-                    </IconButton>
-                  </div>
-                </Grid>
-              </Grid>
-            </Container>
-            <Container className={classes.descriptionContainer}>
-              <Grid
-                container
-                className={classes.imgContent}
-                direction="row"
-                justifyContent="center"
-                alignItems="stretch"
-                style={{ alignItems: "strech" }}
-              >
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  style={{ padding: 8, marginBottom: 8 }}
-                >
-                  <div>
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      style={{ fontSize: 14 }}
-                    >
-                      The release day was August 17th 2021 (~Aug 24th 2021), but
-                      since all of the NFTs were minted at this point, we've
-                      revealed them already. And we highly recommend you using
-                      OpenSea for browsing this NFTs. If you see that there is
-                      something wrong with your NFT status on OpenSea, please
-                      click the “Refresh Metadata” button on the page. The
-                      maximum number of Generativemasks issued was 10,000 and
-                      there were 500 of them for the marketing use. These were
-                      used for our airdrop campaigns and other marketing
-                      purposes. As a development incentive, a total of five NFTs
-                      was offered to the artist and the development company.
-                      There is no rarity setting for this NFT. Lastly, the NFTs
-                      were equally randomly selected from the total (10,000
-                      NFTs), regardless of the overall number of purchases.
-                    </Typography>
+                  <div style={{ marginTop: 16, marginBottom: 16 }}>
+                    <div style={{ textAlign: "center" }}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        style={{ fontWeight: "bold" }}
+                        size="large"
+                        disableElevation
+                        onClick={() => {
+                          setSeed(tmpSeed);
+                          forceUpdate();
+                        }}
+                      >
+                        {"Reload mask"}
+                      </Button>
+                    </div>
                   </div>
                 </Grid>
               </Grid>
             </Container>
-            <Container className={classes.descriptionContainer}>
+
+            <Container
+              className={classes.descriptionContainer}
+              style={{ paddingTop: 20, marginBottom: 42 }}
+            >
               <Typography
                 component="h2"
                 variant="h4"

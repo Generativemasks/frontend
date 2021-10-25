@@ -1,7 +1,7 @@
 import {
   Breadcrumbs,
+  Icon,
   IconButton,
-  Link,
   makeStyles,
   Typography,
 } from "@material-ui/core";
@@ -66,6 +66,18 @@ export const AppFooter = () => {
         </div>
       )}
       <div style={{ marginBottom: 16 }}>
+        <IconButton
+          onClick={() =>
+            window.open(
+              "https://opensea.io/collection/generativemasks",
+              "_blank"
+            )
+          }
+        >
+          <Icon style={{ padding: 8 }}>
+            <img src="/images/opensea.svg" style={{ width: "100%" }} />
+          </Icon>
+        </IconButton>
         <IconButton
           onClick={() =>
             window.open("https://twitter.com/generativemasks", "_blank")

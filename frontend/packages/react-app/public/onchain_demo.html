@@ -1,0 +1,45 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/onchain_demo_style.css">
+    <script src="/js/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const network = params.get("network")
+        const infuraId = params.get("infuraId")
+        const address = params.get("address")
+
+        const gmABI = [
+            {
+                "inputs": [],
+                "name": "ORIGINAL_SCRIPT",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ]
+
+        let provider = new ethers.providers.JsonRpcProvider(
+            `https://${network}.infura.io/v3/${infuraId}`, network
+        )
+        const gmScriptContract = new ethers.Contract(address, gmABI, provider);
+
+        gmScriptContract.ORIGINAL_SCRIPT().then(script => {
+            let gmScript = document.createElement("script")
+            gmScript.append(script)
+            document.body.appendChild(gmScript)
+            let p5 = document.createElement("script")
+            p5.setAttribute("src", "https://cdn.jsdelivr.net/npm/p5@vv1.4.0/lib/p5.js")
+            p5.setAttribute("type", "text/javascript")
+            document.body.appendChild(p5)
+        })
+    </script>
+</head>
+<body></body>
+
+</html>

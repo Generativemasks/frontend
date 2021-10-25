@@ -32,8 +32,12 @@ export const WalletButton = ({ account }: { account?: string | null }) => {
 
   const rpc: any =
     process.env.REACT_APP_CHAIN_ID === "4"
-      ? { 4: "https://rinkeby.infura.io/v3/19f69a0981a5492ea81b24e654d7b3d6" }
-      : { 1: "https://mainnet.infura.io/v3/19f69a0981a5492ea81b24e654d7b3d6" };
+      ? {
+          4: `https://rinkeby.infura.io/v3/${process.env.REACT_APP_INFURA_PROJECT_ID}`,
+        }
+      : {
+          1: `https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_PROJECT_ID}`,
+        };
   const walletConnectConnector = new WalletConnectConnector({
     rpc,
     supportedChainIds: [
