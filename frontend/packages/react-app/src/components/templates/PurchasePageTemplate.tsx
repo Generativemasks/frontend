@@ -241,6 +241,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sampleImage: {
     position: "relative",
+    backgroundColor: "#fff",
     "&:before": {
       content: `""`,
       paddingTop: "100%",
@@ -845,6 +846,10 @@ const PurchasePageTemplate = ({
                       }`}
                       style={{
                         background: "#ffffff",
+                        backgroundImage: "url(/images/loading.gif)",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        backgroundSize: "10%",
                         width: "100%",
                         position: "absolute",
                         top: 0,
@@ -852,7 +857,7 @@ const PurchasePageTemplate = ({
                         right: 0,
                         bottom: 0,
                         height: "100%",
-                        border: "solid",
+                        border: "none",
                       }}
                     />
                   </div>
