@@ -797,7 +797,7 @@ const PurchasePageTemplate = ({
                 <Link href="https://twitter.com/generativemasks">
                   Twitter
                 </Link>{" "}
-                or <Link href="https://discord.gg/fH9F7p2CpW">Discord</Link>.
+                or <Link href="https://discord.com/invite/gR3mgVdjfd">Discord</Link>.
               </Typography>
             </Container>
             <div className={classes.purchaseContent}>
