@@ -86,7 +86,7 @@ export const AppFooter = () => {
           <FontAwesomeIcon style={{ padding: 8 }} icon={faTwitter} />
         </IconButton>
         <IconButton
-          onClick={() => window.open("https://discord.gg/fH9F7p2CpW", "_blank")}
+          onClick={() => window.open("https://discord.com/invite/gR3mgVdjfd", "_blank")}
         >
           <FontAwesomeIcon style={{ padding: 8 }} icon={faDiscord} />
         </IconButton>
