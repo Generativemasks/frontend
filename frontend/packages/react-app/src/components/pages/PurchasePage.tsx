@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 
 // @ts-ignore
 import { abis } from "@project/contracts";
@@ -14,6 +14,10 @@ const PurchasePage = (props: DetailPageProps) => {
   const [amount, setAmount] = useState(1);
   const [imageURL, setImageURL] = useState("");
   const [isPurchasing, setIsPurchasing] = useState(false);
+
+  useEffect(() => {
+    window.location.href = "https://generativemasks.io"
+  }, [])
 
   return (
     <PurchasePageTemplate
